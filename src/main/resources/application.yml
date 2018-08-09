@@ -1,5 +1,4 @@
-server:
-    port: 8080
+server.port: 8080
 spring:
     devtools:
         enabled: true
@@ -45,8 +44,8 @@ spring:
 
     mail:
         host: smtp.exmail.qq.com
-        username: fjl@ibz.bz
-        password: GiR6aSbexDNyq3gL
+        username: uzzz@ibz.bz
+        password: HKi5e8JE6CCd7KsW
         port: 25
         properties:
             mail.smtp.auth: true
