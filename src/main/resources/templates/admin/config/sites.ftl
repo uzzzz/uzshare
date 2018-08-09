@@ -11,7 +11,7 @@
         <label class="col-lg-2 control-label">域名</label>
         <div class="col-lg-8">
             <input type="text" name="site_domain" class="form-control" value="${configs['site_domain'].value}">
-            <p class="help-block">示例: http://mtons.com</p>
+            <p class="help-block">示例: http://uzzz.org</p>
         </div>
     </div>
     <div class="form-group">
@@ -36,7 +36,7 @@
         <label class="col-lg-2 control-label">copyright</label>
         <div class="col-lg-5">
             <input type="text" name="site_copyright" class="form-control" value="${configs['site_copyright'].value}">
-            <p class="help-block">示例: Copyright © Mtons</p>
+            <p class="help-block">示例: Copyright © Uzzz</p>
         </div>
     </div>
     <div class="form-group">

@@ -61,12 +61,12 @@ CREATE TABLE `mto_config` (
 -- Records of mto_config
 -- ----------------------------
 BEGIN;
-INSERT INTO `mto_config` VALUES (1, 'site_name', '0', 'Mtons');
-INSERT INTO `mto_config` VALUES (3, 'site_domain', '0', 'http://mtons.com');
-INSERT INTO `mto_config` VALUES (4, 'site_keywords', '0', 'mtons,博客,社区');
-INSERT INTO `mto_config` VALUES (5, 'site_description', '0', 'Mtons, 做一个有内涵的技术社区');
+INSERT INTO `mto_config` VALUES (1, 'site_name', '0', 'Uzzz');
+INSERT INTO `mto_config` VALUES (3, 'site_domain', '0', 'http://uzzz.org');
+INSERT INTO `mto_config` VALUES (4, 'site_keywords', '0', '区块链,博客,社区');
+INSERT INTO `mto_config` VALUES (5, 'site_description', '0', 'Uzzz, 做一个有内涵的技术社区');
 INSERT INTO `mto_config` VALUES (6, 'site_metas', '0', '');
-INSERT INTO `mto_config` VALUES (7, 'site_copyright', '0', 'Copyright © Mtons');
+INSERT INTO `mto_config` VALUES (7, 'site_copyright', '0', 'Copyright © Uzzz');
 INSERT INTO `mto_config` VALUES (8, 'site_icp', '0', '');
 INSERT INTO `mto_config` VALUES (11, 'site_oauth_qq', '0', '');
 INSERT INTO `mto_config` VALUES (12, 'qq_app_id', '0', '');
@@ -109,7 +109,7 @@ CREATE TABLE `mto_users` (
 --  Records of `mto_users`
 -- ----------------------------
 BEGIN;
-INSERT INTO `mto_users` VALUES ('1', '2017-08-06 17:52:41', 'example@mtons.com', '2017-10-17 13:24:13', null, '3TGCQF25BLHU9R7IQUITN0FCC5', '0', 'admin', '小豆丁', '/dist/images/ava/default.png', '2017-07-26 11:08:36', '0', '1', '0', '0', '6', '-2', '0', '-2', '19', '');
+INSERT INTO `mto_users` VALUES ('1', '2017-08-06 17:52:41', 'service@uzzz.org', '2017-10-17 13:24:13', null, '22IVQ4M4SLA8QI8MP4ISSPQUKJ', '0', 'admin', '执着', '/dist/images/ava/default.png', '2017-07-26 11:08:36', '0', '1', '0', '0', '6', '-2', '0', '-2', '19', '');
 COMMIT;
 
 -- ----------------------------

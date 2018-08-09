@@ -8,7 +8,7 @@
         <#list results.content as row>
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="block">
-                    <a class="block-thumbnail" href="${base}/view/${row.id}">
+                    <a class="block-thumbnail" href="${base}/view/${row.id}" target="_blank">
                         <div class="thumbnail-overlay"></div>
                         <span class="button-zoom">
                             <img src="${base}/dist/images/image-overlay-view-icon.png">
@@ -19,12 +19,11 @@
                         <#else>
                             <img src="${base}/dist/images/spinner-overlay.png">
                         </#if>
+                        <div class="block-contents">
+	                        <p class="tit">${row.title?html}
+	                        </p>
+	                    </div>
                     </a>
-
-                    <div class="block-contents">
-                        <p class="tit">${row.title?html}
-                        </p>
-                    </div>
                 </div>
             </div>
         </#list>
