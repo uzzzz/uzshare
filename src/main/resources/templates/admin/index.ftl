@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1 class="page-header">
-        ${profile.username} <small>欢迎使用Mblog</small>
+        ${profile.username} <small>欢迎使用Uzzz</small>
         </h1>
     </div>
 </div>

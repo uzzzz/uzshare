@@ -58,6 +58,8 @@ public class PostJsonController extends BaseController {
 		post.setTitle(title);
 		post.setContent(content);
 		post.setAuthorId(2);
+		post.setChannelId(2);
+		post.setThumbnail("");
 		// 修改时, 验证归属
 		if (post.getId() > 0) {
 			PostVO exist = postService.get(post.getId());
