@@ -60,5 +60,5 @@ spring:
 site:
     theme: card
     store:
-      root: d:/data/uzblog/
+      root: /data/uzblog/
       size: 2
