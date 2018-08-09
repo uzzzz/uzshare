@@ -1,4 +1,10 @@
-server.port: 8080
+server:
+  port: 443
+  ssl:
+    key-store: classpath:/ssl/blogssl.pfx
+    key-store-password: 1535651784881
+    key-store-type: PKCS12
+    
 spring:
     devtools:
         enabled: true
@@ -54,5 +60,5 @@ spring:
 site:
     theme: card
     store:
-      root: d:/data/mblog/
+      root: d:/data/uzblog/
       size: 2
