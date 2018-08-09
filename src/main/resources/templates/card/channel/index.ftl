@@ -29,12 +29,11 @@
                             <#else>
                                 <img src="${base}/dist/images/spinner-overlay.png">
                             </#if>
+                            <div class="block-contents">
+	                            <p class="tit">${row.title?html}
+	                            </p>
+	                        </div>
                         </a>
-
-                        <div class="block-contents">
-                            <p class="tit">${row.title?html}
-                            </p>
-                        </div>
                     </div>
                 </div>
             </#list>
