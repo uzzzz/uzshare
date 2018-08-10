@@ -24,11 +24,6 @@
 				<span>${site_copyright}. ${site_icp}</span>
 			</div>
         </div>
-        <div class="footer-col footer-col-sns hidden-xs hidden-sm">
-            <div class="footer-sns">
-                <span>Powered By <a href="https://uzzz.org/?copyright" target="_blank">Uzzz</a></span>
-            </div>
-        </div>
     </div>
 </footer>
 
