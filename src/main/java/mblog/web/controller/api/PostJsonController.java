@@ -3,29 +3,31 @@
  */
 package mblog.web.controller.api;
 
-import mblog.base.lang.Consts;
-import mblog.modules.blog.data.PostVO;
-import mblog.modules.blog.service.PostService;
-import mblog.modules.user.data.AccountProfile;
-import mblog.web.controller.BaseController;
-import mblog.web.controller.site.Views;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.ServletRequestUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
+import mblog.base.lang.Consts;
+import mblog.modules.blog.data.PostVO;
+import mblog.modules.blog.service.PostService;
+import mblog.web.controller.BaseController;
 
 /**
  * @author langhsu
@@ -34,6 +36,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/api")
 public class PostJsonController extends BaseController {
+
+	@Value("${site.store.root}")
+	private String sitestoreroot;
+
 	@Autowired
 	private PostService postService;
 
@@ -68,6 +74,21 @@ public class PostJsonController extends BaseController {
 		} else {
 			postService.post(post);
 		}
+		return "OK";
+	}
+
+	@GetMapping("/rewritesitemap")
+	@ResponseBody
+	public String rewritesitemap() throws IOException {
+		String sitemappath = sitestoreroot + "sitemap.txt";
+		List<Long> ids = postService.findAllIds();
+		BufferedWriter writer = new BufferedWriter(
+				new OutputStreamWriter(new FileOutputStream(sitemappath, false), "UTF-8"));
+		writer.write("https://blog.uzzz.org/");
+		for (Long id : ids) {
+			writer.write("\nhttps://blog.uzzz.org/view/" + id);
+		}
+		writer.close();
 		return "OK";
 	}
 }

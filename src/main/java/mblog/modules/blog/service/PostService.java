@@ -20,6 +20,7 @@ import java.util.Set;
 
 /**
  * 文章管理
+ * 
  * @author langhsu
  *
  */
@@ -28,39 +29,45 @@ public interface PostService {
 	 * 分页查询所有文章
 	 * 
 	 * @param pageable
-	 * @param channelId 分组Id
-	 * @param ord   排序
+	 * @param channelId
+	 *            分组Id
+	 * @param ord
+	 *            排序
 	 */
 	Page<PostVO> paging(Pageable pageable, int channelId, Set<Integer> excludeChannelIds, String ord);
 
 	Page<PostVO> paging4Admin(Pageable pageable, long id, String title, int channelId);
-	
+
 	/**
 	 * 查询个人发布文章
+	 * 
 	 * @param pageable
 	 * @param userId
 	 */
 	Page<PostVO> pagingByAuthorId(Pageable pageable, long userId);
 
 	List<PostVO> findAllFeatured();
-	
+
 	/**
 	 * 根据关键字搜索
+	 * 
 	 * @param pageable
 	 * @param q
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	Page<PostVO> search(Pageable pageable, String q) throws Exception;
-	
+
 	/**
 	 * 搜索 Tag
+	 * 
 	 * @param pageable
 	 * @param tag
 	 */
 	Page<PostVO> searchByTag(Pageable pageable, String tag);
-	
+
 	/**
 	 * 查询最近更新 - 按发布时间排序
+	 * 
 	 * @param maxResults
 	 * @param ignoreUserId
 	 * @return
@@ -69,14 +76,16 @@ public interface PostService {
 
 	/**
 	 * 查询热门文章 - 按浏览次数排序
+	 * 
 	 * @param maxResults
 	 * @param ignoreUserId
 	 * @return
 	 */
 	List<PostVO> findHots(int maxResults, long ignoreUserId);
-	
+
 	/**
 	 * 根据Ids查询
+	 * 
 	 * @param ids
 	 * @return <id, 文章对象>
 	 */
@@ -84,12 +93,14 @@ public interface PostService {
 
 	/**
 	 * 发布文章
+	 * 
 	 * @param post
 	 */
 	long post(PostVO post);
-	
+
 	/**
 	 * 文章详情
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -97,32 +108,39 @@ public interface PostService {
 
 	/**
 	 * 更新文章方法
+	 * 
 	 * @param p
 	 */
 	void update(PostVO p);
 
 	/**
 	 * 推荐/精华
+	 * 
 	 * @param id
-	 * @param featured 0: 取消, 1: 加精
+	 * @param featured
+	 *            0: 取消, 1: 加精
 	 */
 	void updateFeatured(long id, int featured);
 
 	/**
 	 * 置顶
+	 * 
 	 * @param id
-	 * @param weight 0: 取消, 1: 置顶
+	 * @param weight
+	 *            0: 取消, 1: 置顶
 	 */
 	void updateWeight(long id, int weight);
-	
+
 	/**
 	 * 删除
+	 * 
 	 * @param id
 	 */
 	void delete(long id);
-	
+
 	/**
 	 * 带作者验证的删除 - 验证是否属于自己的文章
+	 * 
 	 * @param id
 	 * @param authorId
 	 */
@@ -134,21 +152,24 @@ public interface PostService {
 	 * @param ids
 	 */
 	void delete(Collection<Long> ids);
-	
+
 	/**
 	 * 自增浏览数
+	 * 
 	 * @param id
 	 */
 	void identityViews(long id);
-	
+
 	/**
 	 * 自增评论数
+	 * 
 	 * @param id
 	 */
 	void identityComments(long id);
 
 	/**
 	 * 喜欢文章
+	 * 
 	 * @param userId
 	 * @param postId
 	 */
@@ -156,12 +177,13 @@ public interface PostService {
 
 	/**
 	 * 取消喜欢文章
+	 * 
 	 * @param userId
 	 * @param postId
 	 */
 	void unfavor(long userId, long postId);
 
-
 	void resetIndexs();
 
+	List<Long> findAllIds();
 }

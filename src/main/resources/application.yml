@@ -8,6 +8,10 @@ server:
 spring:
     devtools:
         enabled: true
+    mvc: 
+      static-path-pattern: /**
+    resources:
+      static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources,file:${site.store.root}
     http:
         encoding:
           charset: UTF-8

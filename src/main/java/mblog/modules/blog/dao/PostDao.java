@@ -9,8 +9,9 @@
 */
 package mblog.modules.blog.dao;
 
-import mblog.modules.blog.dao.custom.PostDaoCustom;
-import mblog.modules.blog.entity.Post;
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,8 +21,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
-import java.util.List;
+import mblog.modules.blog.dao.custom.PostDaoCustom;
+import mblog.modules.blog.entity.Post;
 
 /**
  * @author langhsu
@@ -30,6 +31,7 @@ import java.util.List;
 public interface PostDao extends JpaRepository<Post, Long>, JpaSpecificationExecutor<Post>, PostDaoCustom {
 	/**
 	 * 查询指定用户
+	 * 
 	 * @param pageable
 	 * @param authorId
 	 * @return
@@ -63,5 +65,7 @@ public interface PostDao extends JpaRepository<Post, Long>, JpaSpecificationExec
 	@Transactional
 	@Query("update Post set comments = comments + :increment where id = :id")
 	void updateComments(@Param("id") long id, @Param("increment") int increment);
-	
+
+	@Query("select id from Post")
+	List<Long> findAllIds();
 }
