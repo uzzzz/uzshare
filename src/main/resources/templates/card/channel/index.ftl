@@ -42,6 +42,7 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="infos text-center">
                         <div class="media-heading">该目录下还没有内容!</div>
+                        <h5><a href="https://uzzz.org/" target="_blank">点击这里去看看更多资讯吧</a></h5>
                     </div>
                 </div>
             </#if>
