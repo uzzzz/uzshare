@@ -55,7 +55,7 @@ public class PostJsonController extends BaseController {
 
 	@PostMapping("/post")
 	@ResponseBody
-	public String post(String title, String content) throws IOException {
+	public long post(String title, String content) throws IOException {
 
 		Assert.state(StringUtils.isNotBlank(title), "标题不能为空");
 		Assert.state(StringUtils.isNotBlank(content), "内容不能为空");
@@ -66,15 +66,8 @@ public class PostJsonController extends BaseController {
 		post.setAuthorId(2);
 		post.setChannelId(2);
 		post.setThumbnail("");
-		// 修改时, 验证归属
-		if (post.getId() > 0) {
-			PostVO exist = postService.get(post.getId());
-			Assert.notNull(exist, "文章不存在");
-			postService.update(post);
-		} else {
-			postService.post(post);
-		}
-		return "OK";
+		long id = postService.post(post);
+		return id;
 	}
 
 	@GetMapping("/rewritesitemap")
