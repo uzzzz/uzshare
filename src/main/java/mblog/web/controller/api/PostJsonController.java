@@ -1,6 +1,3 @@
-/**
- * 
- */
 package mblog.web.controller.api;
 
 import java.io.BufferedWriter;
@@ -29,10 +26,6 @@ import mblog.modules.blog.data.PostVO;
 import mblog.modules.blog.service.PostService;
 import mblog.web.controller.BaseController;
 
-/**
- * @author langhsu
- *
- */
 @Controller
 @RequestMapping("/api")
 public class PostJsonController extends BaseController {
@@ -84,4 +77,5 @@ public class PostJsonController extends BaseController {
 		writer.close();
 		return "OK";
 	}
+
 }
