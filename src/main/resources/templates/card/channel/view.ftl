@@ -1,8 +1,26 @@
-<#include "/default/utils/ui.ftl"/>
+<#include "/card/utils/ui.ftl"/>
 
 <#assign title = view.title + ' - ' + site_name />
 <#assign keywords = view.keywords?default(site_keywords) />
-<#assign description = view.description?default(site_description) />
+<#assign description = view.summary?default(site_description) />
+
+<#assign site_metas>
+	<script type="application/ld+json">
+		{
+			"@context":"http://schema.org",
+		    "@type":"BlogPosting",
+		    "description":"${description}",
+		    "url":"https://blog.uzzz.org${base}/view/${view.id}",
+		    "headline":"${title}",
+		    "dateModified":"${view.created}",
+		    "datePublished":"${view.created}",
+		    "mainEntityOfPage":{
+		        "@type":"WebPage",
+		        "@id":"https://blog.uzzz.org${base}/view/${view.id}"
+		    }
+		}
+	</script>
+</#assign>
 
 <@layout title>
 <div class="row main">
@@ -117,7 +135,7 @@
                 </div>
             </li>
         </ul>
-        <#include "/default/inc/right.ftl"/>
+        <#include "/card/inc/right.ftl"/>
     </div>
 </div>
 

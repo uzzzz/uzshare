@@ -8,17 +8,16 @@
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
     <![endif]-->
-    <meta name="baidu-site-verification" content="2nXjznVkpe" />
 
     <title>${title?default(site_name)}</title>
-    <meta name="keywords" content="mtons, ${keywords?default(site_keywords)}">
+    <meta name="keywords" content="${keywords?default(site_keywords)}">
     <meta name="description" content="${description?default(site_description)}">
 
-    <#include "/default/inc/include.ftl"/>
+    <#include "/card/inc/include.ftl"/>
 </head>
 <body>
 <!-- header -->
-    <#include "/default/inc/header.ftl"/>
+    <#include "/card/inc/header.ftl"/>
 <!-- /header -->
 
 <!-- content -->
@@ -31,7 +30,7 @@
 <!-- /content -->
 
 <!-- footer -->
-    <#include "/default/inc/footer.ftl"/>
+    <#include "/card/inc/footer.ftl"/>
 
 </body>
 </html>

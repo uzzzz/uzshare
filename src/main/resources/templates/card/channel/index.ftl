@@ -1,4 +1,17 @@
-<#include "/default/utils/ui.ftl"/>
+<#include "/card/utils/ui.ftl"/>
+
+<#assign site_metas>
+	<script type="application/ld+json">
+		{
+			"@context":"http://schema.org",
+			"@type":"WebPage",
+			"name":"区块链大本营",
+			"url":"https://blog.uzzz.org${base}/channel/${channel.id}",
+			"headline":"${channel.name} - 区块链大本营"
+		}
+	</script>
+</#assign>
+
 <@layout channel.name>
 
     <ol class="breadcrumb ">

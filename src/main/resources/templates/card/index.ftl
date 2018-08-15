@@ -1,5 +1,17 @@
-<#include "/default/utils/ui.ftl"/>
+<#include "/card/utils/ui.ftl"/>
 <#assign topId = 1 />
+
+<#assign site_metas>
+	<script type="application/ld+json">
+		{
+			"@context":"http://schema.org",
+			"@type":"WebSite",
+			"name":"区块链大本营",
+			"url":"https://blog.uzzz.org/",
+			"headline":"资讯、技术、生活、思想 - 区块链大本营"
+		}
+	</script>
+</#assign>
 
 <@layout>
     <ol class="breadcrumb ">

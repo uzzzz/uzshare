@@ -1,4 +1,4 @@
-<meta property="mtons:mblog" content="2.2.1">
+<meta property="uzzz:uzblog" content="0.0.1">
 ${site_metas}
 
 <link rel="stylesheet" media='all' href="${base}/dist/vendors/bootstrap/css/bootstrap.min.css">
