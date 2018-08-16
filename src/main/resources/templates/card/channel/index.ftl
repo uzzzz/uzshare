@@ -1,6 +1,7 @@
 <#include "/card/utils/ui.ftl"/>
 
 <#assign site_metas>
+	<link rel="canonical" href="https://blog.uzzz.org${base}/channel/${channel.id}">
 	<script type="application/ld+json">
 		{
 			"@context":"http://schema.org",

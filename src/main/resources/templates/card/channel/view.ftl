@@ -5,6 +5,7 @@
 <#assign description = view.summary?default(site_description) />
 
 <#assign site_metas>
+	<link rel="canonical" href="https://blog.uzzz.org${base}/view/${view.id}">
 	<script type="application/ld+json">
 		{
 			"@context":"http://schema.org",

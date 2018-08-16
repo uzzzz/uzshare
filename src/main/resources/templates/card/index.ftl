@@ -2,6 +2,7 @@
 <#assign topId = 1 />
 
 <#assign site_metas>
+	<link rel="canonical" href="https://blog.uzzz.org">
 	<script type="application/ld+json">
 		{
 			"@context":"http://schema.org",
