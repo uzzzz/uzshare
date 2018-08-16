@@ -22,19 +22,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import mblog.base.lang.Consts;
+import mblog.base.utils.AsyncTask;
 import mblog.modules.blog.data.PostVO;
 import mblog.modules.blog.service.PostService;
 import mblog.web.controller.BaseController;
 
 @Controller
 @RequestMapping("/api")
-public class PostJsonController extends BaseController {
+public class PostController extends BaseController {
 
 	@Value("${site.store.root}")
 	private String sitestoreroot;
 
 	@Autowired
 	private PostService postService;
+
+	@Autowired
+	private AsyncTask task;
 
 	@RequestMapping("/posts")
 	@ResponseBody
@@ -60,6 +64,9 @@ public class PostJsonController extends BaseController {
 		post.setChannelId(2);
 		post.setThumbnail("");
 		long id = postService.post(post);
+
+		task.postBaiduForBlog(id);
+
 		return id;
 	}
 
