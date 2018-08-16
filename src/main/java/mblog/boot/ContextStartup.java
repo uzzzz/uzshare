@@ -41,7 +41,7 @@ public class ContextStartup implements ApplicationRunner, Ordered, ServletContex
 
                 resetSiteConfig(true);
                 resetChannels();
-
+                
                 Printer.info("OK, completed");
             }
         }, 1 * Consts.TIME_MIN);

@@ -8,6 +8,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import mblog.base.print.Printer;
+
 @Component
 public class AsyncTask {
 
@@ -25,7 +27,7 @@ public class AsyncTask {
 			String ret = rest.postForObject(
 					"http://data.zz.baidu.com/urls?site=https://blog.uzzz.org&token=pJ67TFnK02hkMHlt", requestEntity,
 					String.class);
-			System.out.println("post baidu : " + ret + " (" + content + ")");
+			Printer.info("post baidu : " + ret + " (" + content + ")");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

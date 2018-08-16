@@ -29,7 +29,7 @@ import mblog.web.controller.BaseController;
 
 @Controller
 @RequestMapping("/api")
-public class PostController extends BaseController {
+public class PostApiController extends BaseController {
 
 	@Value("${site.store.root}")
 	private String sitestoreroot;
