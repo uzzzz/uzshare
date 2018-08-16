@@ -19,6 +19,7 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import mblog.base.lang.Consts;
@@ -52,7 +53,10 @@ public class PostApiController extends BaseController {
 
 	@PostMapping("/post")
 	@ResponseBody
-	public long post(String title, String content) throws IOException {
+	public long post(String title, String content, //
+			@RequestParam(required = false, defaultValue = "2") long uid,
+			@RequestParam(required = false, defaultValue = "2") int cid,
+			@RequestParam(required = false, defaultValue = "") String tags) throws IOException {
 
 		Assert.state(StringUtils.isNotBlank(title), "标题不能为空");
 		Assert.state(StringUtils.isNotBlank(content), "内容不能为空");
@@ -60,8 +64,9 @@ public class PostApiController extends BaseController {
 		PostVO post = new PostVO();
 		post.setTitle(title);
 		post.setContent(content);
-		post.setAuthorId(2);
-		post.setChannelId(2);
+		post.setAuthorId(uid);
+		post.setChannelId(cid);
+		post.setTags(tags);
 		post.setThumbnail("");
 		long id = postService.post(post);
 
