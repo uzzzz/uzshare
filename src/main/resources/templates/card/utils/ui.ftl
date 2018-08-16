@@ -1,11 +1,10 @@
 <#-- Layout -->
 <#macro layout title keywords description>
 <!DOCTYPE html>
-<html mip>
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v1/mip.css">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
     <![endif]-->
@@ -17,7 +16,6 @@
     <#include "/card/inc/include.ftl"/>
 </head>
 <body>
-<script src="https://c.mipcdn.com/static/v1/mip.js"></script>
 
 <!-- header -->
     <#include "/card/inc/header.ftl"/>
