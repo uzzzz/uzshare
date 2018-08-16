@@ -13,6 +13,9 @@
 		    "description":"${description}",
 		    "url":"https://blog.uzzz.org${base}/view/${view.id}",
 		    "headline":"${title}",
+		    "author": "${view.author.name}",
+		    "publisher": "${view.author.name}",
+		    "image": "",
 		    "dateModified":"${view.created}",
 		    "datePublished":"${view.created}",
 		    "mainEntityOfPage":{
