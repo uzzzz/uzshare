@@ -68,9 +68,9 @@
         <#assign pageNo = p.number + 1/>
         <#assign pageCount = p.totalPages />
         <#if (pageNo > 1)>
-            <li><a href="${cURL}${pageNo - 1}" pageNo="${pageNo - 1}" class="prev">上一页</a></li>
+            <li><a href="${cURL}${pageNo - 1}" pageNo="${pageNo - 1}" class="prev">上页</a></li>
         <#else>
-            <li class="disabled"><span>上一页</span></li>
+            <li class="disabled"><span>上页</span></li>
         </#if>
 
         <#local totalNo = span * 2 + 3 />
@@ -109,9 +109,9 @@
         </#if>
 
         <#if (pageNo < pageCount)>
-            <li><a href="${cURL}${pageNo + 1}" pageNo="${pageNo + 1}" class="next">下一页</a></li>
+            <li><a href="${cURL}${pageNo + 1}" pageNo="${pageNo + 1}" class="next">下页</a></li>
         <#else>
-            <li class="disabled"><span>下一页</span></li>
+            <li class="disabled"><span>下页</span></li>
         </#if>
     </ul>
     </#if>
