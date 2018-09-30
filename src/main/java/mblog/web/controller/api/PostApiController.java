@@ -1,6 +1,7 @@
 package mblog.web.controller.api;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -21,6 +22,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.redfin.sitemapgenerator.ChangeFreq;
+import com.redfin.sitemapgenerator.WebSitemapGenerator;
+import com.redfin.sitemapgenerator.WebSitemapUrl;
 
 import mblog.base.lang.Consts;
 import mblog.base.utils.AsyncTask;
@@ -88,6 +93,25 @@ public class PostApiController extends BaseController {
 		}
 		writer.close();
 		return "OK";
+	}
+
+	@GetMapping("/rewritesitemapxml")
+	@ResponseBody
+	public String rewritesitemapxml() throws IOException {
+		String sitemappath = sitestoreroot + "sitemap.xml";
+		String baseUrl = "https://blog.uzzz.org";
+		WebSitemapGenerator wsg = new WebSitemapGenerator(baseUrl);
+		List<Long> ids = postService.findAllIds();
+		for (int i = 0; i < 10; i++) {
+			long id = ids.get(i);
+			WebSitemapUrl url = new WebSitemapUrl.Options(baseUrl + "/view/" + id).priority(0.9)
+					.changeFreq(ChangeFreq.DAILY).build();
+			wsg.addUrl(url);
+		}
+		String xml = String.join("", wsg.writeAsStrings());
+		wsg.writeSitemapsWithIndex(new File(sitemappath));
+
+		return xml;
 	}
 
 }
