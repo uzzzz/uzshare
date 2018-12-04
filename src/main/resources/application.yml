@@ -1,9 +1,4 @@
-server:
-  port: 443
-  ssl:
-    key-store: classpath:/ssl/blogssl.pfx
-    key-store-password: 1535651784881
-    key-store-type: PKCS12
+server.port: 6000
     
 spring:
     devtools:
@@ -32,9 +27,9 @@ spring:
 
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://rm-2ze970347k5e98h0uqo.mysql.rds.aliyuncs.com:3306/uzblog?useSSL=false&characterEncoding=utf8
-        username: mantester
-        password: mantester
+        url: jdbc:mysql://106.12.207.243:3306/uzblog?useSSL=false&characterEncoding=utf8
+        username: root
+        password: Abc1234567!
 
     jpa:
         database: mysql
@@ -64,5 +59,5 @@ spring:
 site:
     theme: card
     store:
-      root: D:/data/uzblog/
+      root: /data/uzblog/
       size: 2
