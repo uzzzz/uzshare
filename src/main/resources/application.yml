@@ -1,4 +1,4 @@
-server.port: 6000
+server.port: 16000
 server.tomcat.remote_ip_header: x-forwarded-for
 server.tomcat.protocol_header: x-forwarded-proto
 server.tomcat.port-header: X-Forwarded-Port
