@@ -101,8 +101,7 @@ public class PostApiController extends BaseController {
 		String baseUrl = "https://blog.uzzz.org";
 		WebSitemapGenerator wsg = new WebSitemapGenerator(baseUrl, new File(sitestoreroot));
 		List<Long> ids = postService.findAllIds();
-		for (int i = 0; i < 10; i++) {
-			long id = ids.get(i);
+		for (Long id : ids) {
 			WebSitemapUrl url = new WebSitemapUrl.Options(baseUrl + "/view/" + id).priority(0.9)
 					.changeFreq(ChangeFreq.DAILY).build();
 			wsg.addUrl(url);
