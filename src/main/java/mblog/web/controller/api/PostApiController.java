@@ -98,9 +98,8 @@ public class PostApiController extends BaseController {
 	@GetMapping("/rewritesitemapxml")
 	@ResponseBody
 	public String rewritesitemapxml() throws IOException {
-		String sitemappath = sitestoreroot + "sitemap.xml";
 		String baseUrl = "https://blog.uzzz.org";
-		WebSitemapGenerator wsg = new WebSitemapGenerator(baseUrl);
+		WebSitemapGenerator wsg = new WebSitemapGenerator(baseUrl, new File(sitestoreroot));
 		List<Long> ids = postService.findAllIds();
 		for (int i = 0; i < 10; i++) {
 			long id = ids.get(i);
@@ -108,10 +107,9 @@ public class PostApiController extends BaseController {
 					.changeFreq(ChangeFreq.DAILY).build();
 			wsg.addUrl(url);
 		}
-		String xml = String.join("", wsg.writeAsStrings());
-		wsg.writeSitemapsWithIndex(new File(sitemappath));
+		wsg.write();
+		wsg.writeSitemapsWithIndex();
 
-		return xml;
+		return "OK";
 	}
-
 }
