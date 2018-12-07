@@ -6,11 +6,9 @@ server.servlet.context-path: /
 logging.level: INFO
 logging.level.app: INFO
 
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://106.12.26.92:3306/sz?useSSL=false&characterEncoding=utf8
-    username: root
-    password: root
+spring.datasource.driver-class-name: com.mysql.jdbc.Driver
+spring.datasource.url: jdbc:mysql://106.12.26.92:3306/sz?useSSL=false&characterEncoding=utf8
+spring.datasource.username: root
+spring.datasource.password: root
 
 site.store.root: C:\\uzblog\\
