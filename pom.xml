@@ -272,7 +272,7 @@
 				<configuration>
 					<jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
 					<executable>true</executable>
-					<mainClass>mblog.BootApplication</mainClass>
+					<mainClass>uzblog.BootApplication</mainClass>
 					<includeSystemScope>true</includeSystemScope>
 				</configuration>
 				<executions>
