@@ -1,0 +1,9 @@
+# server application
+server.host: blog.uzzz.org
+server.servlet.context-path: /
+
+# logger, to see logback-spring.xml
+logging.level: INFO
+logging.level.app: DEBUG
+
+site.store.root: /data/uzblog/
