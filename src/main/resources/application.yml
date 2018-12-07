@@ -1,67 +1,64 @@
+
 server.port: 16000
-server.tomcat.remote_ip_header: x-forwarded-for
-server.tomcat.protocol_header: x-forwarded-proto
-server.tomcat.port-header: X-Forwarded-Port
 server.use-forward-headers: true
+server.tomcat.protocol_header: X-Forwarded-Proto
+server.tomcat.remote_ip_header: X-Forwarded-For
+server.tomcat.port-header: X-Forwarded-Port
     
+spring.devtools.enabled: true
+spring.http.encoding.charset: UTF-8
+spring.http.encoding.force: true
+spring.http.encoding.enabled: true
+
 spring:
-    devtools:
-        enabled: true
-    mvc: 
-      static-path-pattern: /**
-    resources:
-      static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources,file:${site.store.root}
-    http:
-        encoding:
-          charset: UTF-8
-          force: true
-          enabled: true
-    freemarker:
-        template-loader-path:
-        - classpath:/templates
-        - file:./templates
-        cache: false
-        checkTemplateLocation: false
-        settings:
-            classic_compatible: true #处理空值
-            template_exception_handler: rethrow
-            template_update_delay: 0
-            datetime_format: yyyy-MM-dd HH:mm
-            number_format: 0.##
+  mvc: 
+    static-path-pattern: /**
+  resources:
+    static-locations: 
+      - classpath:/static
+      - classpath:/public
+      - classpath:/resources
+      - classpath:/META-INF/resources
+      - file:${site.store.root}
+  freemarker:
+    template-loader-path: 
+      - classpath:/templates
+      - file:./templates
+    cache: false
+    checkTemplateLocation: false
+    settings:
+      classic_compatible: true #处理空值
+      template_exception_handler: rethrow
+      template_update_delay: 0
+      datetime_format: yyyy-MM-dd HH:mm
+      number_format: 0.##
 
-    datasource:
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://106.12.207.243:3306/uzblog?useSSL=false&characterEncoding=utf8
-        username: root
-        password: Abc1234567!
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.12.207.243:3306/uzblog?useSSL=false&characterEncoding=utf8
+    username: root
+    password: Abc1234567!
 
-    jpa:
-        database: mysql
-        show-sql: false
-        hibernate:
-            ddl-auto: update
-        properties:
-            hibernate.format_sql: true
-            hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-            hibernate.cache.use_second_level_cache: false
-            hibernate.search.default.directory_provider: filesystem
-            hibernate.search.default.indexBase: ${site.store.root}/indexes
+  jpa:
+    database: mysql
+    show-sql: false
+    hibernate.ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+      hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      hibernate.cache.use_second_level_cache: false
+      hibernate.search.default.directory_provider: filesystem
+      hibernate.search.default.indexBase: ${site.store.root}/indexes
 
-    servlet:
-        multipart:
-            max-file-size: 5MB
+spring.mail.host: smtp.exmail.qq.com
+spring.mail.username: uzzz@ibz.bz
+spring.mail.password: HKi5e8JE6CCd7KsW
+spring.mail.port: 25
+spring.mail.properties.mail.smtp.auth: true
 
-    mail:
-        host: smtp.exmail.qq.com
-        username: uzzz@ibz.bz
-        password: HKi5e8JE6CCd7KsW
-        port: 25
-        properties:
-            mail.smtp.auth: true
+spring.servlet.multipart.max-file-size: 5MB
+#site.theme: [default|card]
+site.theme: card
+site.store.root: /data/uzblog/
+site.store.size: 2  #上传文件最大2M
 
-# site.theme: [default|card]
-site:
-    theme: card
-    store:
-      root: /data/uzblog/
-      size: 2

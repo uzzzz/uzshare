@@ -3,7 +3,6 @@
  */
 package mblog.template.directive;
 
-import mblog.base.context.Global;
 import mblog.template.DirectiveHandler;
 import mblog.template.TemplateDirective;
 import org.apache.commons.lang.StringUtils;
