@@ -13,7 +13,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -51,14 +50,4 @@ public class MD5 {
 		}
 		return md5(salt + md5(input));
 	}
-	
-	/**
-	 * 随机生成指定长度的字符串
-	 * @param length 长度
-	 * @return string
-	 */
-	public static String randString(int length) {
-		return RandomStringUtils.random(length);
-	}
-	
 }

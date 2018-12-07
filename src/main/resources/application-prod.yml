@@ -6,4 +6,11 @@ server.servlet.context-path: /
 logging.level: INFO
 logging.level.app: DEBUG
 
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.12.207.243:3306/sz?useSSL=false&characterEncoding=utf8
+    username: root
+    password: Abc1234567!
+
 site.store.root: /data/uzblog/

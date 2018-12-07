@@ -1,21 +1,6 @@
 /*
-
- Mblog 初始数据库
+ - 初始数据库
  - 以下为部分带初始数据的表, 其他的表会在系统启动时自动生成
-
- Navicat Premium Data Transfer
-
- Source Server         : localhost
- Source Server Type    : MySQL
- Source Server Version : 50712
- Source Host           : localhost
- Source Database       : db_mblog
-
- Target Server Type    : MySQL
- Target Server Version : 50712
- File Encoding         : utf-8
-
- Date: 01/11/2018 10:26:54 AM
 */
 
 SET NAMES utf8;
@@ -111,22 +96,6 @@ CREATE TABLE `mto_users` (
 BEGIN;
 INSERT INTO `mto_users` VALUES ('1', '2017-08-06 17:52:41', 'uzzz@ibz.bz', '2017-10-17 13:24:13', null, '22IVQ4M4SLA8QI8MP4ISSPQUKJ', '0', 'admin', '执着', '/dist/images/ava/default.png', '2017-07-26 11:08:36', '0', '1', '0', '0', '6', '-2', '0', '-2', '19', '');
 COMMIT;
-
--- ----------------------------
---  Table structure for `mto_users_open_oauth`
--- ----------------------------
-DROP TABLE IF EXISTS `mto_users_open_oauth`;
-CREATE TABLE `mto_users_open_oauth` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `access_token` varchar(255) DEFAULT NULL,
-  `expire_in` varchar(255) DEFAULT NULL,
-  `oauth_code` varchar(255) DEFAULT NULL,
-  `oauth_type` int(11) DEFAULT NULL,
-  `oauth_user_id` varchar(255) DEFAULT NULL,
-  `refresh_token` varchar(255) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for shiro_permission

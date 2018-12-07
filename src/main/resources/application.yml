@@ -41,13 +41,6 @@ spring:
       template_update_delay: 0
       datetime_format: yyyy-MM-dd HH:mm
       number_format: 0.##
-
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://106.12.207.243:3306/uzblog?useSSL=false&characterEncoding=utf8
-    username: root
-    password: Abc1234567!
-
   jpa:
     database: mysql
     show-sql: false
