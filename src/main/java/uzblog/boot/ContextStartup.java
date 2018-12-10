@@ -38,12 +38,12 @@ public class ContextStartup implements ApplicationRunner, Ordered, ServletContex
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Printer.info("initialization ...");
+                Printer.warn("initialization ...");
 
                 resetSiteConfig(true);
                 resetChannels();
                 
-                Printer.info("OK, completed");
+                Printer.warn("OK, completed");
             }
         }, 1 * Consts.TIME_MIN);
     }
