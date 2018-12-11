@@ -1,12 +1,3 @@
-/*
-+--------------------------------------------------------------------------
-|   Mblog [#RELEASE_VERSION#]
-|   ========================================
-|   Copyright (c) 2014, 2015 mtons. All Rights Reserved
-|   http://www.mtons.com
-|
-+---------------------------------------------------------------------------
-*/
 package uzblog.base.context;
 
 import org.springframework.beans.factory.annotation.Value;
