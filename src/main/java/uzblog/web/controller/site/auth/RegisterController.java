@@ -3,6 +3,9 @@
  */
 package uzblog.web.controller.site.auth;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
-import uzblog.base.utils.MailHelper;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
@@ -19,25 +21,19 @@ import uzblog.modules.user.service.VerifyService;
 import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-
 /**
  * @author langhsu
  *
  */
 @Controller
 public class RegisterController extends BaseController {
+
 	@Autowired
 	private UserService userService;
+
 	@Autowired
 	private VerifyService verifyService;
-	@Autowired
-	private MailHelper mailHelper;
-	@Autowired
-	private ExecutorService executorService;
-	
+
 	@GetMapping("/register")
 	public String view() {
 		AccountProfile profile = getSubject().getProfile();
@@ -46,7 +42,7 @@ public class RegisterController extends BaseController {
 		}
 		return view(Views.REGISTER);
 	}
-	
+
 	@PostMapping("/register")
 	public String register(UserVO post, ModelMap model) {
 		Data data;
@@ -62,15 +58,13 @@ public class RegisterController extends BaseController {
 			context.put("code", code);
 			context.put("type", Consts.VERIFY_BIND);
 
-			sendEmail(Consts.EMAIL_TEMPLATE_BIND, user.getEmail(), "邮箱绑定验证", context);
-
-			data = Data.success("恭喜您! 注册成功, 已经给您的邮箱发了验证码, 赶紧去完成邮箱绑定吧。", Data.NOOP);
-			data.addLink("login", "先去登陆尝尝鲜");
+			data = Data.success("恭喜您! 注册成功!", Data.NOOP);
+			data.addLink("login", "去登陆");
 
 			ret = view(Views.REGISTER_RESULT);
-			
+
 		} catch (Exception e) {
-            model.addAttribute("post", post);
+			model.addAttribute("post", post);
 			data = Data.failure(e.getMessage());
 		}
 		model.put("data", data);

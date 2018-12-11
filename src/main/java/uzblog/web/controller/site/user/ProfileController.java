@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
-import uzblog.base.utils.MailHelper;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
@@ -34,8 +33,6 @@ public class ProfileController extends BaseController {
 	private UserService userService;
 	@Autowired
 	private VerifyService verifyService;
-	@Autowired
-	private MailHelper mailHelper;
 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String view(ModelMap model) {
@@ -49,7 +46,7 @@ public class ProfileController extends BaseController {
 	public String post(String name, String signature, ModelMap model) {
 		Data data;
 		AccountProfile profile = getSubject().getProfile();
-		
+
 		try {
 			UserVO user = new UserVO();
 			user.setId(profile.getId());
@@ -92,8 +89,6 @@ public class ProfileController extends BaseController {
 			context.put("userId", profile.getId());
 			context.put("code", code);
 			context.put("type", Consts.VERIFY_BIND);
-
-			mailHelper.sendEmail(Consts.EMAIL_TEMPLATE_BIND, email, "邮箱绑定验证", context);
 
 			data = Data.success("操作成功，已经发送验证邮件，请前往邮箱验证", Data.NOOP);
 		} catch (Exception e) {

@@ -17,10 +17,6 @@
                         <input class="form-control" name="username" type="text" data-required data-conditional="username" data-description="username" data-describedby="message">
                     </div>
                     <div class="form-group ">
-                        <label class="control-label" for="email">邮箱</label>
-                        <input class="form-control" name="email" type="text" data-required data-conditional="email" data-description="email" data-describedby="message">
-                    </div>
-                    <div class="form-group ">
                         <label class="control-label" for="name">昵称</label>
                         <input class="form-control" name="name" type="text" data-required>
                     </div>

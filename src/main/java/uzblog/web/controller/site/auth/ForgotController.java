@@ -1,5 +1,8 @@
 package uzblog.web.controller.site.auth;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,15 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
-import uzblog.base.utils.MailHelper;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
 import uzblog.modules.user.service.VerifyService;
 import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author langhsu on 2015/8/14.
@@ -25,62 +24,60 @@ import java.util.Map;
 @Controller
 @RequestMapping("/forgot")
 public class ForgotController extends BaseController {
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private VerifyService verifyService;
-    @Autowired
-    private MailHelper mailHelper;
 
-    @RequestMapping("/apply")
-    public String apply(String username, ModelMap model) {
-        Data data = null;
+	@Autowired
+	private UserService userService;
 
-        if (StringUtils.isNotBlank(username)) {
-            UserVO user = userService.getByUsername(username);
+	@Autowired
+	private VerifyService verifyService;
 
-            if (user != null) {
-                String code = verifyService.generateCode(user.getId(), Consts.VERIFY_FORGOT, user.getEmail());
-                Map<String, Object> context = new HashMap<>();
-                context.put("userId", user.getId());
-                context.put("code", code);
-                context.put("type", Consts.VERIFY_FORGOT);
+	@RequestMapping("/apply")
+	public String apply(String username, ModelMap model) {
+		Data data = null;
 
-                sendEmail(Consts.EMAIL_TEMPLATE_FORGOT, user.getEmail(), "找回密码", context);
+		if (StringUtils.isNotBlank(username)) {
+			UserVO user = userService.getByUsername(username);
 
-                data = Data.success("邮件发送成功", Data.NOOP);
+			if (user != null) {
+				String code = verifyService.generateCode(user.getId(), Consts.VERIFY_FORGOT, user.getEmail());
+				Map<String, Object> context = new HashMap<>();
+				context.put("userId", user.getId());
+				context.put("code", code);
+				context.put("type", Consts.VERIFY_FORGOT);
 
-                model.put("data", data);
-                return view(Views.REGISTER_RESULT);
-            } else {
-                data = Data.failure("查无此用户");
-            }
-        }
-        model.put("data", data);
-        return view(Views.FORGOT_APPLY);
-    }
+				data = Data.success("邮件发送成功", Data.NOOP);
 
-    @RequestMapping("/reset")
-    public String reset(Long userId, String token, String password, ModelMap model) {
-        Data data;
+				model.put("data", data);
+				return view(Views.REGISTER_RESULT);
+			} else {
+				data = Data.failure("查无此用户");
+			}
+		}
+		model.put("data", data);
+		return view(Views.FORGOT_APPLY);
+	}
 
-        try {
-            Assert.notNull(userId, "缺少必要的参数");
-            Assert.hasLength(token, "缺少必要的参数");
+	@RequestMapping("/reset")
+	public String reset(Long userId, String token, String password, ModelMap model) {
+		Data data;
 
-            verifyService.verifyToken(userId, Consts.VERIFY_FORGOT, token);
-            userService.updatePassword(userId, password);
+		try {
+			Assert.notNull(userId, "缺少必要的参数");
+			Assert.hasLength(token, "缺少必要的参数");
 
-            data = Data.success("恭喜您! 密码重置成功。");
-            data.addLink("login", "去登陆");
+			verifyService.verifyToken(userId, Consts.VERIFY_FORGOT, token);
+			userService.updatePassword(userId, password);
 
-        } catch (Exception e) {
-            data = Data.failure(e.getMessage());
-        }
+			data = Data.success("恭喜您! 密码重置成功。");
+			data.addLink("login", "去登陆");
 
-        model.put("data", data);
-        model.put("userId", userId);
-        model.put("token", token);
-        return view(Views.REGISTER_RESULT);
-    }
+		} catch (Exception e) {
+			data = Data.failure(e.getMessage());
+		}
+
+		model.put("data", data);
+		model.put("userId", userId);
+		model.put("token", token);
+		return view(Views.REGISTER_RESULT);
+	}
 }

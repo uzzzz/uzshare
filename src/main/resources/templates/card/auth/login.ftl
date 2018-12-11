@@ -24,16 +24,8 @@
                         </label>
                     </div>
                     <button type="submit" class="btn btn-success btn-block">
-                        登录 Use it
+                        登录
                     </button>
-
-                    <hr>
-
-                    <fieldset class="form-group">
-                        <div class="alert alert-info">
-                            <a class="forget-password" href="${base}/forgot/apply">忘记密码？</a>
-                        </div>
-                    </fieldset>
                 </form>
             </div>
         </div>

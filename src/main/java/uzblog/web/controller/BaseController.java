@@ -9,6 +9,12 @@
 */
 package uzblog.web.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -24,20 +30,11 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import uzblog.base.context.AppContext;
-import uzblog.base.print.Printer;
 import uzblog.base.upload.FileRepo;
 import uzblog.base.utils.MD5;
-import uzblog.base.utils.MailHelper;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.shiro.authc.AccountSubject;
 import uzblog.web.formatter.StringEscapeEditor;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
 
 /**
  * Controller 基类
@@ -52,10 +49,6 @@ public class BaseController {
 	protected AppContext appContext;
 	@Autowired
 	protected FileRepo fileRepo;
-	@Autowired
-	private MailHelper mailHelper;
-	@Autowired
-	private ExecutorService executorService;
 
 	@Value("${site.theme:default}")
 	private String theme;
@@ -65,7 +58,8 @@ public class BaseController {
 		/**
 		 * 自动转换日期类型的字段格式
 		 */
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
+		binder.registerCustomEditor(Date.class,
+				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
 
 		/**
 		 * 防止XSS攻击
@@ -78,10 +72,10 @@ public class BaseController {
 	 * 
 	 * @return
 	 */
-	protected AccountSubject getSubject(){
-	    return (AccountSubject) SecurityUtils.getSubject();
+	protected AccountSubject getSubject() {
+		return (AccountSubject) SecurityUtils.getSubject();
 	}
-	
+
 	protected void putProfile(AccountProfile profile) {
 		SecurityUtils.getSubject().getSession(true).setAttribute("profile", profile);
 	}
@@ -91,7 +85,8 @@ public class BaseController {
 	}
 
 	protected Pageable wrapPageable() {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+				.getRequest();
 		int pageSize = ServletRequestUtils.getIntParameter(request, "pageSize", 10);
 		int pageNo = ServletRequestUtils.getIntParameter(request, "pn", 1);
 		return new PageRequest(pageNo - 1, pageSize);
@@ -123,11 +118,4 @@ public class BaseController {
 		return "/" + theme + view;
 	}
 
-	protected void sendEmail(String template, String email, String subject, Map<String, Object> context) {
-		executorService.execute(() -> {
-			mailHelper.sendEmail(template, email, subject, context);
-			Printer.debug(email + " send success");
-		});
-	}
-	
 }

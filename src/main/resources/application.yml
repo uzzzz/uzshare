@@ -52,12 +52,6 @@ spring:
       hibernate.search.default.directory_provider: filesystem
       hibernate.search.default.indexBase: ${site.store.root}/indexes
 
-spring.mail.host: smtp.exmail.qq.com
-spring.mail.username: uzzz@ibz.bz
-spring.mail.password: HKi5e8JE6CCd7KsW
-spring.mail.port: 25
-spring.mail.properties.mail.smtp.auth: true
-
 spring.servlet.multipart.max-file-size: 5MB
 #site.theme: [default|card]
 site.theme: card
