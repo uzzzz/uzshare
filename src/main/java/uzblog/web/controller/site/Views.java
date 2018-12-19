@@ -41,6 +41,7 @@ public interface Views {
 
 	String USER_AVATAR = "/user/avatar";
 	String USER_PASSWORD = "/user/password";
+	String USER_SECRET = "/user/secret";
 	String USER_PROFILE = "/user/profile";
 	String USER_EMAIL = "/user/email";
 
