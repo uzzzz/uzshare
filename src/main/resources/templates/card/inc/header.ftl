@@ -1,44 +1,3 @@
-<!-- Login dialog BEGIN -->
-<div id="login_alert" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document" style="width: 450px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">请登录</h4>
-            </div>
-            <div class="modal-body">
-                <form method="POST" action="${base}/login" accept-charset="UTF-8">
-                    <div class="form-group ">
-                        <label class="control-label" for="username">账号</label>
-                        <input class="form-control" id="ajax_login_username" name="username" type="text" required>
-                    </div>
-                    <div class="form-group ">
-                        <label class="control-label" for="password">密码</label>
-                        <input class="form-control" id="ajax_login_password" name="password" type="password" required>
-                    </div>
-                    <button id="ajax_login_submit" class="btn btn-success btn-block btn-sm" type="button">
-                        登录 Use it
-                    </button>
-                    <div id="ajax_login_message" class="text-danger"></div>
-                    <hr>
-                    <fieldset class="form-group">
-                        <div class="alert alert-info">
-                            使用以下方法注册或者登录（<a class="forget-password" href="${base}/forgot/apply">忘记密码？</a>）
-                        </div>
-                        <a class="btn btn-default btn-block" href="${base}/oauth/callback/call_weibo">
-                            <i class="fa fa-weibo"></i> 微博帐号登录
-                        </a>
-                        <a class="btn btn-default btn-block" href="${base}/oauth/callback/call_qq">
-                            <i class="fa fa-qq"></i> QQ帐号登录
-                        </a>
-                    </fieldset>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- Login dialog END -->
-
 <!-- Fixed navbar -->
 <header class="site-header headroom">
     <!--[if lt IE 9]>
@@ -113,7 +72,9 @@
 				<#else>
                     <li><a href="${base}/login" class="btn btn-default btn-sm signup">登录</a></li>
 
-                    <li><a href="${base}/register" class="btn btn-primary btn-sm signup">注册</a></li>
+                    <!--
+                     <li><a href="${base}/register" class="btn btn-primary btn-sm signup">注册</a></li>
+                    -->
 				</#if>
 
                 </ul>
