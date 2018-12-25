@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.net.MalformedURLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +25,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.redfin.sitemapgenerator.ChangeFreq;
+import com.redfin.sitemapgenerator.SitemapIndexGenerator;
+import com.redfin.sitemapgenerator.W3CDateFormat;
 import com.redfin.sitemapgenerator.WebSitemapGenerator;
 import com.redfin.sitemapgenerator.WebSitemapUrl;
 
 import uzblog.base.lang.Consts;
+import uzblog.base.print.Printer;
 import uzblog.base.utils.AsyncTask;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.service.PostService;
@@ -99,16 +103,33 @@ public class PostApiController extends BaseController {
 	@ResponseBody
 	public String rewritesitemapxml() throws IOException {
 		String baseUrl = "https://blog.uzzz.org";
-		WebSitemapGenerator wsg = new WebSitemapGenerator(baseUrl, new File(sitestoreroot));
+		WebSitemapGenerator wsg = WebSitemapGenerator.builder(baseUrl, new File(sitestoreroot)).build();
 		List<Long> ids = postService.findAllIds();
 		for (Long id : ids) {
 			WebSitemapUrl url = new WebSitemapUrl.Options(baseUrl + "/view/" + id).priority(0.9)
 					.changeFreq(ChangeFreq.DAILY).build();
 			wsg.addUrl(url);
 		}
-		wsg.write();
-		wsg.writeSitemapsWithIndex();
 
+		List<File> views = wsg.write();
+
+		// 构造 sitemap_index 生成器
+		W3CDateFormat dateFormat = new W3CDateFormat(W3CDateFormat.Pattern.DAY);
+		SitemapIndexGenerator sitemapIndexGenerator = new SitemapIndexGenerator.Options(baseUrl,
+				new File(sitestoreroot + "/sitemap_index.xml")).autoValidate(true).dateFormat(dateFormat).build();
+
+		Printer.warn("sitemap size : " + views.size());
+		views.forEach(e -> {
+			try { // 组装 sitemap 文件 URL 地址
+				String url = baseUrl + "/" + e.getName();
+				Printer.warn("sitemap index url : " + url);
+				sitemapIndexGenerator.addUrl(url);
+			} catch (MalformedURLException mue) {
+				mue.printStackTrace();
+			}
+		});
+		// 生成 sitemap_index 文件
+		sitemapIndexGenerator.write();
 		return "OK";
 	}
 }

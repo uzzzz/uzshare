@@ -40,8 +40,8 @@ public class SitemapValidator {
 		SchemaFactory factory =
 			SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		try {
-			sitemapSchema = lazyLoad(factory, "sitemap.xsd");
-			sitemapIndexSchema = lazyLoad(factory, "siteindex.xsd");
+			sitemapSchema = lazyLoad(factory, "/sitemap.xsd");
+			sitemapIndexSchema = lazyLoad(factory, "/siteindex.xsd");
 		} catch (Exception e) {
 			throw new RuntimeException("BUG", e);
 		}
