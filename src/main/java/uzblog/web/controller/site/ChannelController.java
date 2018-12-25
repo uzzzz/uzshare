@@ -57,7 +57,7 @@ public class ChannelController extends BaseController {
 	public String view(@PathVariable Long id, ModelMap model) {
 		PostVO view = postService.get(id);
 
-		Assert.notNull(view, "该文章已被删除");
+		Assert.notNull(view, "该文章已被删除 id : " + id);
 
 		postService.identityViews(id);
 		model.put("view", view);

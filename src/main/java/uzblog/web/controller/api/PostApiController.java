@@ -103,23 +103,25 @@ public class PostApiController extends BaseController {
 	@ResponseBody
 	public String rewritesitemapxml() throws IOException {
 		String baseUrl = "https://blog.uzzz.org";
-		WebSitemapGenerator wsg = WebSitemapGenerator.builder(baseUrl, new File(sitestoreroot)).build();
+
+		WebSitemapGenerator wsgGzip = WebSitemapGenerator.builder(baseUrl, new File(sitestoreroot)).gzip(true).build();
+
 		List<Long> ids = postService.findAllIds();
 		for (Long id : ids) {
 			WebSitemapUrl url = new WebSitemapUrl.Options(baseUrl + "/view/" + id).priority(0.9)
 					.changeFreq(ChangeFreq.DAILY).build();
-			wsg.addUrl(url);
+			wsgGzip.addUrl(url);
 		}
 
-		List<File> views = wsg.write();
+		List<File> viewsGzip = wsgGzip.write();
 
 		// 构造 sitemap_index 生成器
 		W3CDateFormat dateFormat = new W3CDateFormat(W3CDateFormat.Pattern.DAY);
 		SitemapIndexGenerator sitemapIndexGenerator = new SitemapIndexGenerator.Options(baseUrl,
 				new File(sitestoreroot + "/sitemap_index.xml")).autoValidate(true).dateFormat(dateFormat).build();
 
-		Printer.warn("sitemap size : " + views.size());
-		views.forEach(e -> {
+		Printer.warn("sitemap size : " + viewsGzip.size());
+		viewsGzip.forEach(e -> {
 			try { // 组装 sitemap 文件 URL 地址
 				String url = baseUrl + "/" + e.getName();
 				Printer.warn("sitemap index url : " + url);

@@ -47,7 +47,7 @@ public class PostController extends BaseController {
 			AccountProfile profile = getSubject().getProfile();
 			PostVO view = postService.get(id);
 
-			Assert.notNull(view, "该文章已被删除");
+			Assert.notNull(view, "该文章已被删除 id : " + id);
 			Assert.isTrue(view.getAuthorId() == profile.getId(), "该文章不属于你");
 			model.put("view", view);
 		}
