@@ -1,10 +1,7 @@
 package uzblog.web.controller.api;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.MalformedURLException;
 import java.util.List;
 
@@ -82,21 +79,6 @@ public class PostApiController extends BaseController {
 		task.postBaiduForBlog(id);
 
 		return id;
-	}
-
-	@GetMapping("/rewritesitemap")
-	@ResponseBody
-	public String rewritesitemap() throws IOException {
-		String sitemappath = sitestoreroot + "sitemap.txt";
-		List<Long> ids = postService.findAllIds();
-		BufferedWriter writer = new BufferedWriter(
-				new OutputStreamWriter(new FileOutputStream(sitemappath, false), "UTF-8"));
-		writer.write("https://blog.uzzz.org/");
-		for (Long id : ids) {
-			writer.write("\nhttps://blog.uzzz.org/view/" + id);
-		}
-		writer.close();
-		return "OK";
 	}
 
 	@GetMapping("/rewritesitemapxml")
