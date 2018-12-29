@@ -9,6 +9,15 @@
 */
 package uzblog.modules.user.service.impl;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +33,8 @@ import org.springframework.util.Assert;
 
 import uzblog.base.lang.EntityStatus;
 import uzblog.base.lang.MtonsException;
+import uzblog.base.utils.CheckUtils;
 import uzblog.base.utils.MD5;
-import uzblog.modules.authc.dao.RoleDao;
-import uzblog.modules.authc.entity.Role;
 import uzblog.modules.user.dao.UserDao;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.modules.user.data.BadgesCount;
@@ -36,8 +44,6 @@ import uzblog.modules.user.service.NotifyService;
 import uzblog.modules.user.service.UserService;
 import uzblog.modules.utils.BeanMapUtils;
 
-import java.util.*;
-
 @Service
 @Transactional(readOnly = true)
 @CacheConfig(cacheNames = "usersCaches")
@@ -46,9 +52,6 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	@Autowired
 	private NotifyService notifyService;
-
-	@Autowired
-	private RoleDao roleDao;
 
 	@Override
 	@Transactional
@@ -100,17 +103,11 @@ public class UserServiceImpl implements UserService {
 		Assert.notNull(user, "Parameter user can not be null!");
 
 		Assert.hasLength(user.getUsername(), "用户名不能为空!");
-//		Assert.hasLength(user.getEmail(), "邮箱不能为空!");
+		Assert.isTrue(CheckUtils.isValidUsername(user.getUsername()), "只能是6-20位字母或数字组合");
 		Assert.hasLength(user.getPassword(), "密码不能为空!");
 
 		User check = userDao.findByUsername(user.getUsername());
-
 		Assert.isNull(check, "用户名已经存在!");
-
-		if (StringUtils.isNotBlank(user.getEmail())) {
-			check = userDao.findByEmail(user.getEmail());
-			Assert.isNull(check, "邮箱已经被注册!");
-		}
 
 		User po = new User();
 
@@ -177,18 +174,17 @@ public class UserServiceImpl implements UserService {
 		return ret;
 	}
 
-	
 	@Override
-	public List<UserVO> findHotUserByfans(){
+	public List<UserVO> findHotUserByfans() {
 		List<UserVO> rets = new ArrayList<>();
 		List<User> list = userDao.findTop12ByOrderByFansDesc();
 		for (User po : list) {
-			UserVO u = BeanMapUtils.copy(po , 0);
+			UserVO u = BeanMapUtils.copy(po, 0);
 			rets.add(u);
 		}
 		return rets;
 	}
-	
+
 	@Override
 	public UserVO getByUsername(String username) {
 		User po = userDao.findByUsername(username);
@@ -267,7 +263,7 @@ public class UserServiceImpl implements UserService {
 		List<UserVO> rets = new ArrayList<>();
 
 		for (User po : page.getContent()) {
-			UserVO u = BeanMapUtils.copy(po , 1);
+			UserVO u = BeanMapUtils.copy(po, 1);
 			rets.add(u);
 		}
 

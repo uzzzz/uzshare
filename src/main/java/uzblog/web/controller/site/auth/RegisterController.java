@@ -1,6 +1,3 @@
-/**
- * 
- */
 package uzblog.web.controller.site.auth;
 
 import java.util.HashMap;
@@ -9,6 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
@@ -19,10 +18,6 @@ import uzblog.modules.user.service.VerifyService;
 import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
 
-/**
- * @author langhsu
- *
- */
 @Controller
 public class RegisterController extends BaseController {
 
@@ -32,7 +27,7 @@ public class RegisterController extends BaseController {
 	@Autowired
 	private VerifyService verifyService;
 
-//	@GetMapping("/register")
+	@GetMapping("/register")
 	public String view() {
 		AccountProfile profile = getSubject().getProfile();
 		if (profile != null) {
@@ -41,7 +36,7 @@ public class RegisterController extends BaseController {
 		return view(Views.REGISTER);
 	}
 
-//	@PostMapping("/register")
+	@PostMapping("/register")
 	public String register(UserVO post, ModelMap model) {
 		Data data;
 		String ret = view(Views.REGISTER);
