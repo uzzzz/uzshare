@@ -7,9 +7,12 @@ server.use-forward-headers: true
 server.tomcat.protocol_header: X-Forwarded-Proto
 server.tomcat.remote_ip_header: X-Forwarded-For
 server.tomcat.port-header: X-Forwarded-Port
+
 server.tomcat.accesslog.enabled: true
-server.tomcat.basedir: 
-server.tomcat.accesslog.prefix: -artifactId-.access_log
+server.tomcat.accesslog.directory: ${jar.path}logs
+server.tomcat.accesslog.prefix: -artifactId-.access
+server.tomcat.accesslog.rename-on-rotate: true
+server.tomcat.accesslog.rotate: true
 server.tomcat.accesslog.pattern: '%t %a "%r" %s (%D ms)'
     
 spring.devtools.enabled: true
