@@ -62,7 +62,9 @@
             </div>
             <div class="panel-footer operate">
                 <div class="hidden-xs">
-                    <div class="social-share" data-sites="facebook, twitter, google, wechat"></div>
+                    <div class="social-share" data-sites="facebook, twitter, google, wechat"
+                    	 data-wechat-qrcode-title="手机App扫一扫"
+                    	 data-wechat-qrcode-helper="<p>App里扫一下，分享本文</p>"></div>
                 </div>
                 <div class="clearfix"></div>
             </div>
