@@ -29,7 +29,7 @@ public class ProxyController extends BaseController {
 			URL u = new URL(url);
 			String host = u.getHost();
 			String protocol = u.getProtocol();
-			String referer = "csdn.net";
+			String referer = protocol + "://csdn.net";
 			System.out.println(referer);
 			HttpURLConnection conn = (HttpURLConnection) u.openConnection();
 			conn.setRequestProperty("referer", referer);
