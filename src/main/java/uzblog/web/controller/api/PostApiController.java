@@ -62,7 +62,8 @@ public class PostApiController extends BaseController {
 	public long post(String title, String content, //
 			@RequestParam(required = false, defaultValue = "2") long uid,
 			@RequestParam(required = false, defaultValue = "2") int cid,
-			@RequestParam(required = false, defaultValue = "") String tags) throws IOException {
+			@RequestParam(required = false, defaultValue = "") String tags,
+			@RequestParam(required = false, defaultValue = "") String thumbnail) throws IOException {
 
 		Assert.state(StringUtils.isNotBlank(title), "标题不能为空");
 		Assert.state(StringUtils.isNotBlank(content), "内容不能为空");
@@ -73,7 +74,7 @@ public class PostApiController extends BaseController {
 		post.setAuthorId(uid);
 		post.setChannelId(cid);
 		post.setTags(tags);
-		post.setThumbnail("");
+		post.setThumbnail(thumbnail);
 		long id = postService.post(post);
 
 		task.postBaiduForBlog(id);
