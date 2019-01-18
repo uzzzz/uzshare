@@ -585,6 +585,7 @@ abbr[data-original-title], abbr[title] {
     width: 100%;
     border-top-right-radius: 2px;
     border-top-left-radius: 2px;
+    max-height: 80px;
 }
 
 .block a.block-thumbnail .thumbnail-overlay {
