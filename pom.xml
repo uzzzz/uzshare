@@ -231,6 +231,13 @@
 				<build.profile.id>prod</build.profile.id>
 			</properties>
 		</profile>
+		<!--aws -->
+		<profile>
+			<id>aws</id>
+			<properties>
+				<build.profile.id>aws</build.profile.id>
+			</properties>
+		</profile>
 	</profiles>
 
 	<build>
