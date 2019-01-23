@@ -20,7 +20,7 @@
 			<charset>UTF-8</charset> <!-- 字符集 -->
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>logs/${appname}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>logs/earlier/${appname}.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>365</maxHistory>
 		</rollingPolicy>
 	</appender>
