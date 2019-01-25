@@ -217,13 +217,6 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 		</profile>
-		<!--测试环境 -->
-		<profile>
-			<id>test</id>
-			<properties>
-				<build.profile.id>test</build.profile.id>
-			</properties>
-		</profile>
 		<!--生产环境 -->
 		<profile>
 			<id>prod</id>

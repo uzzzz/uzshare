@@ -12,4 +12,3 @@ spring.datasource.username: root
 spring.datasource.password: Abc1234567!
 
 site.store.root: /data/uzblog/
-jar.path: /data/
