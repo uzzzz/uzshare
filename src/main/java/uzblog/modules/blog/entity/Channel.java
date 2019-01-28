@@ -9,6 +9,8 @@
 */
 package uzblog.modules.blog.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +29,10 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "mto_channels")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Channel {
+public class Channel implements Serializable {
+
+	private static final long serialVersionUID = -8694488661249364788L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

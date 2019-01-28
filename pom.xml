@@ -106,8 +106,9 @@
 
 		<!-- ehcache -->
 		<dependency>
-			<groupId>net.sf.ehcache</groupId>
+			<groupId>org.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
+			<version>3.5.2</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 
 		<!-- boot -->

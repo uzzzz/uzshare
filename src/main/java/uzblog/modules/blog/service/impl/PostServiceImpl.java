@@ -268,6 +268,9 @@ public class PostServiceImpl implements PostService {
 	@Override
 	@Cacheable(key = "'view_' + #id")
 	public PostVO get(long id) {
+		
+		System.out.println("get from db");
+		
 		Post po = postDao.findOne(id);
 		PostVO d = null;
 		if (po != null) {
