@@ -166,7 +166,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Cacheable(key = "#userId")
 	public UserVO get(long userId) {
-		User po = userDao.getOne(userId);
+		User po = userDao.findById(userId).get();
 		UserVO ret = null;
 		if (po != null) {
 			ret = BeanMapUtils.copy(po, 0);

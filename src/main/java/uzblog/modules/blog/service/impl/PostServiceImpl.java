@@ -271,7 +271,8 @@ public class PostServiceImpl implements PostService {
 		
 		System.out.println("get from db");
 		
-		Post po = postDao.getOne(id);
+		Post po = postDao.findById(id).get();
+		
 		PostVO d = null;
 		if (po != null) {
 			d = BeanMapUtils.copy(po, 1);
@@ -280,7 +281,7 @@ public class PostServiceImpl implements PostService {
 
 			d.setChannel(channelService.getById(d.getChannelId()));
 
-			PostAttribute attr = postAttributeDao.getOne(po.getId());
+			PostAttribute attr = postAttributeDao.findById(po.getId()).get();
 			if (attr != null) {
 				d.setContent(attr.getContent());
 			}
