@@ -46,7 +46,7 @@ import uzblog.modules.utils.BeanMapUtils;
 
 @Service
 @Transactional(readOnly = true)
-@CacheConfig(cacheNames = "usersCaches")
+@CacheConfig(cacheNames = "users_caches")
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;

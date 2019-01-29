@@ -101,13 +101,6 @@
 			<artifactId>lucene-highlighter</artifactId>
 			<version>5.5.4</version>
 		</dependency>
-		<!-- /end -->
-
-		<!-- ehcache -->
-		<dependency>
-			<groupId>org.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-		</dependency>
 
 		<!-- boot -->
 		<dependency>
@@ -120,6 +113,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 
 		<dependency>
@@ -161,13 +159,7 @@
 
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-web</artifactId>
-			<version>1.4.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring</artifactId>
+			<artifactId>shiro-spring-boot-starter</artifactId>
 			<version>1.4.0</version>
 		</dependency>
 

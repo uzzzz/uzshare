@@ -59,7 +59,7 @@ import uzblog.modules.utils.BeanMapUtils;
  */
 @Service
 @Transactional
-@CacheConfig(cacheNames = "postsCaches")
+@CacheConfig(cacheNames = "posts_caches")
 public class PostServiceImpl implements PostService {
 
 	@Autowired
