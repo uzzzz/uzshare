@@ -1,20 +1,28 @@
 package uzblog.base.utils;
 
-import net.coobird.thumbnailator.Thumbnails;
-import org.apache.log4j.Logger;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
+
+import javax.imageio.ImageIO;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.multipart.MultipartFile;
+
+import net.coobird.thumbnailator.Thumbnails;
 
 /**
  * @author langhsu on 2015/9/4.
  */
 public class ImageUtils {
-    private static Logger log = Logger.getLogger(ImageUtils.class);
+	
+	private static Logger log = LoggerFactory.getLogger(ImageUtils.class);
 
     public static void validate(String dest) throws IOException {
         File destFile = new File(dest);

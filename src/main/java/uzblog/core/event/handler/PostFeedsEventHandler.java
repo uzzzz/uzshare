@@ -9,7 +9,10 @@
 */
 package uzblog.core.event.handler;
 
-import org.apache.log4j.Logger;
+import java.text.MessageFormat;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.scheduling.annotation.Async;
@@ -20,14 +23,13 @@ import uzblog.core.event.PostUpdateEvent;
 import uzblog.modules.blog.data.FeedsVO;
 import uzblog.modules.blog.service.FeedsService;
 
-import java.text.MessageFormat;
-
 /**
  * @author langhsu on 2015/8/18.
  */
 @Component
 public class PostFeedsEventHandler implements ApplicationListener<PostUpdateEvent> {
-    private Logger log = Logger.getLogger(getClass());
+    
+    private Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private FeedsService feedsService;

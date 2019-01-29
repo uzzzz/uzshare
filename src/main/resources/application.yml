@@ -1,5 +1,5 @@
 # server application
-spring.application.name: -artifactId-
+spring.application.name: =artifactId=
 spring.mvc.favicon.enabled: false
 
 server.port: 16000
@@ -24,7 +24,7 @@ spring:
       - classpath:/META-INF/resources
       - file:${site.store.root}
   profiles:
-    active: -build.profile.id-
+    active: =build.profile.id=
   freemarker:
     template-loader-path: 
       - classpath:/templates

@@ -9,8 +9,16 @@
 */
 package uzblog.base.upload.impl;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Iterator;
+
+import javax.imageio.ImageIO;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,18 +28,11 @@ import uzblog.base.upload.FileRepo;
 import uzblog.base.utils.FileNameUtils;
 import uzblog.base.utils.ImageUtils;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Iterator;
-
 /**
  * @author langhsu
  */
 public abstract class AbstractFileRepo implements FileRepo {
-    private Logger log = Logger.getLogger(this.getClass());
+	private static Logger log = LoggerFactory.getLogger(AbstractFileRepo.class);
 
     @Autowired
     protected AppContext appContext;

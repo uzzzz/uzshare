@@ -1,17 +1,24 @@
 package uzblog.web.filter;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-import org.apache.log4j.Logger;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
 
 /**
  * @author langhsu on 2015/7/10.
  */
 public class RequestCostFilter implements Filter {
-    private Logger log = Logger.getLogger(RequestCostFilter.class);
+    private Logger log = LoggerFactory.getLogger(RequestCostFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

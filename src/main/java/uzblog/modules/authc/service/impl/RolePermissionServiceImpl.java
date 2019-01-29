@@ -48,6 +48,6 @@ public class RolePermissionServiceImpl implements RolePermissionService {
     @Override
     @Transactional
     public void add(Set<RolePermission> rolePermissions) {
-        rolePermissionDao.save(rolePermissions);
+        rolePermissionDao.saveAll(rolePermissions);
     }
 }

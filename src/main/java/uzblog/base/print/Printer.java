@@ -1,7 +1,10 @@
 package uzblog.base.print;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Printer {
-	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("uzblog");
+	private static Logger log = LoggerFactory.getLogger("uzblog");
 
 	public static void info(String message) {
 		log.info(message);

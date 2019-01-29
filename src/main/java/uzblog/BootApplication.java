@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.boot.web.servlet.ErrorPage;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.server.ErrorPage;
+import org.springframework.boot.web.server.ErrorPageRegistrar;
+import org.springframework.boot.web.server.ErrorPageRegistry;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -22,7 +22,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableAsync
 @EnableAutoConfiguration(exclude = { ErrorMvcAutoConfiguration.class })
-public class BootApplication extends SpringBootServletInitializer {
+public class BootApplication extends SpringBootServletInitializer implements ErrorPageRegistrar {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -44,15 +44,11 @@ public class BootApplication extends SpringBootServletInitializer {
 		return builder.build();
 	}
 
-	@Bean
-	public EmbeddedServletContainerCustomizer containerCustomizer() {
-		return new EmbeddedServletContainerCustomizer() {
-			@Override
-			public void customize(ConfigurableEmbeddedServletContainer container) {
-				ErrorPage e404 = new ErrorPage(HttpStatus.NOT_FOUND, "/error/404.html");
-				container.addErrorPages(e404);
-			}
-		};
+	@Override
+	public void registerErrorPages(ErrorPageRegistry registry) {
+		ErrorPage[] errorPages = new ErrorPage[2];
+		errorPages[0] = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error/500.html");
+		errorPages[1] = new ErrorPage(HttpStatus.NOT_FOUND, "/error/404.html");
+		registry.addErrorPages(errorPages);
 	}
-
 }

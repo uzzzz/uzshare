@@ -8,19 +8,19 @@
 */
 package uzblog.web.formatter;
 
-import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.log4j.Logger;
-import org.springframework.web.util.HtmlUtils;
-import org.springframework.web.util.JavaScriptUtils;
-
 import java.beans.PropertyEditorSupport;
 import java.util.regex.Pattern;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *   on 2017/9/2.
  */
 public class StringEscapeEditor extends PropertyEditorSupport {
-    private Logger logger = Logger.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(getClass());
+    
+    
     private boolean escapeHTML;// 编码HTML
     private boolean escapeJavaScript;// 编码JavaScript
 
