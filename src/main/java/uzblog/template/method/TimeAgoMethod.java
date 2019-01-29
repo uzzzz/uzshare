@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by langhsu on 2017/11/14.
+ *   on 2017/11/14.
  */
 public class TimeAgoMethod extends BaseMethod {
     private static final long ONE_MINUTE = 60000L;

@@ -15,7 +15,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.safety.Whitelist;
 
 /**
- * Created by langhsu on 2017/9/2.
+ *   on 2017/9/2.
  */
 public class PreviewTextUtils {
     /**

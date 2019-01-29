@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * Created by langhsu on 2017/11/14.
+ *   on 2017/11/14.
  */
 public abstract class TemplateDirective implements TemplateDirectiveModel {
     protected static String RESULT = "result";

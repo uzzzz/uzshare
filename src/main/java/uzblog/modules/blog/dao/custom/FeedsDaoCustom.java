@@ -3,7 +3,7 @@ package uzblog.modules.blog.dao.custom;
 import uzblog.modules.blog.data.FeedsVO;
 
 /**
- * Created by langhsu on 2017/9/30.
+ *   on 2017/9/30.
  */
 public interface FeedsDaoCustom {
     /**

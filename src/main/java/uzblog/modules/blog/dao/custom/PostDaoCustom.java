@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import uzblog.modules.blog.data.PostVO;
 
 /**
- * Created by langhsu on 2017/9/30.
+ *   on 2017/9/30.
  */
 public interface PostDaoCustom {
     Page<PostVO> search(Pageable pageable, String q) throws Exception;

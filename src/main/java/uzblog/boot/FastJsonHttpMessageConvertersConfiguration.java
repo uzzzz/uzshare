@@ -15,7 +15,7 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import java.util.Arrays;
 
 /**
- * Created by langhsu on 2017/10/23.
+ *   on 2017/10/23.
  */
 @Configuration
 @ConditionalOnClass({JSON.class})

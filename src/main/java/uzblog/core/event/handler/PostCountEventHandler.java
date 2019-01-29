@@ -9,7 +9,7 @@ import uzblog.modules.user.service.UserEventService;
 
 /**
  * 更新文章统计
- * created by langhsu
+ *  
  */
 public class PostCountEventHandler implements ApplicationListener<PostUpdateEvent> {
     @Autowired

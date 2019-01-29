@@ -17,7 +17,7 @@ import java.beans.PropertyEditorSupport;
 import java.util.regex.Pattern;
 
 /**
- * Created by langhsu on 2017/9/2.
+ *   on 2017/9/2.
  */
 public class StringEscapeEditor extends PropertyEditorSupport {
     private Logger logger = Logger.getLogger(getClass());
