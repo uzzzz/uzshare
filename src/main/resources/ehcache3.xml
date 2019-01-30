@@ -8,6 +8,18 @@
 	<ehcache:persistence directory="C:\ehcacheData" />
 
 	<ehcache:cache-template name="template">
+		<ehcache:listeners>
+			<ehcache:listener>
+				<ehcache:class>uzblog.boot.CacheEventLogger</ehcache:class>
+				<ehcache:event-firing-mode>ASYNCHRONOUS</ehcache:event-firing-mode>
+				<ehcache:event-ordering-mode>UNORDERED</ehcache:event-ordering-mode>
+				<ehcache:events-to-fire-on>CREATED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>UPDATED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>EXPIRED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>REMOVED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>EVICTED</ehcache:events-to-fire-on>
+			</ehcache:listener>
+		</ehcache:listeners>
 		<ehcache:resources>
 			<ehcache:heap unit="entries">2000</ehcache:heap>
 			<ehcache:offheap unit="MB">100</ehcache:offheap>
