@@ -1,7 +1,13 @@
 package uzblog.boot;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.servlet.Filter;
+
 import org.apache.shiro.cache.CacheManager;
-import org.apache.shiro.cache.ehcache.EhCacheManager;
+import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -14,19 +20,12 @@ import org.apache.shiro.web.servlet.ShiroHttpSession;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import uzblog.shiro.authc.AccountSubjectFactory;
 import uzblog.shiro.filter.AuthenticatedFilter;
 import uzblog.shiro.realm.AccountRealm;
-
-import javax.servlet.Filter;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * shiro权限管理的配置
@@ -75,13 +74,11 @@ public class ShiroConfig {
 
 
     /**
-     * 缓存管理器 使用Ehcache实现
+     * 缓存管理器
      */
     @Bean
-    public CacheManager getCacheShiroManager(EhCacheManagerFactoryBean ehcache) {
-        EhCacheManager ehCacheManager = new EhCacheManager();
-        ehCacheManager.setCacheManager(ehcache.getObject());
-        return ehCacheManager;
+    public CacheManager getCacheShiroManager() {
+        return new MemoryConstrainedCacheManager();
     }
 
     /**

@@ -11,6 +11,7 @@ import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.ErrorPageRegistrar;
 import org.springframework.boot.web.server.ErrorPageRegistry;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -22,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableAsync
 @EnableAutoConfiguration(exclude = { ErrorMvcAutoConfiguration.class })
+@EnableCaching
 public class BootApplication extends SpringBootServletInitializer implements ErrorPageRegistrar {
 
 	@Override

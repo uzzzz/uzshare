@@ -269,7 +269,7 @@ public class PostServiceImpl implements PostService {
 	@Cacheable(key = "'view_' + #id")
 	public PostVO get(long id) {
 		
-		System.out.println("get from db");
+		System.out.println("get from db : " + id);
 		
 		Post po = postDao.findById(id).get();
 		

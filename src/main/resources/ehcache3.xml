@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache:config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns:ehcache='http://www.ehcache.org/v3'
+	xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
+	<!-- 持久化路径 -->
+	<ehcache:persistence directory="C:\ehcacheData" />
+
+	<ehcache:cache-template name="template">
+		<ehcache:expiry>
+			<ehcache:none />
+		</ehcache:expiry>
+		<ehcache:resources>
+			<!-- 单位默认为entries当用entries作单位时,可以不填 -->
+			<ehcache:heap>1</ehcache:heap>
+			<ehcache:offheap unit="MB">1</ehcache:offheap>
+			<!-- persistent 默认为false可以不填 -->
+			<ehcache:disk unit="MB">20</ehcache:disk>
+		</ehcache:resources>
+	</ehcache:cache-template>
+
+	<ehcache:cache alias="posts_caches" uses-template="template">
+		<ehcache:resources>
+			<ehcache:disk unit="MB" persistent="true">500</ehcache:disk>
+		</ehcache:resources>
+	</ehcache:cache>
+</ehcache:config>
