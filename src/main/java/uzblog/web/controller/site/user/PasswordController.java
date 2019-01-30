@@ -22,7 +22,7 @@ import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Controller

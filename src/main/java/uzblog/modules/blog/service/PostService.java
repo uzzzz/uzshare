@@ -22,7 +22,7 @@ import java.util.Set;
 /**
  * 文章管理
  * 
- * @author langhsu
+ * 
  *
  */
 public interface PostService {

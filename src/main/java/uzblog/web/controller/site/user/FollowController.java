@@ -14,7 +14,7 @@ import uzblog.modules.user.service.FollowService;
 import uzblog.web.controller.BaseController;
 
 /**
- * @author langhsu on 2015/8/18.
+ *  on 2015/8/18.
  */
 @Controller
 @RequestMapping("/user")

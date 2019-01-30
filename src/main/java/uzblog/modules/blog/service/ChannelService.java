@@ -18,7 +18,7 @@ import uzblog.modules.blog.entity.Channel;
 /**
  * 栏目管理
  * 
- * @author langhsu
+ * 
  *
  */
 public interface ChannelService {

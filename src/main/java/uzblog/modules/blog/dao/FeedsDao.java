@@ -18,7 +18,7 @@ import uzblog.modules.blog.dao.custom.FeedsDaoCustom;
 import uzblog.modules.blog.entity.Feeds;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public interface FeedsDao extends JpaRepository<Feeds, Long>, JpaSpecificationExecutor<Feeds>, FeedsDaoCustom {

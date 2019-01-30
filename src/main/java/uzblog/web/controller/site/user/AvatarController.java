@@ -28,7 +28,7 @@ import uzblog.web.controller.site.Views;
 import java.io.File;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Controller

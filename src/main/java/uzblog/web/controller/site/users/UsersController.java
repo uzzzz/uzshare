@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 访问他人主页
- * @author langhsu
+ * 
  *
  */
 @Controller

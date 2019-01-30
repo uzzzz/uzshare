@@ -25,7 +25,7 @@ import uzblog.modules.blog.dao.custom.PostDaoCustom;
 import uzblog.modules.blog.entity.Post;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public interface PostDao extends JpaRepository<Post, Long>, JpaSpecificationExecutor<Post>, PostDaoCustom {

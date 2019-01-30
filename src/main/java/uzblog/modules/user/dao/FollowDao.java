@@ -22,7 +22,7 @@ import uzblog.modules.user.entity.User;
 import java.util.List;
 
 /**
- * @author langhsu
+ * 
  * 
  */
 public interface FollowDao extends JpaRepository<Follow, Long>, JpaSpecificationExecutor<Follow> {

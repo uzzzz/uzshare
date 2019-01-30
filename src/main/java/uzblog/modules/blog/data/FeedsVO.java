@@ -13,7 +13,7 @@ import uzblog.modules.blog.entity.Feeds;
 
 /**
  * 订阅
- * @author langhsu
+ * 
  *
  */
 public class FeedsVO extends Feeds {

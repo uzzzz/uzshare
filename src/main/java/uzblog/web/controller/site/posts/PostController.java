@@ -24,7 +24,7 @@ import java.io.IOException;
 
 /**
  * 文章操作
- * @author langhsu
+ * 
  *
  */
 @Controller

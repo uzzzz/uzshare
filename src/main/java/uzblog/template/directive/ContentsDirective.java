@@ -27,7 +27,7 @@ import uzblog.template.TemplateDirective;
  * 示例： 请求：http://mtons.com/index?ord=newest&pn=2 使用：@contents group=x pn=pn
  * ord=ord
  *
- * @author langhsu
+ * 
  *
  */
 @Component

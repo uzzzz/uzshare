@@ -5,7 +5,7 @@ package uzblog.base.lang;
 
 
 /**
- * @author langhsu
+ * 
  *
  */
 public interface Consts {

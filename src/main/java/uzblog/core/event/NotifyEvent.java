@@ -3,7 +3,7 @@ package uzblog.core.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 public class NotifyEvent extends ApplicationEvent {
 	private static final long serialVersionUID = -4261382494171476390L;

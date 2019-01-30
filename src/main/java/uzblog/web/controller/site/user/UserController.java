@@ -37,7 +37,7 @@ import uzblog.web.controller.site.Views;
 
 /**
  * 用户主页
- * @author langhsu
+ * 
  *
  */
 @Controller

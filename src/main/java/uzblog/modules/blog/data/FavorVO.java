@@ -3,7 +3,7 @@ package uzblog.modules.blog.data;
 import uzblog.modules.blog.entity.Favor;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 public class FavorVO extends Favor {
     // extend

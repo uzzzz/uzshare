@@ -24,7 +24,7 @@ import uzblog.modules.blog.data.FeedsVO;
 import uzblog.modules.blog.service.FeedsService;
 
 /**
- * @author langhsu on 2015/8/18.
+ *  on 2015/8/18.
  */
 @Component
 public class PostFeedsEventHandler implements ApplicationListener<PostUpdateEvent> {

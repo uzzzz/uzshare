@@ -19,7 +19,7 @@ import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
 
 /**
- * @author langhsu on 2015/8/14.
+ *  on 2015/8/14.
  */
 @Controller
 @RequestMapping("/forgot")

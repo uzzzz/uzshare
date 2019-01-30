@@ -15,7 +15,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import uzblog.modules.blog.entity.Config;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public interface ConfigDao extends JpaRepository<Config, Long>, JpaSpecificationExecutor<Config> {

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import uzblog.web.controller.BaseController;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Controller

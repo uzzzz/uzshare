@@ -28,7 +28,7 @@ import java.util.HashMap;
 /**
  * Ueditor 文件上传
  *
- * @author langhsu
+ * 
  */
 @Controller
 @RequestMapping("/post")

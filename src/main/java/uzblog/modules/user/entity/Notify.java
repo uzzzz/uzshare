@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * 通知
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 @Entity
 @Table(name = "mto_notify")

@@ -29,7 +29,7 @@ import uzblog.base.utils.FileNameUtils;
 import uzblog.base.utils.ImageUtils;
 
 /**
- * @author langhsu
+ * 
  */
 public abstract class AbstractFileRepo implements FileRepo {
 	private static Logger log = LoggerFactory.getLogger(AbstractFileRepo.class);

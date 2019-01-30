@@ -13,7 +13,7 @@ package uzblog.web.controller.site;
  * 
  * 返回页面配置
  * 
- * @author langhsu
+ * 
  *
  */
 public interface Views {

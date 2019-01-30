@@ -18,7 +18,7 @@ import uzblog.modules.blog.entity.Comment;
 import uzblog.modules.user.data.UserVO;
 
 /**
- * @author langhsu
+ * 
  * 
  */
 public class CommentVO extends Comment implements Serializable {

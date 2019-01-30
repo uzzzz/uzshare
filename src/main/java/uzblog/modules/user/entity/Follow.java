@@ -18,7 +18,7 @@ import java.util.Date;
 /**
  * 我的关注
  * 
- * @author langhsu
+ * 
  * 
  */
 @Entity

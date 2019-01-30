@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * 喜欢/收藏
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 @Entity
 @Table(name = "mto_favors")

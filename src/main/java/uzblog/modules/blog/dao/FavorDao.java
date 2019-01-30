@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import uzblog.modules.blog.entity.Favor;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 public interface FavorDao extends JpaRepository<Favor, Long>, JpaSpecificationExecutor<Favor> {
     /**

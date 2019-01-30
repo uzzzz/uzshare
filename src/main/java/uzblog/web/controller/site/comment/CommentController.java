@@ -27,7 +27,7 @@ import uzblog.web.controller.BaseController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Controller

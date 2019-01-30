@@ -23,7 +23,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * 模块/内容分组
- * @author langhsu
+ * 
  *
  */
 @Entity

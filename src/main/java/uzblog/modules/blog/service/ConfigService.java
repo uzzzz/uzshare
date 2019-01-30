@@ -16,7 +16,7 @@ import uzblog.modules.blog.entity.Config;
 
 
 /**
- * @author langhsu
+ * 
  *
  */
 public interface ConfigService {

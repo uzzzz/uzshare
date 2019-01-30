@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public class AccountProfile implements Serializable {

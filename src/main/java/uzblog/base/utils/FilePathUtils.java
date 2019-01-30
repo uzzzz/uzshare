@@ -4,7 +4,7 @@
 package uzblog.base.utils;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public class FilePathUtils {

@@ -54,7 +54,7 @@ import uzblog.modules.user.service.UserService;
 import uzblog.modules.utils.BeanMapUtils;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Service

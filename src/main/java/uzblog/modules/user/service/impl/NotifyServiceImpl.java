@@ -22,7 +22,7 @@ import uzblog.modules.utils.BeanMapUtils;
 import java.util.*;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 @Service
 public class NotifyServiceImpl implements NotifyService {

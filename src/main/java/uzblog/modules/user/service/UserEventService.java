@@ -10,7 +10,7 @@
 package uzblog.modules.user.service;
 
 /**
- * @author langhsu on 2015/8/6.
+ *  on 2015/8/6.
  */
 public interface UserEventService {
     /**

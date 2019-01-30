@@ -25,7 +25,7 @@ import uzblog.web.controller.site.Views;
 
 /**
  * 登录页
- * @author langhsu
+ * 
  */
 @Controller
 public class LoginController extends BaseController {

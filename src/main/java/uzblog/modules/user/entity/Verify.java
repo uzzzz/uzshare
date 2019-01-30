@@ -17,7 +17,7 @@ import java.util.Date;
 
 /**
  * 验证码
- * @author langhsu on 2015/8/14.
+ *  on 2015/8/14.
  */
 @Entity
 @Table(name = "mto_verify")

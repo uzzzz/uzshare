@@ -21,7 +21,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * 系统配置
- * @author langhsu
+ * 
  *
  */
 @Entity

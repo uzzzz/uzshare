@@ -12,7 +12,7 @@ package uzblog.base.upload.impl;
 import org.springframework.stereotype.Service;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Service

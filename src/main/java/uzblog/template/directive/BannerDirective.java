@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 推荐内容查询
  *
- * @author langhsu
+ * 
  *
  */
 @Component

@@ -31,7 +31,7 @@ import uzblog.base.data.Data;
 
 /**
  * 异常处理
- * @author langhsu
+ * 
  *
  */
 @Component

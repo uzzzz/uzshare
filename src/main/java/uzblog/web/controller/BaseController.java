@@ -39,7 +39,7 @@ import uzblog.web.formatter.StringEscapeEditor;
 /**
  * Controller 基类
  * 
- * @author langhsu
+ * 
  * 
  */
 public class BaseController {

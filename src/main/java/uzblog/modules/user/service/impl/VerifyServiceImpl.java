@@ -26,7 +26,7 @@ import uzblog.modules.user.service.VerifyService;
 import java.util.Date;
 
 /**
- * @author langhsu on 2015/8/14.
+ *  on 2015/8/14.
  */
 @Service
 public class VerifyServiceImpl implements VerifyService {

@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * @author langhsu on 2015/8/15.
+ *  on 2015/8/15.
  */
 public class Data implements Serializable {
     private static final long serialVersionUID = -1491499610244557029L;

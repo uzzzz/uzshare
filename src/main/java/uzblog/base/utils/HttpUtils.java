@@ -22,7 +22,7 @@ import uzblog.base.lang.MtonsException;
 
 /**
  * 
- * @author langhsu
+ * 
  *
  */
 public class HttpUtils {

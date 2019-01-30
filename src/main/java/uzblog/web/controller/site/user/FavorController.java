@@ -16,7 +16,7 @@ import uzblog.web.controller.BaseController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 @Controller
 @RequestMapping("/user")

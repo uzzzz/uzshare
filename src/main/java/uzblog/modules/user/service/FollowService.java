@@ -15,7 +15,7 @@ import org.springframework.data.domain.Pageable;
 import uzblog.modules.user.data.UserVO;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public interface FollowService {

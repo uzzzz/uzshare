@@ -24,7 +24,7 @@ import uzblog.modules.blog.service.ChannelService;
 import uzblog.web.controller.BaseController;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Controller("adminChannelController")

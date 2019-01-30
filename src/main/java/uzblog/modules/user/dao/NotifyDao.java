@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import uzblog.modules.user.entity.Notify;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 public interface NotifyDao extends JpaRepository<Notify, Long>, JpaSpecificationExecutor<Notify> {
     Page<Notify> findAllByOwnIdOrderByIdDesc(Pageable pageable, long ownId);

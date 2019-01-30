@@ -15,7 +15,7 @@ import org.apache.commons.text.RandomStringGenerator;
 import java.util.Date;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public class FileNameUtils {

@@ -13,7 +13,7 @@ import uzblog.modules.user.data.NotifyVO;
 import uzblog.modules.user.service.NotifyService;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 @Component
 public class NotifyEventHandler implements ApplicationListener<NotifyEvent> {

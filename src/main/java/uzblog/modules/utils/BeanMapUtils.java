@@ -26,7 +26,7 @@ import uzblog.modules.user.entity.Notify;
 import uzblog.modules.user.entity.User;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public class BeanMapUtils {

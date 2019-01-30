@@ -15,7 +15,7 @@ import org.springframework.data.domain.Pageable;
 import uzblog.modules.blog.data.FeedsVO;
 
 /**
- * @author langhsu
+ * 
  *
  */
 public interface FeedsService {

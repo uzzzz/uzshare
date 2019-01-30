@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import net.coobird.thumbnailator.Thumbnails;
 
 /**
- * @author langhsu on 2015/9/4.
+ *  on 2015/9/4.
  */
 public class ImageUtils {
 	

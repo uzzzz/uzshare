@@ -19,7 +19,7 @@ import uzblog.modules.user.service.UserEventService;
 
 /**
  * 用户事件操作, 用于统计用户信息
- * @author langhsu on 2015/8/6.
+ *  on 2015/8/6.
  */
 @Service
 @Transactional

@@ -17,7 +17,7 @@ import uzblog.template.TemplateDirective;
 /**
  * 根据作者取文章列表
  *
- * @author langhsu
+ * 
  *
  */
 @Component

@@ -17,7 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Controller

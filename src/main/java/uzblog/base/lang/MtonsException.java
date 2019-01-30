@@ -11,7 +11,7 @@ package uzblog.base.lang;
 
 /**
  * 
- * @author langhsu
+ * 
  *
  */
 public class MtonsException extends RuntimeException {

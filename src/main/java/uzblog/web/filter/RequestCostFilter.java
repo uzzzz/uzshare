@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
 
 /**
- * @author langhsu on 2015/7/10.
+ *  on 2015/7/10.
  */
 public class RequestCostFilter implements Filter {
     private Logger log = LoggerFactory.getLogger(RequestCostFilter.class);

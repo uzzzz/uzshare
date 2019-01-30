@@ -27,7 +27,7 @@ import uzblog.modules.blog.service.CommentService;
 import uzblog.web.controller.BaseController;
 
 /**
- * @author langhsu
+ * 
  *
  */
 @Controller("adminCommentController")

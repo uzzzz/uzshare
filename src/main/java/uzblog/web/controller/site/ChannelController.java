@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Channel 主页
- * @author langhsu
+ * 
  *
  */
 @Controller

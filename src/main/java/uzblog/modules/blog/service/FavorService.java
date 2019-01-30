@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import uzblog.modules.blog.data.FavorVO;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 public interface FavorService {
     /**

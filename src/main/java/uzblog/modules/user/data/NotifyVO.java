@@ -4,7 +4,7 @@ import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.user.entity.Notify;
 
 /**
- * @author langhsu on 2015/8/31.
+ *  on 2015/8/31.
  */
 public class NotifyVO extends Notify {
     // extend
