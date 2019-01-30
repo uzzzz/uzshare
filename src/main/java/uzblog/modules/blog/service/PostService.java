@@ -29,10 +29,8 @@ public interface PostService {
 	 * 分页查询所有文章
 	 * 
 	 * @param pageable
-	 * @param channelId
-	 *            分组Id
-	 * @param ord
-	 *            排序
+	 * @param channelId 分组Id
+	 * @param ord       排序
 	 */
 	Page<PostVO> paging(Pageable pageable, int channelId, Set<Integer> excludeChannelIds, String ord);
 
@@ -92,38 +90,6 @@ public interface PostService {
 	Map<Long, PostVO> findMapByIds(Set<Long> ids);
 
 	/**
-	 * 推荐/精华
-	 * 
-	 * @param id
-	 * @param featured
-	 *            0: 取消, 1: 加精
-	 */
-	void updateFeatured(long id, int featured);
-
-	/**
-	 * 置顶
-	 * 
-	 * @param id
-	 * @param weight
-	 *            0: 取消, 1: 置顶
-	 */
-	void updateWeight(long id, int weight);
-
-	/**
-	 * 自增浏览数
-	 * 
-	 * @param id
-	 */
-	void identityViews(long id);
-
-	/**
-	 * 自增评论数
-	 * 
-	 * @param id
-	 */
-	void identityComments(long id);
-
-	/**
 	 * 喜欢文章
 	 * 
 	 * @param userId
@@ -141,5 +107,4 @@ public interface PostService {
 
 	void resetIndexs();
 
-	List<Long> findAllIds();
 }

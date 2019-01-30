@@ -226,48 +226,6 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	@Transactional
-	@CacheEvict(allEntries = true)
-	public void updateFeatured(long id, int featured) {
-		Post po = postDao.getOne(id);
-
-		if (po != null) {
-			int status = Consts.FEATURED_ACTIVE == featured ? Consts.FEATURED_ACTIVE : Consts.FEATURED_DEFAULT;
-			po.setFeatured(status);
-			postDao.save(po);
-		}
-	}
-
-	@Override
-	@Transactional
-	@CacheEvict(allEntries = true)
-	public void updateWeight(long id, int weight) {
-		Post po = postDao.getOne(id);
-
-		if (po != null) {
-			int max = weight;
-			if (Consts.FEATURED_ACTIVE == weight) {
-				max = postDao.maxWeight() + 1;
-			}
-			po.setWeight(max);
-			postDao.save(po);
-		}
-	}
-
-	@Override
-	@Transactional
-	public void identityViews(long id) {
-		// 次数不清理缓存, 等待文章缓存自动过期
-		postDao.updateViews(id, Consts.IDENTITY_STEP);
-	}
-
-	@Override
-	@Transactional
-	public void identityComments(long id) {
-		postDao.updateComments(id, Consts.IDENTITY_STEP);
-	}
-
-	@Override
-	@Transactional
 	@CacheEvict(key = "'view_' + #postId")
 	public void favor(long userId, long postId) {
 		postDao.updateFavors(postId, Consts.IDENTITY_STEP);
@@ -319,10 +277,5 @@ public class PostServiceImpl implements PostService {
 	private void buildGroups(Collection<PostVO> posts, Set<Integer> groupIds) {
 		Map<Integer, Channel> map = channelService.findMapByIds(groupIds);
 		posts.forEach(p -> p.setChannel(map.get(p.getChannelId())));
-	}
-
-	@Override
-	public List<Long> findAllIds() {
-		return postDao.findAllIds();
 	}
 }
