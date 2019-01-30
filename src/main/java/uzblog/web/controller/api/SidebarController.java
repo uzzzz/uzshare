@@ -9,6 +9,8 @@
 */
 package uzblog.web.controller.api;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -23,13 +25,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import uzblog.base.data.Data;
 import uzblog.modules.blog.data.PostVO;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
 import uzblog.web.controller.BaseController;
-
-import java.util.List;
 
 /**
  * 侧边栏数据加载
@@ -41,7 +41,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class SidebarController extends BaseController {
 	@Autowired
-	private PostService postService;
+	private PostCacheableService postService;
 
 	@Autowired
 	private UserService userService;

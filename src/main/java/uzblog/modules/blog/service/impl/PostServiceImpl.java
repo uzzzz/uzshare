@@ -24,7 +24,6 @@ import javax.persistence.criteria.Predicate;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -38,7 +37,6 @@ import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.entity.Channel;
 import uzblog.modules.blog.entity.Post;
 import uzblog.modules.blog.service.ChannelService;
-import uzblog.modules.blog.service.FavorService;
 import uzblog.modules.blog.service.PostService;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
@@ -58,9 +56,6 @@ public class PostServiceImpl implements PostService {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private FavorService favorService;
 
 	@Autowired
 	private ChannelService channelService;
@@ -182,27 +177,6 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	@Cacheable
-	public List<PostVO> findLatests(int maxResults, long ignoreUserId) {
-		List<Post> list = postDao.findTop10ByOrderByCreatedDesc();
-		List<PostVO> rets = new ArrayList<>();
-
-		list.forEach(po -> rets.add(BeanMapUtils.copy(po, 0)));
-
-		return rets;
-	}
-
-	@Override
-	@Cacheable
-	public List<PostVO> findHots(int maxResults, long ignoreUserId) {
-		List<Post> list = postDao.findTop10ByOrderByViewsDesc();
-		List<PostVO> rets = new ArrayList<>();
-
-		list.forEach(po -> rets.add(BeanMapUtils.copy(po, 0)));
-		return rets;
-	}
-
-	@Override
 	public Map<Long, PostVO> findMapByIds(Set<Long> ids) {
 		if (ids == null || ids.isEmpty()) {
 			return Collections.emptyMap();
@@ -222,22 +196,6 @@ public class PostServiceImpl implements PostService {
 		buildUsers(rets.values(), uids);
 
 		return rets;
-	}
-
-	@Override
-	@Transactional
-	@CacheEvict(key = "'view_' + #postId")
-	public void favor(long userId, long postId) {
-		postDao.updateFavors(postId, Consts.IDENTITY_STEP);
-		favorService.add(userId, postId);
-	}
-
-	@Override
-	@Transactional
-	@CacheEvict(key = "'view_' + #postId")
-	public void unfavor(long userId, long postId) {
-		postDao.updateFavors(postId, Consts.DECREASE_STEP);
-		favorService.delete(userId, postId);
 	}
 
 	@Override

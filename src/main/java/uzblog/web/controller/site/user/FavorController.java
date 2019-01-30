@@ -1,5 +1,7 @@
 package uzblog.web.controller.site.user;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -9,11 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
 import uzblog.core.event.NotifyEvent;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.web.controller.BaseController;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *  on 2015/8/31.
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class FavorController extends BaseController {
     @Autowired
-    private PostService postService;
+    private PostCacheableService postService;
     @Autowired
     private ApplicationContext applicationContext;
 

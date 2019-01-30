@@ -27,6 +27,9 @@
 	</cache-template>
 
 	<cache alias="posts_caches" uses-template="template">
+		<expiry>
+			<ttl unit="days">1</ttl>
+		</expiry>
 	</cache>
 
 </config>

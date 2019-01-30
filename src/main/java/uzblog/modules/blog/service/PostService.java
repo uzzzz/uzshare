@@ -64,24 +64,6 @@ public interface PostService {
 	Page<PostVO> searchByTag(Pageable pageable, String tag);
 
 	/**
-	 * 查询最近更新 - 按发布时间排序
-	 * 
-	 * @param maxResults
-	 * @param ignoreUserId
-	 * @return
-	 */
-	List<PostVO> findLatests(int maxResults, long ignoreUserId);
-
-	/**
-	 * 查询热门文章 - 按浏览次数排序
-	 * 
-	 * @param maxResults
-	 * @param ignoreUserId
-	 * @return
-	 */
-	List<PostVO> findHots(int maxResults, long ignoreUserId);
-
-	/**
 	 * 根据Ids查询
 	 * 
 	 * @param ids
@@ -89,22 +71,5 @@ public interface PostService {
 	 */
 	Map<Long, PostVO> findMapByIds(Set<Long> ids);
 
-	/**
-	 * 喜欢文章
-	 * 
-	 * @param userId
-	 * @param postId
-	 */
-	void favor(long userId, long postId);
-
-	/**
-	 * 取消喜欢文章
-	 * 
-	 * @param userId
-	 * @param postId
-	 */
-	void unfavor(long userId, long postId);
-
 	void resetIndexs();
-
 }
