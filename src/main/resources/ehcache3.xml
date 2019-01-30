@@ -4,8 +4,7 @@
 	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
 	xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
 
-	<!-- 持久化路径 path="java.io.tmpdir/ehcache" -->
-	<persistence directory="C:\ehcacheData" />
+	<persistence directory="java.io.tmpdir/uzblog_ehcache" />
 
 	<cache-template name="template">
 		<listeners>

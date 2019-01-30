@@ -38,6 +38,7 @@ import org.springframework.util.Assert;
 import uzblog.base.context.SpringContextHolder;
 import uzblog.base.lang.Consts;
 import uzblog.base.lang.EntityStatus;
+import uzblog.base.print.Printer;
 import uzblog.base.utils.PreviewTextUtils;
 import uzblog.core.event.PostUpdateEvent;
 import uzblog.modules.blog.dao.PostAttributeDao;
@@ -269,7 +270,7 @@ public class PostCacheableServiceImpl implements PostCacheableService {
 	@Cacheable(key = "'view_' + #id")
 	public PostVO get(long id) {
 		
-		System.out.println("get from db : " + id);
+		Printer.info("get post from db : " + id);
 		
 		Post po = postDao.findById(id).get();
 		
