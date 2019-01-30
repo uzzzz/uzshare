@@ -1,9 +1,7 @@
 package uzblog.boot;
 
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-
-import uzblog.base.context.AppContext;
-import uzblog.web.interceptor.BaseInterceptor;
+import java.io.File;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -11,16 +9,18 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.io.File;
-import java.util.List;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+
+import uzblog.base.context.AppContext;
+import uzblog.web.interceptor.BaseInterceptor;
 
 /**
  *   on 2017/10/13.
  */
 @Configuration
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private BaseInterceptor baseInterceptor;
     @Autowired
@@ -30,7 +30,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
-        super.configurePathMatch(configurer);
         configurer.setUseSuffixPatternMatch(false);
     }
 
@@ -41,7 +40,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        super.addInterceptors(registry);
         registry.addInterceptor(baseInterceptor).addPathPatterns("/**").excludePathPatterns("/dist/**", "/store/**", "/static/**");
     }
 
@@ -50,7 +48,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/dist/**").addResourceLocations("classpath:/static/dist/");
         registry.addResourceHandler("/theme/**").addResourceLocations("classpath:/static/theme/");
         registry.addResourceHandler("/store/**").addResourceLocations(getStorePath());
-        super.addResourceHandlers(registry);
     }
 
     @Override
