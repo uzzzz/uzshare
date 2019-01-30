@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import uzblog.base.lang.Consts;
 import uzblog.core.event.NotifyEvent;
 import uzblog.modules.blog.data.PostVO;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.NotifyVO;
 import uzblog.modules.user.service.NotifyService;
 
@@ -20,7 +20,7 @@ public class NotifyEventHandler implements ApplicationListener<NotifyEvent> {
     @Autowired
     private NotifyService notifyService;
     @Autowired
-    private PostService postService;
+    private PostCacheableService postService;
 
     @Async
     @Override

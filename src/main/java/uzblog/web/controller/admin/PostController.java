@@ -9,6 +9,10 @@
 */
 package uzblog.web.controller.admin;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +20,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,13 +31,9 @@ import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.service.ChannelService;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.web.controller.BaseController;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.util.List;
 
 /**
  * 
@@ -44,7 +43,7 @@ import java.util.List;
 @RequestMapping("/admin/post")
 public class PostController extends BaseController {
 	@Autowired
-	private PostService postService;
+	private PostCacheableService postService;
 	@Autowired
 	private ChannelService channelService;
 	

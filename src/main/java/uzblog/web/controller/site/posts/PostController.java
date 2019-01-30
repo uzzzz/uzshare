@@ -3,24 +3,29 @@
  */
 package uzblog.web.controller.site.posts;
 
+import java.io.IOException;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.service.ChannelService;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
-
-import java.io.IOException;
 
 /**
  * 文章操作
@@ -31,7 +36,7 @@ import java.io.IOException;
 @RequestMapping("/post")
 public class PostController extends BaseController {
 	@Autowired
-	private PostService postService;
+	private PostCacheableService postService;
 	@Autowired
 	private ChannelService channelService;
 
@@ -40,7 +45,7 @@ public class PostController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/editing")
-	public String view(Long id, ModelMap model) {
+	public String editing(Long id, ModelMap model) {
 		model.put("channels", channelService.findAll(Consts.STATUS_NORMAL));
 
 		if (null != id && id > 0) {

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.blog.service.PostService;
 
 @RunWith(SpringRunner.class)
@@ -13,7 +14,7 @@ import uzblog.modules.blog.service.PostService;
 public class EhCacheTest {
 
 	@Autowired
-	private PostService postService;
+	private PostCacheableService postService;
 
 	@Test
 	public void testEhCache() {

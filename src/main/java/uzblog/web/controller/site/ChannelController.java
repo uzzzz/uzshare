@@ -9,6 +9,8 @@
 */
 package uzblog.web.controller.site;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,10 +23,8 @@ import uzblog.base.lang.Consts;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.entity.Channel;
 import uzblog.modules.blog.service.ChannelService;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.web.controller.BaseController;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Channel 主页
@@ -36,7 +36,7 @@ public class ChannelController extends BaseController {
 	@Autowired
 	private ChannelService channelService;
 	@Autowired
-	private PostService postService;
+	private PostCacheableService postService;
 	
 	@RequestMapping("/channel/{id}")
 	public String channel(@PathVariable Integer id, ModelMap model,

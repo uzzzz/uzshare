@@ -12,6 +12,7 @@ package uzblog.modules.blog.service.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -22,6 +23,7 @@ import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
@@ -31,15 +33,22 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
+import uzblog.base.context.SpringContextHolder;
 import uzblog.base.lang.Consts;
+import uzblog.base.lang.EntityStatus;
+import uzblog.base.utils.PreviewTextUtils;
+import uzblog.core.event.PostUpdateEvent;
+import uzblog.modules.blog.dao.PostAttributeDao;
 import uzblog.modules.blog.dao.PostDao;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.entity.Channel;
 import uzblog.modules.blog.entity.Post;
+import uzblog.modules.blog.entity.PostAttribute;
 import uzblog.modules.blog.service.ChannelService;
 import uzblog.modules.blog.service.FavorService;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
 import uzblog.modules.utils.BeanMapUtils;
@@ -51,7 +60,7 @@ import uzblog.modules.utils.BeanMapUtils;
 @Service
 @Transactional
 @CacheConfig(cacheNames = "posts_caches")
-public class PostServiceImpl implements PostService {
+public class PostCacheableServiceImpl implements PostCacheableService {
 
 	@Autowired
 	private PostDao postDao;
@@ -64,6 +73,9 @@ public class PostServiceImpl implements PostService {
 
 	@Autowired
 	private ChannelService channelService;
+
+	@Autowired
+	private PostAttributeDao postAttributeDao;
 
 	@Override
 	@Cacheable
@@ -227,6 +239,92 @@ public class PostServiceImpl implements PostService {
 	@Override
 	@Transactional
 	@CacheEvict(allEntries = true)
+	public long post(PostVO post) {
+		Post po = new Post();
+
+		BeanUtils.copyProperties(post, po);
+
+		po.setCreated(new Date());
+		po.setStatus(EntityStatus.ENABLED);
+
+		// 处理摘要
+		if (StringUtils.isBlank(post.getSummary())) {
+			po.setSummary(trimSummary(post.getContent()));
+		} else {
+			po.setSummary(post.getSummary());
+		}
+
+		postDao.save(po);
+
+		PostAttribute attr = new PostAttribute();
+		attr.setContent(post.getContent());
+		attr.setId(po.getId());
+		submitAttr(attr);
+
+		onPushEvent(po, PostUpdateEvent.ACTION_PUBLISH);
+		return po.getId();
+	}
+
+	@Override
+	@Cacheable(key = "'view_' + #id")
+	public PostVO get(long id) {
+		
+		System.out.println("get from db : " + id);
+		
+		Post po = postDao.findById(id).get();
+		
+		PostVO d = null;
+		if (po != null) {
+			d = BeanMapUtils.copy(po, 1);
+
+			d.setAuthor(userService.get(d.getAuthorId()));
+
+			d.setChannel(channelService.getById(d.getChannelId()));
+
+			PostAttribute attr = postAttributeDao.findById(po.getId()).get();
+			if (attr != null) {
+				d.setContent(attr.getContent());
+			}
+		}
+		return d;
+	}
+
+	/**
+	 * 更新文章方法
+	 * 
+	 * @param p
+	 */
+	@Override
+	@Transactional
+	@CacheEvict(allEntries = true)
+	public void update(PostVO p) {
+		Post po = postDao.getOne(p.getId());
+
+		if (po != null) {
+			po.setTitle(p.getTitle());// 标题
+			po.setChannelId(p.getChannelId());
+			po.setThumbnail(p.getThumbnail());
+
+			// 处理摘要
+			if (StringUtils.isBlank(p.getSummary())) {
+				po.setSummary(trimSummary(p.getContent()));
+			} else {
+				po.setSummary(p.getSummary());
+			}
+
+			po.setTags(p.getTags());// 标签
+
+			// 保存扩展
+			PostAttribute attr = new PostAttribute();
+			attr.setContent(p.getContent());
+			attr.setId(po.getId());
+			submitAttr(attr);
+		}
+	}
+
+	@Override
+	@Transactional
+	@CacheEvict(allEntries = true)
 	public void updateFeatured(long id, int featured) {
 		Post po = postDao.getOne(id);
 
@@ -251,6 +349,42 @@ public class PostServiceImpl implements PostService {
 			po.setWeight(max);
 			postDao.save(po);
 		}
+	}
+
+	@Override
+	@Transactional
+	@CacheEvict(allEntries = true)
+	public void delete(long id) {
+		Post po = postDao.getOne(id);
+		if (po != null) {
+			postDao.deleteById(id);
+			postAttributeDao.deleteById(id);
+
+			onPushEvent(po, PostUpdateEvent.ACTION_DELETE);
+		}
+	}
+
+	@Override
+	@Transactional
+	@CacheEvict(allEntries = true)
+	public void delete(long id, long authorId) {
+		Post po = postDao.getOne(id);
+		if (po != null) {
+			// 判断文章是否属于当前登录用户
+			Assert.isTrue(po.getAuthorId() == authorId, "认证失败");
+
+			postDao.deleteById(id);
+			postAttributeDao.deleteById(id);
+
+			onPushEvent(po, PostUpdateEvent.ACTION_DELETE);
+		}
+	}
+
+	@Override
+	@Transactional
+	@CacheEvict(allEntries = true)
+	public void delete(Collection<Long> ids) {
+		ids.forEach(this::delete);
 	}
 
 	@Override
@@ -288,6 +422,16 @@ public class PostServiceImpl implements PostService {
 		postDao.resetIndexs();
 	}
 
+	/**
+	 * 截取文章内容
+	 * 
+	 * @param text
+	 * @return
+	 */
+	private String trimSummary(String text) {
+		return PreviewTextUtils.getText(text, 126);
+	}
+
 	private List<PostVO> toPosts(List<Post> posts) {
 		List<PostVO> rets = new ArrayList<>();
 
@@ -319,6 +463,18 @@ public class PostServiceImpl implements PostService {
 	private void buildGroups(Collection<PostVO> posts, Set<Integer> groupIds) {
 		Map<Integer, Channel> map = channelService.findMapByIds(groupIds);
 		posts.forEach(p -> p.setChannel(map.get(p.getChannelId())));
+	}
+
+	private void submitAttr(PostAttribute attr) {
+		postAttributeDao.save(attr);
+	}
+
+	private void onPushEvent(Post post, int action) {
+		PostUpdateEvent event = new PostUpdateEvent(System.currentTimeMillis());
+		event.setPostId(post.getId());
+		event.setUserId(post.getAuthorId());
+		event.setAction(action);
+		SpringContextHolder.publishEvent(event);
 	}
 
 	@Override

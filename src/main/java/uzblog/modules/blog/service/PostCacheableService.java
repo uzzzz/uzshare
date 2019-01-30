@@ -9,22 +9,17 @@
 */
 package uzblog.modules.blog.service;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import uzblog.modules.blog.data.PostVO;
 
-/**
- * 文章管理
- * 
- * 
- *
- */
-public interface PostService {
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public interface PostCacheableService {
 	/**
 	 * 分页查询所有文章
 	 * 
@@ -92,6 +87,28 @@ public interface PostService {
 	Map<Long, PostVO> findMapByIds(Set<Long> ids);
 
 	/**
+	 * 发布文章
+	 * 
+	 * @param post
+	 */
+	long post(PostVO post);
+
+	/**
+	 * 文章详情
+	 * 
+	 * @param id
+	 * @return
+	 */
+	PostVO get(long id);
+
+	/**
+	 * 更新文章方法
+	 * 
+	 * @param p
+	 */
+	void update(PostVO p);
+
+	/**
 	 * 推荐/精华
 	 * 
 	 * @param id
@@ -108,6 +125,28 @@ public interface PostService {
 	 *            0: 取消, 1: 置顶
 	 */
 	void updateWeight(long id, int weight);
+
+	/**
+	 * 删除
+	 * 
+	 * @param id
+	 */
+	void delete(long id);
+
+	/**
+	 * 带作者验证的删除 - 验证是否属于自己的文章
+	 * 
+	 * @param id
+	 * @param authorId
+	 */
+	void delete(long id, long authorId);
+
+	/**
+	 * 批量删除文章, 且刷新缓存
+	 *
+	 * @param ids
+	 */
+	void delete(Collection<Long> ids);
 
 	/**
 	 * 自增浏览数

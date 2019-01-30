@@ -31,7 +31,7 @@ import uzblog.base.lang.Consts;
 import uzblog.base.print.Printer;
 import uzblog.base.utils.AsyncTask;
 import uzblog.modules.blog.data.PostVO;
-import uzblog.modules.blog.service.PostService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.web.controller.BaseController;
 
 @Controller
@@ -42,7 +42,7 @@ public class PostApiController extends BaseController {
 	private String sitestoreroot;
 
 	@Autowired
-	private PostService postService;
+	private PostCacheableService postService;
 
 	@Autowired
 	private AsyncTask task;
