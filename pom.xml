@@ -127,12 +127,10 @@
 			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 
-		<!-- 
 		<dependency>
 			<groupId>org.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
-		</dependency> 
-		-->
+		</dependency>
 
 		<dependency>
 			<groupId>javax.cache</groupId>

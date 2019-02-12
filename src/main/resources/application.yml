@@ -48,9 +48,9 @@ spring:
       hibernate.search.default.directory_provider: filesystem
       hibernate.search.default.indexBase: ${site.store.root}/indexes
 
-spring.cache.type: redis
-#spring.cache.type: jcache
-#spring.cache.jcache.config: classpath:ehcache3.xml
+#spring.cache.type: redis
+spring.cache.type: jcache
+spring.cache.jcache.config: classpath:ehcache3.xml
 
 spring.servlet.multipart.max-file-size: 5MB
 #site.theme: [default|card]
