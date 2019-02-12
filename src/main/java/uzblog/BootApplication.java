@@ -13,9 +13,12 @@ import org.springframework.boot.web.server.ErrorPageRegistry;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
+
+import uzblog.boot.RedisService;
 
 /**
  * SprintBootApplication
@@ -44,6 +47,13 @@ public class BootApplication extends SpringBootServletInitializer implements Err
 	@Bean
 	public RestTemplate restTemplate() {
 		return builder.build();
+	}
+
+	@Bean
+	public <V> RedisService<V> redisService(RedisConnectionFactory factory) {
+		RedisService<V> redis = new RedisService<V>(factory);
+		redis.afterPropertiesSet();
+		return redis;
 	}
 
 	@Override
