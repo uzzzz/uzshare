@@ -4,7 +4,7 @@
 	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
 	xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
 
-	<persistence directory="uzblog_ehcache" />
+	<persistence directory="cache/ehcache" />
 
 	<cache-template name="template">
 		<listeners>

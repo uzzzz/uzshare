@@ -46,7 +46,7 @@ spring:
       hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       hibernate.cache.use_second_level_cache: false
       hibernate.search.default.directory_provider: filesystem
-      hibernate.search.default.indexBase: ${site.store.root}/indexes
+      hibernate.search.default.indexBase: cache/hibernate_indexes
 
 #spring.cache.type: redis
 spring.cache.type: jcache
