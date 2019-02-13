@@ -85,7 +85,7 @@ public class PostApiController extends BaseController {
 	@GetMapping("/rewritesitemapxml")
 	@ResponseBody
 	public String rewritesitemapxml() throws IOException {
-		String baseUrl = "https://blog.uzzz.org";
+		String baseUrl = "https://" + appContext.getHost();
 
 		WebSitemapGenerator wsgGzip = WebSitemapGenerator.builder(baseUrl, new File(appContext.getRoot())).gzip(true)
 				.build();
