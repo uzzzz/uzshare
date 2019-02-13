@@ -1,5 +1,5 @@
 # server application
-server.host: blog.uzzz.org
+server.host: blog.uzzz.org.cn
 server.servlet.context-path: /
 
 # logger, to see logback-spring.xml
