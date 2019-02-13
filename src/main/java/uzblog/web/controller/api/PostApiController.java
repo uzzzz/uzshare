@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -27,6 +26,7 @@ import com.redfin.sitemapgenerator.W3CDateFormat;
 import com.redfin.sitemapgenerator.WebSitemapGenerator;
 import com.redfin.sitemapgenerator.WebSitemapUrl;
 
+import uzblog.base.context.AppContext;
 import uzblog.base.lang.Consts;
 import uzblog.base.print.Printer;
 import uzblog.base.utils.AsyncTask;
@@ -38,8 +38,8 @@ import uzblog.web.controller.BaseController;
 @RequestMapping("/api")
 public class PostApiController extends BaseController {
 
-	@Value("${site.store.root}")
-	private String sitestoreroot;
+	@Autowired
+	private AppContext appContext;
 
 	@Autowired
 	private PostCacheableService postService;
@@ -87,7 +87,8 @@ public class PostApiController extends BaseController {
 	public String rewritesitemapxml() throws IOException {
 		String baseUrl = "https://blog.uzzz.org";
 
-		WebSitemapGenerator wsgGzip = WebSitemapGenerator.builder(baseUrl, new File(sitestoreroot)).gzip(true).build();
+		WebSitemapGenerator wsgGzip = WebSitemapGenerator.builder(baseUrl, new File(appContext.getRoot())).gzip(true)
+				.build();
 
 		List<Long> ids = postService.findAllIds();
 		for (Long id : ids) {
@@ -101,7 +102,8 @@ public class PostApiController extends BaseController {
 		// 构造 sitemap_index 生成器
 		W3CDateFormat dateFormat = new W3CDateFormat(W3CDateFormat.Pattern.DAY);
 		SitemapIndexGenerator sitemapIndexGenerator = new SitemapIndexGenerator.Options(baseUrl,
-				new File(sitestoreroot + "/sitemap_index.xml")).autoValidate(true).dateFormat(dateFormat).build();
+				new File(appContext.getRoot() + "/sitemap_index.xml")).autoValidate(true).dateFormat(dateFormat)
+						.build();
 
 		Printer.warn("sitemap size : " + viewsGzip.size());
 		viewsGzip.forEach(e -> {
