@@ -15,4 +15,4 @@ spring.datasource.url: jdbc:mysql://127.0.0.1:3306/uzblog?useSSL=false&character
 spring.datasource.username: root
 spring.datasource.password: Abc1234567!
 
-site.store.root: /data/uzblog/
+site.store.root: /web/blog.uzzz.org/static/
