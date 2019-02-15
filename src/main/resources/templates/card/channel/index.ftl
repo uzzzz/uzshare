@@ -6,9 +6,9 @@
 		{
 			"@context":"http://schema.org",
 			"@type":"WebPage",
-			"name":"区块链大本营",
+			"name":"${configs['site_name'].value}",
 			"url":"https://blog.uzzz.org${base}/channel/${channel.id}",
-			"headline":"${channel.name} - 区块链大本营"
+			"headline":"${channel.name} - ${configs['site_name'].value}"
 		}
 	</script>
 </#assign>

@@ -7,9 +7,9 @@
 		{
 			"@context":"http://schema.org",
 			"@type":"WebSite",
-			"name":"区块链大本营",
+			"name":"${configs['site_name'].value}",
 			"url":"https://blog.uzzz.org/",
-			"headline":"资讯、技术、生活、思想 - 区块链大本营"
+			"headline":"资讯、技术、生活、思想 - ${configs['site_name'].value}"
 		}
 	</script>
 </#assign>
