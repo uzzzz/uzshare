@@ -8,7 +8,6 @@
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
     <![endif]-->
-    <meta name="baidu-site-verification" content="2nXjznVkpe" />
 
     <title>${title?default(site_name)}</title>
     <meta name="keywords" content="mtons, ${keywords?default(site_keywords)}">
