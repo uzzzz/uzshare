@@ -18,7 +18,7 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
-import uzblog.base.lang.MtonsException;
+import uzblog.base.lang.BlogException;
 
 /**
  * 
@@ -45,7 +45,7 @@ public class HttpUtils {
     	int status = client.executeMethod(post);
 
     	if (status != HttpStatus.SC_OK) {
-    		throw new MtonsException("该地址请求失败");
+    		throw new BlogException("该地址请求失败");
     	}
     	return post.getResponseBodyAsString();
 	}

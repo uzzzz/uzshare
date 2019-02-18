@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import uzblog.base.context.AppContext;
-import uzblog.base.lang.MtonsException;
+import uzblog.base.lang.BlogException;
 import uzblog.base.upload.FileRepo;
 import uzblog.base.utils.FileNameUtils;
 import uzblog.base.utils.ImageUtils;
@@ -42,11 +42,11 @@ public abstract class AbstractFileRepo implements FileRepo {
 
     protected void validateFile(MultipartFile file) {
         if (file == null || file.isEmpty()) {
-            throw new MtonsException("文件不能为空");
+            throw new BlogException("文件不能为空");
         }
 
         if (!checkFileType(file.getOriginalFilename())) {
-            throw new MtonsException("文件格式不支持");
+            throw new BlogException("文件格式不支持");
         }
     }
 

@@ -7,9 +7,9 @@
 		{
 			"@context":"http://schema.org",
 			"@type":"WebSite",
-			"name":"${configs['site_name'].value}",
+			"name":"${site_name}",
 			"url":"https://blog.uzzz.org/",
-			"headline":"资讯、技术、生活、思想 - ${configs['site_name'].value}"
+			"headline":"资讯、技术、生活、思想 - ${site_name}"
 		}
 	</script>
 </#assign>

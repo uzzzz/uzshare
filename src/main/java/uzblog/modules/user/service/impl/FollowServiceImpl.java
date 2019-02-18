@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import uzblog.base.lang.MtonsException;
+import uzblog.base.lang.BlogException;
 import uzblog.modules.user.dao.FollowDao;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.entity.Follow;
@@ -63,7 +63,7 @@ public class FollowServiceImpl implements FollowService {
 			userEventService.identityFollow(userId, followId, true);
 			userEventService.identityFans(followId, userId, true);
 		} else {
-			throw new MtonsException("您已经关注过此用户了");
+			throw new BlogException("您已经关注过此用户了");
 		}
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class FollowServiceImpl implements FollowService {
 		int ret = followDao.deleteByUserAndFollow(new User(userId), new User(followId));
 
 		if (ret <= 0) {
-			throw new MtonsException("取消关注失败");
+			throw new BlogException("取消关注失败");
 		} else {
 			userEventService.identityFollow(userId, followId, false);
 			userEventService.identityFans(followId, userId, false);

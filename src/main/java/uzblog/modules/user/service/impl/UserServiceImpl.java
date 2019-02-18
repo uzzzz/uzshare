@@ -32,7 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import uzblog.base.lang.EntityStatus;
-import uzblog.base.lang.MtonsException;
+import uzblog.base.lang.BlogException;
 import uzblog.base.utils.CheckUtils;
 import uzblog.base.utils.MD5;
 import uzblog.modules.user.dao.UserDao;
@@ -146,13 +146,13 @@ public class UserServiceImpl implements UserService {
 		if (null != po) {
 
 			if (email.equals(po.getEmail())) {
-				throw new MtonsException("邮箱地址没做更改");
+				throw new BlogException("邮箱地址没做更改");
 			}
 
 			User check = userDao.findByEmail(email);
 
 			if (check != null && check.getId() != po.getId()) {
-				throw new MtonsException("该邮箱地址已经被使用了");
+				throw new BlogException("该邮箱地址已经被使用了");
 			}
 			po.setEmail(email);
 			po.setActiveEmail(EntityStatus.ENABLED);

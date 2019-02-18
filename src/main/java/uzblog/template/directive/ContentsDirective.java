@@ -24,11 +24,7 @@ import uzblog.template.TemplateDirective;
 /**
  * 文章内容查询
  *
- * 示例： 请求：http://mtons.com/index?ord=newest&pn=2 使用：@contents group=x pn=pn
- * ord=ord
- *
- * 
- *
+ * 示例： 请求：/index?ord=newest&pn=2 使用：@contents group=x pn=pn ord=ord
  */
 @Component
 public class ContentsDirective extends TemplateDirective {
@@ -58,7 +54,7 @@ public class ContentsDirective extends TemplateDirective {
 			}
 		}
 
-		Pageable pageable = new PageRequest(pn - 1, size);
+		Pageable pageable = PageRequest.of(pn - 1, size);
 		Page<PostVO> result = postService.paging(pageable, channelId, excludeChannelIds, order);
 
 		handler.put(RESULTS, result).render();

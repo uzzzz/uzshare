@@ -18,7 +18,7 @@ import org.springframework.util.Assert;
 
 import uzblog.base.lang.Consts;
 import uzblog.base.lang.EntityStatus;
-import uzblog.base.lang.MtonsException;
+import uzblog.base.lang.BlogException;
 import uzblog.modules.user.dao.VerifyDao;
 import uzblog.modules.user.entity.Verify;
 import uzblog.modules.user.service.VerifyService;
@@ -57,7 +57,7 @@ public class VerifyServiceImpl implements VerifyService {
             long interval = ( now.getTime() - po.getCreated().getTime() ) / 1000;
 
             if (interval <= 60) {
-                throw new MtonsException("发送间隔时间不能少于1分钟");
+                throw new BlogException("发送间隔时间不能少于1分钟");
             }
 
             // 把 验证位 置0
