@@ -10,7 +10,7 @@
     <![endif]-->
 
     <title>${title?default(site_name)}</title>
-    <meta name="keywords" content="mtons, ${keywords?default(site_keywords)}">
+    <meta name="keywords" content="${keywords?default(site_keywords)}">
     <meta name="description" content="${description?default(site_description)}">
 
     <#include "/default/inc/include.ftl"/>
