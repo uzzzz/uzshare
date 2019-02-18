@@ -1,3 +1,4 @@
+<!-- blog.uzzz.org ......start -->
 <script>
 	// 百度统计
     var _hmt = _hmt || [];
@@ -33,3 +34,18 @@
 
   gtag('config', 'UA-123893816-1');
 </script>
+
+<!-- blog.uzzz.org ......end -->
+
+<!-- blog.uzzz.org.cn ......start -->
+<script>
+	// 百度统计
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb6a08cf206c4cd2106f8426fb49ec89";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<!-- blog.uzzz.org.cn ......end -->
