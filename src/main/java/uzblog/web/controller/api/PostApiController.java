@@ -29,7 +29,6 @@ import com.redfin.sitemapgenerator.WebSitemapUrl;
 import uzblog.base.context.AppContext;
 import uzblog.base.lang.Consts;
 import uzblog.base.print.Printer;
-import uzblog.base.utils.AsyncTask;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.web.controller.BaseController;
@@ -43,9 +42,6 @@ public class PostApiController extends BaseController {
 
 	@Autowired
 	private PostCacheableService postService;
-
-	@Autowired
-	private AsyncTask task;
 
 	@RequestMapping("/posts")
 	@ResponseBody
@@ -76,8 +72,6 @@ public class PostApiController extends BaseController {
 		post.setTags(tags);
 		post.setThumbnail(thumbnail);
 		long id = postService.post(post);
-
-		task.postBaiduForBlog(id);
 
 		return id;
 	}

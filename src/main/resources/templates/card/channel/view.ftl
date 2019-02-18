@@ -4,14 +4,18 @@
 <#assign keywords = view.keywords?default(site_keywords) />
 <#assign description = view.summary?default(site_description) />
 
+<@yaml>
+	<#assign host = results.getProperty("server.host") />
+</@yaml>
+
 <#assign site_metas>
-	<link rel="canonical" href="https://blog.uzzz.org${base}/view/${view.id}">
+	<link rel="canonical" href="https://${host}${base}/view/${view.id}">
 	<script type="application/ld+json">
 		{
 			"@context":"http://schema.org",
 		    "@type":"BlogPosting",
 		    "description":"${description}",
-		    "url":"https://blog.uzzz.org${base}/view/${view.id}",
+		    "url":"https://${host}${base}/view/${view.id}",
 		    "headline":"${title}",
 		    "author": "${view.author.name}",
 		    "publisher": "${view.author.name}",
@@ -20,7 +24,7 @@
 		    "datePublished":"${view.created}",
 		    "mainEntityOfPage":{
 		        "@type":"WebPage",
-		        "@id":"https://blog.uzzz.org${base}/view/${view.id}"
+		        "@id":"https://${host}${base}/view/${view.id}"
 		    }
 		}
 	</script>

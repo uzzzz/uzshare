@@ -1,14 +1,18 @@
 <#include "/card/utils/ui.ftl"/>
 <#assign topId = 1 />
 
+<@yaml>
+	<#assign host = results.getProperty("server.host") />
+</@yaml>
+
 <#assign site_metas>
-	<link rel="canonical" href="https://blog.uzzz.org">
+	<link rel="canonical" href="https://${host}">
 	<script type="application/ld+json">
 		{
 			"@context":"http://schema.org",
 			"@type":"WebSite",
 			"name":"${site_name}",
-			"url":"https://blog.uzzz.org/",
+			"url":"https://${host}/",
 			"headline":"资讯、技术、生活、思想 - ${site_name}"
 		}
 	</script>

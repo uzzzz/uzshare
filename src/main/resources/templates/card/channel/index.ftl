@@ -1,14 +1,18 @@
 <#include "/card/utils/ui.ftl"/>
 
+<@yaml>
+	<#assign host = results.getProperty("server.host") />
+</@yaml>
+
 <#assign site_metas>
-	<link rel="canonical" href="https://blog.uzzz.org${base}/channel/${channel.id}">
+	<link rel="canonical" href="https://${host}${base}/channel/${channel.id}">
 	<script type="application/ld+json">
 		{
 			"@context":"http://schema.org",
 			"@type":"WebPage",
-			"name":"${configs['site_name'].value}",
-			"url":"https://blog.uzzz.org${base}/channel/${channel.id}",
-			"headline":"${channel.name} - ${configs['site_name'].value}"
+			"name":"${site_name}",
+			"url":"https://${host}${base}/channel/${channel.id}",
+			"headline":"${channel.name} - ${site_name}"
 		}
 	</script>
 </#assign>
