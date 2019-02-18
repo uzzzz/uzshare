@@ -16,8 +16,6 @@ public class BlogException extends RuntimeException {
 	}
 
 	/**
-	 * MtonsException
-	 * 
 	 * @param message 错误消息
 	 */
 	public BlogException(String message) {
