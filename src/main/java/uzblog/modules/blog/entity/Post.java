@@ -49,7 +49,7 @@ public class Post implements Serializable {
 	 * 标题
 	 */
 	@Field
-	@Column(name = "title", length = 64)
+	@Column(name = "title", length = 255)
 	private String title;
 
 	/**
