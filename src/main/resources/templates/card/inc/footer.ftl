@@ -8,6 +8,8 @@
                 <li class="menu-item"><a href="${base}/about">关于我们</a></li>
                 <li class="menu-item"><a href="${base}/joinus">联系我们</a></li>
                 <li class="menu-item"><a href="${base}/faqs">常见问题</a></li>
+                <li class="menu-item"><a href="//blog.uzzz.org.cn">国内站点</a></li>
+                <li class="menu-item"><a href="//blog.uzzz.org">国际站点</a></li>
             </ul>
             <div class="copyright">
 				<span>${site_copyright}. ${site_icp}</span>
