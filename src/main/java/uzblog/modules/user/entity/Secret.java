@@ -35,7 +35,7 @@ public class Secret {
 	@Column(nullable = false)
 	private String answer;
 
-	@Column(name = "created", nullable = false)
+	@Column(name = "created", nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date created; // 创建时间
 
@@ -91,5 +91,14 @@ public class Secret {
 
 	public void setDeleted(int deleted) {
 		this.deleted = deleted;
+	}
+
+	public void trim() {
+		if (question != null) {
+			question = question.trim();
+		}
+		if (answer != null) {
+			answer = answer.trim();
+		}
 	}
 }

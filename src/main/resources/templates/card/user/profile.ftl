@@ -7,6 +7,7 @@
 			<li class="active"><a href="profile">基本信息</a></li>
 			<li><a href="avatar">修改头像</a></li>
 			<li><a href="password">修改密码</a></li>
+			<li><a href="secret">密码保护</a></li>
 		</ul>
 	</div>
 	<div class="panel-body">
