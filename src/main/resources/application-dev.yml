@@ -1,5 +1,6 @@
 # server application
 server.host: 127.0.0.1
+server.port: 15000
 
 # logger, to see logback-spring.xml
 logging.level: INFO

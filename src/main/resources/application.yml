@@ -2,7 +2,6 @@
 spring.application.name: =artifactId=
 spring.mvc.favicon.enabled: false
 
-server.port: 16000
 server.use-forward-headers: true
 server.tomcat.protocol_header: X-Forwarded-Proto
 server.tomcat.remote_ip_header: X-Forwarded-For

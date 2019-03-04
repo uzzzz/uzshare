@@ -212,18 +212,18 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 		</profile>
-		<!--生产环境 -->
+		<!-- orgcn -->
 		<profile>
-			<id>prod</id>
+			<id>orgcn</id>
 			<properties>
-				<build.profile.id>prod</build.profile.id>
+				<build.profile.id>orgcn</build.profile.id>
 			</properties>
 		</profile>
-		<!--aws -->
+		<!-- org -->
 		<profile>
-			<id>aws</id>
+			<id>org</id>
 			<properties>
-				<build.profile.id>aws</build.profile.id>
+				<build.profile.id>org</build.profile.id>
 			</properties>
 		</profile>
 	</profiles>
