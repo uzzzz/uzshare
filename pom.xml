@@ -273,7 +273,7 @@
 				<executions>
 					<execution>
 						<configuration>
-							<classifier>exec</classifier>
+							<classifier>${build.profile.id}</classifier>
 						</configuration>
 						<goals>
 							<goal>repackage</goal>
