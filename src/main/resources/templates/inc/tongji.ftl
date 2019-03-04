@@ -24,7 +24,7 @@
 	    var _hmt = _hmt || [];
 	    (function() {
 	        var hm = document.createElement("script");
-	        hm.src = "//hm.baidu.com/hm.js?1312b79c333e49ab4682fff950809062";
+	        hm.src = "//hm.baidu.com/hm.js?48e99ee00f722fe26b6ccf7ebae23810";
 	        var s = document.getElementsByTagName("script")[0];
 	        s.parentNode.insertBefore(hm, s);
 	    })();
