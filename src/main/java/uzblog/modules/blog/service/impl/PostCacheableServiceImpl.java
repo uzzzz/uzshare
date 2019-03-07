@@ -269,11 +269,11 @@ public class PostCacheableServiceImpl implements PostCacheableService {
 	@Override
 	@Cacheable(key = "'view_' + #id")
 	public PostVO get(long id) {
-		
+
 		Printer.info("get post from db : " + id);
-		
+
 		Post po = postDao.findById(id).get();
-		
+
 		PostVO d = null;
 		if (po != null) {
 			d = BeanMapUtils.copy(po, 1);
@@ -415,12 +415,6 @@ public class PostCacheableServiceImpl implements PostCacheableService {
 	public void unfavor(long userId, long postId) {
 		postDao.updateFavors(postId, Consts.DECREASE_STEP);
 		favorService.delete(userId, postId);
-	}
-
-	@Override
-	@Transactional
-	public void resetIndexs() {
-		postDao.resetIndexs();
 	}
 
 	/**

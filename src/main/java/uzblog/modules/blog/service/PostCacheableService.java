@@ -9,25 +9,23 @@
 */
 package uzblog.modules.blog.service;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
-import uzblog.modules.blog.data.PostVO;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import uzblog.modules.blog.data.PostVO;
 
 public interface PostCacheableService {
 	/**
 	 * 分页查询所有文章
 	 * 
 	 * @param pageable
-	 * @param channelId
-	 *            分组Id
-	 * @param ord
-	 *            排序
+	 * @param channelId 分组Id
+	 * @param ord       排序
 	 */
 	Page<PostVO> paging(Pageable pageable, int channelId, Set<Integer> excludeChannelIds, String ord);
 
@@ -112,8 +110,7 @@ public interface PostCacheableService {
 	 * 推荐/精华
 	 * 
 	 * @param id
-	 * @param featured
-	 *            0: 取消, 1: 加精
+	 * @param featured 0: 取消, 1: 加精
 	 */
 	void updateFeatured(long id, int featured);
 
@@ -121,8 +118,7 @@ public interface PostCacheableService {
 	 * 置顶
 	 * 
 	 * @param id
-	 * @param weight
-	 *            0: 取消, 1: 置顶
+	 * @param weight 0: 取消, 1: 置顶
 	 */
 	void updateWeight(long id, int weight);
 
@@ -177,8 +173,6 @@ public interface PostCacheableService {
 	 * @param postId
 	 */
 	void unfavor(long userId, long postId);
-
-	void resetIndexs();
 
 	List<Long> findAllIds();
 }
