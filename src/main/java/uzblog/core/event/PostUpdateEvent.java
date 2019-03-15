@@ -3,47 +3,46 @@ package uzblog.core.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- *   文章发布事件
- * //合并文章事件, 下层多个订阅者
- * - 推送Feed给粉丝
- * - 文章发布者文章数统计
- * - 推送通知
+ * 文章发布事件 //合并文章事件, 下层多个订阅者 - 推送Feed给粉丝 - 文章发布者文章数统计 - 推送通知
  *
- *   at 2018/05/30
  */
 public class PostUpdateEvent extends ApplicationEvent {
-    public final static int ACTION_PUBLISH = 1;
-    public final static int ACTION_DELETE = 2;
 
-    private long postId;
-    private long userId;
-    private int action = ACTION_PUBLISH;
+	private static final long serialVersionUID = 5728704309888805015L;
 
-    public PostUpdateEvent(Object source) {
-        super(source);
-    }
+	public final static int ACTION_PUBLISH = 1;
+	public final static int ACTION_DELETE = 2;
 
-    public long getPostId() {
-        return postId;
-    }
+	private long postId;
+	private long userId;
 
-    public void setPostId(long postId) {
-        this.postId = postId;
-    }
+	private int action = ACTION_PUBLISH;
 
-    public long getUserId() {
-        return userId;
-    }
+	public PostUpdateEvent(Object source) {
+		super(source);
+	}
 
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
+	public long getPostId() {
+		return postId;
+	}
 
-    public int getAction() {
-        return action;
-    }
+	public void setPostId(long postId) {
+		this.postId = postId;
+	}
 
-    public void setAction(int action) {
-        this.action = action;
-    }
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public int getAction() {
+		return action;
+	}
+
+	public void setAction(int action) {
+		this.action = action;
+	}
 }

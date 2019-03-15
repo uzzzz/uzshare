@@ -1,9 +1,6 @@
 package uzblog.web.controller.api;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,21 +11,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.ServletRequestUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.redfin.sitemapgenerator.ChangeFreq;
-import com.redfin.sitemapgenerator.SitemapIndexGenerator;
-import com.redfin.sitemapgenerator.W3CDateFormat;
-import com.redfin.sitemapgenerator.WebSitemapGenerator;
-import com.redfin.sitemapgenerator.WebSitemapUrl;
-
-import uzblog.base.context.AppContext;
 import uzblog.base.lang.Consts;
-import uzblog.base.print.Printer;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.web.controller.BaseController;
@@ -36,9 +24,6 @@ import uzblog.web.controller.BaseController;
 @Controller
 @RequestMapping("/api")
 public class PostApiController extends BaseController {
-
-	@Autowired
-	private AppContext appContext;
 
 	@Autowired
 	private PostCacheableService postService;
@@ -74,43 +59,5 @@ public class PostApiController extends BaseController {
 		long id = postService.post(post);
 
 		return id;
-	}
-
-	@GetMapping("/rewritesitemapxml")
-	@ResponseBody
-	public String rewritesitemapxml() throws IOException {
-		String baseUrl = "https://" + appContext.getHost();
-
-		WebSitemapGenerator wsgGzip = WebSitemapGenerator.builder(baseUrl, new File(appContext.getRoot())).gzip(true)
-				.build();
-
-		List<Long> ids = postService.findAllIds();
-		for (Long id : ids) {
-			WebSitemapUrl url = new WebSitemapUrl.Options(baseUrl + "/view/" + id).priority(0.9)
-					.changeFreq(ChangeFreq.DAILY).build();
-			wsgGzip.addUrl(url);
-		}
-
-		List<File> viewsGzip = wsgGzip.write();
-
-		// 构造 sitemap_index 生成器
-		W3CDateFormat dateFormat = new W3CDateFormat(W3CDateFormat.Pattern.DAY);
-		SitemapIndexGenerator sitemapIndexGenerator = new SitemapIndexGenerator.Options(baseUrl,
-				new File(appContext.getRoot() + "/sitemap_index.xml")).autoValidate(true).dateFormat(dateFormat)
-						.build();
-
-		Printer.warn("sitemap size : " + viewsGzip.size());
-		viewsGzip.forEach(e -> {
-			try { // 组装 sitemap 文件 URL 地址
-				String url = baseUrl + "/" + e.getName();
-				Printer.warn("sitemap index url : " + url);
-				sitemapIndexGenerator.addUrl(url);
-			} catch (MalformedURLException mue) {
-				mue.printStackTrace();
-			}
-		});
-		// 生成 sitemap_index 文件
-		sitemapIndexGenerator.write();
-		return "OK";
 	}
 }
