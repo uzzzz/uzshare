@@ -4,9 +4,9 @@
 <#assign keywords = view.keywords?default(site_keywords) />
 <#assign description = view.summary?default(site_description) />
 
-<@yaml>
-	<#assign host = results.getProperty("server.host") />
-</@yaml>
+<@server_name>
+	<#assign host = result />
+</@server_name>
 
 <#assign site_metas>
 	<link rel="canonical" href="https://${host}${base}/view/${view.id}">

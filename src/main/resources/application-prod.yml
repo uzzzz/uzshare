@@ -1,7 +1,3 @@
-# server application
-server.host: blog.uzzz.org
-server.port: 15000
-
 # logger, to see logback-spring.xml
 logging.level: WARN
 logging.level.app: WARN

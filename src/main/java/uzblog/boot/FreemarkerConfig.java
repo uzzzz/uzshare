@@ -32,7 +32,7 @@ public class FreemarkerConfig {
         configuration.setSharedVariable("resource", applicationContext.getBean(ResourceDirective.class));
         configuration.setSharedVariable("menus", applicationContext.getBean(MenusDirective.class));
         configuration.setSharedVariable("banner", applicationContext.getBean(BannerDirective.class));
-        configuration.setSharedVariable("yaml", applicationContext.getBean(YamlDirective.class));
+        configuration.setSharedVariable("server_name", applicationContext.getBean(ServerNameDirective.class));
         
         configuration.setSharedVariable("timeAgo", new TimeAgoMethod());
         configuration.setSharedVariable("shiro", new ShiroTags());

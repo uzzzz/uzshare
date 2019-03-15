@@ -10,25 +10,26 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- *   on 2017/11/14.
+ * on 2017/11/14.
  */
 public abstract class TemplateDirective implements TemplateDirectiveModel {
-    protected static String RESULT = "result";
-    protected static String RESULTS = "results";
+	protected static String RESULT = "result";
+	protected static String RESULTS = "results";
 
-    @Override
-    public void execute(Environment env, Map parameters,
-                        TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException, IOException {
-        try {
-            execute(new DirectiveHandler(env, parameters, loopVars, body));
-        } catch (IOException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TemplateException(e, env);
-        }
-    }
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public void execute(Environment env, Map parameters, TemplateModel[] loopVars, TemplateDirectiveBody body)
+			throws TemplateException, IOException {
+		try {
+			execute(new DirectiveHandler(env, parameters, loopVars, body));
+		} catch (IOException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new TemplateException(e, env);
+		}
+	}
 
-    abstract public String getName();
-    abstract public void execute(DirectiveHandler handler) throws Exception;
+	abstract public String getName();
 
+	abstract public void execute(DirectiveHandler handler) throws Exception;
 }

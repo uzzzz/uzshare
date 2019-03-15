@@ -1,4 +1,5 @@
 # server application
+server.port: 16000
 spring.application.name: =artifactId=
 spring.mvc.favicon.enabled: false
 

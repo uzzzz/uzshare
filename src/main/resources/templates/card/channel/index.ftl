@@ -1,8 +1,8 @@
 <#include "/card/utils/ui.ftl"/>
 
-<@yaml>
-	<#assign host = results.getProperty("server.host") />
-</@yaml>
+<@server_name>
+	<#assign host = result />
+</@server_name>
 
 <#assign site_metas>
 	<link rel="canonical" href="https://${host}${base}/channel/${channel.id}">

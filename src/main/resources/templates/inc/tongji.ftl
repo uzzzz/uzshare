@@ -1,6 +1,6 @@
-<@yaml>
-	<#assign host = results.getProperty("server.host") />
-</@yaml>
+<@server_name>
+	<#assign host = result />
+</@server_name>
 
 <script>
     // 百度站长自动推送，不用区分域名

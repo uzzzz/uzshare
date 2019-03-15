@@ -9,12 +9,6 @@ import org.springframework.stereotype.Component;
 public class AppContext {
 
 	/*
-	 * 访问的域名host
-	 */
-	@Value("${server.host}")
-	private String host;
-
-	/*
 	 * 文件存储-根目录
 	 */
 	@Value("${site.store.root}")
@@ -34,14 +28,6 @@ public class AppContext {
 	 * 系统配置信息 - 在 StartupListener 类中加载
 	 */
 	public Map<String, String> config;
-
-	public String getHost() {
-		return host;
-	}
-
-	public void setHost(String host) {
-		this.host = host;
-	}
 
 	public String getRoot() {
 		return root;

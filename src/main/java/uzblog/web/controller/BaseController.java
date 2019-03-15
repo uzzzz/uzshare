@@ -38,15 +38,15 @@ import uzblog.web.formatter.StringEscapeEditor;
 
 /**
  * Controller 基类
- * 
- * 
- * 
  */
 public class BaseController {
+
 	@Autowired
 	protected HttpSession session;
+
 	@Autowired
 	protected AppContext appContext;
+
 	@Autowired
 	protected FileRepo fileRepo;
 
@@ -89,7 +89,7 @@ public class BaseController {
 				.getRequest();
 		int pageSize = ServletRequestUtils.getIntParameter(request, "pageSize", 10);
 		int pageNo = ServletRequestUtils.getIntParameter(request, "pn", 1);
-		return new PageRequest(pageNo - 1, pageSize);
+		return PageRequest.of(pageNo - 1, pageSize);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class BaseController {
 		if (pageSize == null || pageSize == 0) {
 			pageSize = 10;
 		}
-		return new PageRequest(pn - 1, pageSize);
+		return PageRequest.of(pn - 1, pageSize);
 	}
 
 	protected String getSuffix(String name) {
@@ -117,5 +117,4 @@ public class BaseController {
 	protected String view(String view) {
 		return "/" + theme + view;
 	}
-
 }
