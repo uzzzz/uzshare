@@ -18,34 +18,13 @@
 	})();
 </script>
 
-<#if host == "blog.uzzz.org">
-  	<script>
-		// 百度统计
-	    var _hmt = _hmt || [];
-	    (function() {
-	        var hm = document.createElement("script");
-	        hm.src = "//hm.baidu.com/hm.js?48e99ee00f722fe26b6ccf7ebae23810";
-	        var s = document.getElementsByTagName("script")[0];
-	        s.parentNode.insertBefore(hm, s);
-	    })();
-	</script>
-	
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123893816-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'UA-123893816-1');
-	</script>
-<#elseif host == "blog.uzzz.org.cn">
+<#if (host == "uzzz.org.cn" || host == "www.uzzz.org.cn" || host == "blog.uzzz.org.cn")>
 	<script>
 		// 百度统计
 		var _hmt = _hmt || [];
 		(function() {
 		  var hm = document.createElement("script");
-		  hm.src = "https://hm.baidu.com/hm.js?20e1def17e32eb03f392c0e7bd13566b";
+		  hm.src = "https://hm.baidu.com/hm.js?8216565928257b3d3df10b57f097c780";
 		  var s = document.getElementsByTagName("script")[0]; 
 		  s.parentNode.insertBefore(hm, s);
 		})();
@@ -60,7 +39,7 @@
 	
 	  gtag('config', 'UA-135543318-1');
 	</script>
-<#elseif host == "uzshare.com">
+<#elseif (host == "uzshare.com" || host == "www.uzshare.com")>
 	<script>
 		var _hmt = _hmt || [];
 		(function() {
