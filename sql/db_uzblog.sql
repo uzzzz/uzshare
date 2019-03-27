@@ -68,7 +68,6 @@ DROP TABLE IF EXISTS `mto_users`;
 CREATE TABLE `mto_users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `created` datetime DEFAULT NULL,
-  `email` varchar(128) DEFAULT NULL,
   `last_login` datetime DEFAULT NULL,
   `mobile` varchar(11) DEFAULT NULL,
   `password` varchar(32) DEFAULT NULL,
@@ -80,7 +79,6 @@ CREATE TABLE `mto_users` (
   `gender` int(11) NOT NULL,
   `role_id` int(11) DEFAULT NULL,
   `source` int(11) NOT NULL,
-  `active_email` int(11) DEFAULT NULL,
   `comments` int(11) NOT NULL,
   `fans` int(11) NOT NULL,
   `favors` int(11) NOT NULL,

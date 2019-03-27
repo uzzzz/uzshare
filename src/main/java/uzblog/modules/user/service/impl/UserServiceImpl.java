@@ -32,7 +32,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import uzblog.base.lang.EntityStatus;
-import uzblog.base.lang.BlogException;
 import uzblog.base.utils.CheckUtils;
 import uzblog.base.utils.MD5;
 import uzblog.modules.user.dao.UserDao;
@@ -116,7 +115,6 @@ public class UserServiceImpl implements UserService {
 		Date now = Calendar.getInstance().getTime();
 		po.setPassword(MD5.md5(user.getPassword()));
 		po.setStatus(EntityStatus.ENABLED);
-		po.setActiveEmail(EntityStatus.ENABLED);
 		po.setCreated(now);
 
 		userDao.save(po);
@@ -134,32 +132,6 @@ public class UserServiceImpl implements UserService {
 			po.setSignature(user.getSignature());
 			userDao.save(po);
 		}
-		return BeanMapUtils.copyPassport(po);
-	}
-
-	@Override
-	@Transactional
-	@CacheEvict(key = "#id")
-	public AccountProfile updateEmail(long id, String email) {
-		User po = userDao.getOne(id);
-
-		if (null != po) {
-
-			if (email.equals(po.getEmail())) {
-				throw new BlogException("邮箱地址没做更改");
-			}
-
-			User check = userDao.findByEmail(email);
-
-			if (check != null && check.getId() != po.getId()) {
-				throw new BlogException("该邮箱地址已经被使用了");
-			}
-			po.setEmail(email);
-			po.setActiveEmail(EntityStatus.ENABLED);
-
-			userDao.save(po);
-		}
-
 		return BeanMapUtils.copyPassport(po);
 	}
 
@@ -243,18 +215,6 @@ public class UserServiceImpl implements UserService {
 			po.setStatus(status);
 			userDao.save(po);
 		}
-	}
-
-	@Override
-	@Transactional
-	public AccountProfile updateActiveEmail(long id, int activeEmail) {
-		User po = userDao.getOne(id);
-
-		if (po != null) {
-			po.setActiveEmail(activeEmail);
-			userDao.save(po);
-		}
-		return BeanMapUtils.copyPassport(po);
 	}
 
 	@Override

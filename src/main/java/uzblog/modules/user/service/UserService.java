@@ -9,15 +9,15 @@
 */
 package uzblog.modules.user.service;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.modules.user.data.UserVO;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * 
@@ -26,6 +26,7 @@ import java.util.Set;
 public interface UserService {
 	/**
 	 * 登录
+	 * 
 	 * @param username
 	 * @param password
 	 * @return
@@ -34,6 +35,7 @@ public interface UserService {
 
 	/**
 	 * 登录,用于记住登录时获取用户信息
+	 * 
 	 * @param username
 	 * @return
 	 */
@@ -41,26 +43,22 @@ public interface UserService {
 
 	/**
 	 * 注册
+	 * 
 	 * @param user
 	 */
 	UserVO register(UserVO user);
 
 	/**
 	 * 修改用户信息
+	 * 
 	 * @param user
 	 * @return
 	 */
 	AccountProfile update(UserVO user);
 
 	/**
-	 * 修改用户信息
-	 * @param email
-	 * @return
-	 */
-	AccountProfile updateEmail(long id, String email);
-
-	/**
 	 * 查询单个用户
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -70,6 +68,7 @@ public interface UserService {
 
 	/**
 	 * 修改头像
+	 * 
 	 * @param id
 	 * @param path
 	 * @return
@@ -78,6 +77,7 @@ public interface UserService {
 
 	/**
 	 * 修改密码
+	 * 
 	 * @param id
 	 * @param newPassword
 	 */
@@ -85,6 +85,7 @@ public interface UserService {
 
 	/**
 	 * 修改密码
+	 * 
 	 * @param id
 	 * @param oldPassword
 	 * @param newPassword
@@ -93,15 +94,15 @@ public interface UserService {
 
 	/**
 	 * 修改用户状态
+	 * 
 	 * @param id
 	 * @param status
 	 */
 	void updateStatus(long id, int status);
 
-	AccountProfile updateActiveEmail(long id, int activeEmail);
-
 	/**
 	 * 分页查询
+	 * 
 	 * @param pageable
 	 */
 	Page<UserVO> paging(Pageable pageable);

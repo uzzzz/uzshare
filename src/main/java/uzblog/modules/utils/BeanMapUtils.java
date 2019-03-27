@@ -30,9 +30,9 @@ import uzblog.modules.user.entity.User;
  *
  */
 public class BeanMapUtils {
-	public static String[] USER_IGNORE = new String[]{"password", "extend", "roles"};
+	public static String[] USER_IGNORE = new String[] { "password", "extend", "roles" };
 
-	public static String[] POST_IGNORE_LIST = new String[]{"markdown", "content"};
+	public static String[] POST_IGNORE_LIST = new String[] { "markdown", "content" };
 
 	public static UserVO copy(User po, int level) {
 		if (po == null) {
@@ -46,11 +46,9 @@ public class BeanMapUtils {
 	public static AccountProfile copyPassport(User po) {
 		AccountProfile passport = new AccountProfile(po.getId(), po.getUsername());
 		passport.setName(po.getName());
-		passport.setEmail(po.getEmail());
 		passport.setAvatar(po.getAvatar());
 		passport.setLastLogin(po.getLastLogin());
 		passport.setStatus(po.getStatus());
-		passport.setActiveEmail(po.getActiveEmail());
 		return passport;
 	}
 
