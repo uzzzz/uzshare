@@ -1,6 +1,7 @@
 package uzblog.web.controller.api;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
 import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.service.PostCacheableService;
@@ -59,5 +61,16 @@ public class PostApiController extends BaseController {
 		long id = postService.post(post);
 
 		return id;
+	}
+
+	@RequestMapping("delete_posts")
+	@ResponseBody
+	public Data delete(@RequestParam("id") List<Long> id) {
+		try {
+			postService.delete(id);
+			return Data.success("操作成功", Data.NOOP);
+		} catch (Exception e) {
+			return Data.failure(e.getMessage());
+		}
 	}
 }
