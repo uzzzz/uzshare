@@ -38,7 +38,7 @@
 	        	<#list results.content as row>
 	                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
 	                    <div class="block">
-	                        <a class="block-thumbnail" href="${base}/view/${row.id}">
+	                        <a class="block-thumbnail" href="${base}/view/${row.id}" target="_blank">
 	                            <div class="thumbnail-overlay"></div>
 	                            <span class="button-zoom">
 	                                <img src="${base}/dist/images/image-overlay-view-icon.png">
