@@ -18,7 +18,7 @@
 	})();
 </script>
 
-<#if (host == "uzzz.org.cn" || host == "www.uzzz.org.cn" || host == "blog.uzzz.org.cn")>
+<#if (host == "uzzz.org.cn" || host == "www.uzzz.org.cn")>
 	<script>
 		// 百度统计
 		var _hmt = _hmt || [];
