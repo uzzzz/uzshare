@@ -15,7 +15,7 @@
 
             <div class="content-body entry-content panel-body ">
                 <div class="markdown-body" id="emojify">
-                    <p><strong>关于Uzzz</strong><br/></p>
+                    <p><strong>关于柚子社区(uzshare.com)</strong><br/></p>
                     <p>区块链、技术、资讯</p>
 				</div>
             </div>
