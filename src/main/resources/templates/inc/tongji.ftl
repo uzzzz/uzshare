@@ -1,7 +1,3 @@
-<@server_name>
-	<#assign host = result />
-</@server_name>
-
 <script>
     // 百度站长自动推送，不用区分域名
 	(function(){
@@ -18,43 +14,29 @@
 	})();
 </script>
 
-<#if (host == "uzzz.org.cn" || host == "www.uzzz.org.cn")>
-	<script>
-		// 百度统计
-		var _hmt = _hmt || [];
-		(function() {
-		  var hm = document.createElement("script");
-		  hm.src = "https://hm.baidu.com/hm.js?8216565928257b3d3df10b57f097c780";
-		  var s = document.getElementsByTagName("script")[0]; 
-		  s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-	
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135543318-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'UA-135543318-1');
-	</script>
-<#elseif (host == "uzshare.com" || host == "www.uzshare.com")>
-	<script>
-		var _hmt = _hmt || [];
-		(function() {
-		  var hm = document.createElement("script");
-		  hm.src = "https://hm.baidu.com/hm.js?a4daf13ef130d031243e806b4856d450";
-		  var s = document.getElementsByTagName("script")[0]; 
-		  s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-<#else>
-	<script>
-		var noTongji = true;
-	</script>
-</#if>
+<!-- baidu tongji start -->
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?a4daf13ef130d031243e806b4856d450";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<!-- baidu tongji end -->
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138942298-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138942298-1');
+</script>
+
+<!-- google adsense start -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
@@ -62,3 +44,10 @@
     enable_page_level_ads: true
   });
 </script>
+<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+<amp-auto-ads type="adsense"
+              data-ad-client="ca-pub-8889449066804352">
+</amp-auto-ads>
+<!-- google adsense end -->
