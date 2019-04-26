@@ -61,7 +61,7 @@
 	        
 	        <div style="width:100%; text-align:center;">
 		        <!-- Pager -->
-		        <@pager request.requestURI!"", results, 5/>
+		        <@pager request.requestURI + "?order=" + order, results, 5/>
 		    </div>
     	</div>
     	
