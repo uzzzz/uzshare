@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="${base}/">
-                    <img src="${base}/theme/default/images/logo.png"/>
+                    <img src="//uzstatic.belost.xyz${base}/theme/default/images/logo.png"/>
                 </a>
             </div>
             <div class="collapse navbar-collapse">

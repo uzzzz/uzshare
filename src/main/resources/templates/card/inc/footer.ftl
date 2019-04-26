@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-col footer-col-logo hidden-xs hidden-sm">
-            <img src="${base}/theme/default/images/logo.png"/>
+            <img src="//uzstatic.belost.xyz${base}/theme/default/images/logo.png"/>
         </div>
         <div class="footer-col footer-col-copy">
             <ul class="footer-nav hidden-xs">
