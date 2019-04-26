@@ -4,7 +4,7 @@
 	</div>
 	<div class="panel-body">
 		<ul class="list" id="hots">
-            <img src="${base}/dist/images/spinner.gif">
+            <img src="//uzstatic.belost.xyz${base}/dist/images/spinner.gif">
 		</ul>
 	</div>
 </div>
@@ -15,7 +15,7 @@
 	</div>
 	<div class="panel-body">
 		<ul class="list" id="latests">
-			<img src="${base}/dist/images/spinner.gif">
+			<img src="//uzstatic.belost.xyz${base}/dist/images/spinner.gif">
 		</ul>
 	</div>
 </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="panel-body remove-padding-horizontal">
         <ul class="hotusers" id="hotuser">
-            <img src="${base}/dist/images/spinner.gif">
+            <img src="//uzstatic.belost.xyz${base}/dist/images/spinner.gif">
         </ul>
     </div>
 </div>

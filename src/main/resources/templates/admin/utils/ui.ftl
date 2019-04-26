@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="${base}/index" class="navbar-brand">
-                    <img src="${base}/dist/images/logo/logo.png" style="height: 30px;"/>
+                    <img src="//uzstatic.belost.xyz${base}/dist/images/logo/logo.png" style="height: 30px;"/>
                 </a>
             </div>
 

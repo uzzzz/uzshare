@@ -41,13 +41,13 @@
 		                    <a class="block-thumbnail" href="${base}/view/${row.id}" target="_blank">
 		                        <div class="thumbnail-overlay"></div>
 		                        <span class="button-zoom">
-		                                <img src="${base}/dist/images/image-overlay-view-icon.png">
+		                                <img src="//uzstatic.belost.xyz${base}/dist/images/image-overlay-view-icon.png">
 		                            </span>
 		
 		                        <#if row.thumbnail??>
 		                            <img src="${base + row.thumbnail}">
 		                        <#else>
-		                            <img src="${base}/dist/images/spinner-overlay.png">
+		                            <img src="//uzstatic.belost.xyz${base}/dist/images/spinner-overlay.png">
 		                        </#if>
 		                        <div class="block-contents">
 			                        <p class="tit">${row.title?html}

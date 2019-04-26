@@ -1,5 +1,5 @@
-<script type="text/javascript" charset="utf-8" src="${base}/dist/js/jquery.form.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="${base}/dist/vendors/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="//uzstatic.belost.xyz${base}/dist/js/jquery.form.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="//uzstatic.belost.xyz${base}/dist/vendors/tinymce/tinymce.min.js"></script>
 
 <textarea id="view_content" name="content" rows="5" data-required data-describedby="message" data-description="content">${view.content}</textarea>
 
