@@ -4,7 +4,6 @@
 <html amp>
 <head>
     <meta charset="utf-8">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
