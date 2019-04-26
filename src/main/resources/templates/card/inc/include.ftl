@@ -14,7 +14,7 @@ ${site_metas}
 
 <link rel="stylesheet" media="all" href="//uzstatic.belost.xyz${base}/dist/vendors/highlight/styles/github.css"/>
 
-<script type="text/javascript" src="//uzstatic.belost.xyz${base}/dist/js/jquery.min.js"></script>
+<script type="text/javascript" src="//uzstatic.belost.xyz${base}/dist/js/jquery.min.js" async></script>
 <script type="text/javascript" src="//uzstatic.belost.xyz${base}/dist/js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//uzstatic.belost.xyz${base}/dist/vendors/layer/layer.js"></script>
 <script type="text/javascript" src="//uzstatic.belost.xyz${base}/dist/vendors/bootstrap/js/bootstrap.min.js"></script>
