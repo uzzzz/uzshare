@@ -16,8 +16,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,19 +34,16 @@ import uzblog.base.data.Data;
  */
 @Component
 public class DefaultExceptionHandler implements HandlerExceptionResolver {
-	private Logger log = LoggerFactory.getLogger(getClass());
-	
+
 	private String errorView = "/error";
-	
+
 	@Override
-	public ModelAndView resolveException(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex) {
-		
-		log.error(ex.getMessage(), ex);
+	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
+			Exception ex) {
 
 		ModelAndView view = null;
 		String ret = ex.getMessage();
-		
+
 		if (isAjax(handler)) {
 			try {
 				response.setContentType("application/json;charset=UTF-8");
@@ -56,17 +51,17 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
 			} catch (IOException e) {
 				// do something
 			}
-			
+
 			view = new ModelAndView();
 		} else {
-			Map<String, Object> map = new HashMap<String, Object>();  
+			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("error", ret);
-	        map.put("base", request.getContextPath());
+			map.put("base", request.getContextPath());
 			view = new ModelAndView(errorView, map);
 		}
 		return view;
 	}
-	
+
 	/**
 	 * 判断是否 ajax 调用
 	 * 
@@ -76,11 +71,12 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
 	private boolean isAjax(Object handler) {
 		if (handler != null && handler instanceof HandlerMethod) {
 			HandlerMethod handlerMethod = (HandlerMethod) handler;
-			ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(handlerMethod.getMethod(), ResponseBody.class);  
+			ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(handlerMethod.getMethod(),
+					ResponseBody.class);
 			return responseBodyAnn != null;
 		}
-		
+
 		return false;
 	}
-	
+
 }

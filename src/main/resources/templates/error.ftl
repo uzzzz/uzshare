@@ -10,6 +10,8 @@
 				${error}
 			</#if>
 		</fieldset>
+		<h2 class="description text-center">抱歉, 您访问的页面出了问题!</h2>
+		<h3 class="text-center">您可以从这里返回<a href="/" style="color: #337ab7;">首页</a></h3>
 	</div><!-- /panel-content -->
 </div><!-- /panel -->
 </@layout>
