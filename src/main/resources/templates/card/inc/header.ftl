@@ -32,7 +32,7 @@
 						</li>
 					</#if>
 					<#list channels as row>
-						<li>
+						<li class="${(channel && row.id == channel.id)?string("active","")}">
 							<a href="${base}/channel/${row.id}" nav="${row.name}">${row.name}</a>
 						</li>
 					</#list>
@@ -79,15 +79,4 @@
         </nav>
     </div>
 </header>
-
-<script type="text/javascript">
-$(function () {
-	$('a[nav]').each(function(){  
-        $this = $(this);
-        if($this[0].href == String(window.location)){  
-            $this.closest('li').addClass("active");  
-        }  
-    });
-});
-</script>
 <!-- Header END -->
