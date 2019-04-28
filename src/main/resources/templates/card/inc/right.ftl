@@ -53,7 +53,7 @@ seajs.use('sidebox', function (sidebox) {
       		return jQuery.format(li_template, i + 1, data.id, data.title);
         },
         onLoadHotUser : function (i, data) {
-        var url = '${base}/users/' + data.id;
+        	var url = '${base}/users/' + data.id;
       		var item = jQuery.format(hotUser_li_template,data.avatar,url,data.name, data.fans);
       		return item;
         }
