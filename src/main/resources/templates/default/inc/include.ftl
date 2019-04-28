@@ -10,7 +10,6 @@ ${site_metas}
 
 <link rel='stylesheet' media='all' href="${base}/dist/vendors/simple-line-icons/css/simple-line-icons.css"/>
 <link rel='stylesheet' media='all' href="${base}/dist/vendors/font-awesome/css/font-awesome.min.css"/>
-<link rel='stylesheet' media='all' href="${base}/dist/vendors/pace/themes/pace-theme-minimal.css"/>
 
 <link rel="stylesheet" media="all" href="${base}/dist/vendors/highlight/styles/github.css"/>
 
@@ -21,8 +20,6 @@ ${site_metas}
 <script type="text/javascript" src="${base}/dist/vendors/validate/jquery-validate.js"></script>
 
 <script type="text/javascript" src="${base}/theme/default/js/utils.js"></script>
-
-<script src="${base}/dist/vendors/pace/pace.min.js"></script>
 
 <script type="text/javascript">
     var _base_path = '${base}';
