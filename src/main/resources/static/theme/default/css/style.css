@@ -1328,7 +1328,7 @@ abbr[data-original-title], abbr[title] {
 /* footer
 -------------------------------------------------- */
 .footer {
-    padding: 35px 0;
+    padding: 16px 0;
     color: #5f676f;
     background: #fff;
 }
@@ -1376,7 +1376,7 @@ abbr[data-original-title], abbr[title] {
 .footer .footer-col-logo img {
     display: block;
     margin-right: 40px;
-    max-width: 160px;
+    max-width: 48px;
     height: auto;
     border: 0
 }
