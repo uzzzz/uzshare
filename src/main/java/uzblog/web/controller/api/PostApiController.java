@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 
+import uzblog.base.context.AppContext;
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
 import uzblog.base.upload.FileRepo;
@@ -43,6 +44,9 @@ public class PostApiController extends BaseController {
 
 	@Autowired
 	private CommentService commentService;
+
+	@Autowired
+	protected AppContext appContext;
 
 	@Autowired
 	protected FileRepo fileRepo;
@@ -78,8 +82,11 @@ public class PostApiController extends BaseController {
 		post.setChannelId(cid);
 		post.setTags(tags);
 		try {
-			String t = cookieFreeDomain + fileRepo.store(new URL(thumbnail), fileRepo.getRoot());
-			post.setThumbnail(t);
+			if (thumbnail != null && thumbnail.startsWith("http")) {
+				String t = "https://" + cookieFreeDomain
+						+ fileRepo.store(new URL(thumbnail), appContext.getThumbsDir());
+				post.setThumbnail(t);
+			}
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
