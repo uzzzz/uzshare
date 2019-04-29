@@ -35,7 +35,7 @@
 
 var li_template = '<li>{0}. <a href="${base}/view/{1}">{2}</a></li>';
 
-var hotUser_li_template = '<li><a href="{1}"><img src="${base}{0}" class="avatar avatar-small"/></a></li>'
+var hotUser_li_template = '<li><a href="{1}"><img src="{0}" class="avatar avatar-small"/></a></li>'
 
 seajs.use('sidebox', function (sidebox) {
 	sidebox.init({
@@ -54,7 +54,8 @@ seajs.use('sidebox', function (sidebox) {
         },
         onLoadHotUser : function (i, data) {
         	var url = '${base}/users/' + data.id;
-      		var item = jQuery.format(hotUser_li_template,data.avatar,url,data.name, data.fans);
+        	var avatar = (data.avatar.indexOf('/') == 0) ? '//uzstatic.belost.xyz' + data.avatar : data.avatar;
+      		var item = jQuery.format(hotUser_li_template,avatar,url,data.name, data.fans);
       		return item;
         }
 	});
