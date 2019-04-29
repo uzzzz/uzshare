@@ -1,4 +1,3 @@
-<meta property="uzshare.com" content="0.0.1">
 ${site_metas}
 
 <link rel="stylesheet" media='all' href="//uzstatic-360cdn.belost.xyz${base}/dist/vendors/bootstrap/css/bootstrap.min.css">
