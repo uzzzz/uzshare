@@ -155,4 +155,20 @@ public abstract class AbstractFileRepo implements FileRepo {
 		FileUtils.copyURLToFile(url, temp);
 		return path;
 	}
+
+	@Override
+	public String storeScale(URL url, String basePath, int maxWidth) throws Exception {
+		String path = basePath + FileNameUtils.genPathAndFileName("png");
+		ImageUtils.scaleImageByWidth(url, getRoot() + path, maxWidth);
+		return path;
+	}
+
+	@Override
+	public String storeScale(URL url, String basePath, int width, int height) throws Exception {
+		String path = basePath + FileNameUtils.genPathAndFileName("png");
+		// 根据临时文件生成略缩图
+		String dest = getRoot() + path;
+		ImageUtils.scale(url, dest, width, height);
+		return path;
+	}
 }

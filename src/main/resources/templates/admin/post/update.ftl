@@ -1,7 +1,7 @@
 <#include "/admin/utils/ui.ftl"/>
 <@layout>
-<link rel='stylesheet' media='all' href='//uzstatic.belost.xyz${base}/dist/css/plugins.css'/>
-<script type="text/javascript" src="//uzstatic.belost.xyz${base}/dist/js/plugins.js"></script>
+<link rel='stylesheet' media='all' href='//uzstatic-360cdn.belost.xyz${base}/dist/css/plugins.css'/>
+<script type="text/javascript" src="//uzstatic-360cdn.belost.xyz${base}/dist/js/plugins.js"></script>
 
 <div class="row">
     <div class="col-md-12">
