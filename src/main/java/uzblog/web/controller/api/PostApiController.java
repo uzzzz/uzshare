@@ -1,11 +1,15 @@
 package uzblog.web.controller.api;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -17,6 +21,7 @@ import org.springframework.web.util.HtmlUtils;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
+import uzblog.base.upload.FileRepo;
 import uzblog.core.event.NotifyEvent;
 import uzblog.modules.blog.data.CommentVO;
 import uzblog.modules.blog.data.PostVO;
@@ -28,6 +33,8 @@ import uzblog.web.controller.BaseController;
 @RequestMapping("/api")
 public class PostApiController extends BaseController {
 
+	private static Log log = LogFactory.getLog(PostApiController.class);
+
 	@Autowired
 	private ApplicationContext applicationContext;
 
@@ -36,6 +43,12 @@ public class PostApiController extends BaseController {
 
 	@Autowired
 	private CommentService commentService;
+
+	@Autowired
+	protected FileRepo fileRepo;
+
+	@Value("${cookie.free.domain}")
+	private String cookieFreeDomain;
 
 //	@RequestMapping("/posts")
 //	@ResponseBody
@@ -64,9 +77,13 @@ public class PostApiController extends BaseController {
 		post.setAuthorId(uid);
 		post.setChannelId(cid);
 		post.setTags(tags);
-		post.setThumbnail(thumbnail);
+		try {
+			String t = cookieFreeDomain + fileRepo.store(new URL(thumbnail), fileRepo.getRoot());
+			post.setThumbnail(t);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
 		long id = postService.post(post);
-
 		return id;
 	}
 

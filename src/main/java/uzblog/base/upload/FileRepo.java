@@ -9,9 +9,10 @@
 */
 package uzblog.base.upload;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
+import java.net.URL;
+
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 
@@ -60,5 +61,14 @@ public interface FileRepo {
 	 * @param storePath
 	 */
 	void deleteFile(String storePath);
+	
+	/**
+	 * 存储网络图片
+	 * @param fileUrl
+	 * @param basePath
+	 * @return
+	 * @throws IOException
+	 */
+	String store(URL url, String basePath) throws IOException;
 
 }
