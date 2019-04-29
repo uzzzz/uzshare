@@ -32,9 +32,9 @@ seajs.config({
 
     // 路径配置
     paths: {
-        'vendors': _base_path + '/dist/vendors',
-        'dist': _base_path + '/dist',
-        'default': _base_path + '/theme/default'
+        'vendors': '//uzstatic.belost.xyz' + _base_path + '/dist/vendors',
+        'dist': '//uzstatic.belost.xyz' + _base_path + '/dist',
+        'default': '//uzstatic.belost.xyz' + _base_path + '/theme/default'
     },
 
     // 变量配置
@@ -46,28 +46,3 @@ seajs.config({
 
     debug: false
 });
-
-// var __SEAJS_FILE_VERSION = '?v=1.3';
-//
-// seajs.on('fetch', function(data) {
-// 	if (!data.uri) {
-// 		return ;
-// 	}
-//
-// 	if (data.uri.indexOf(app.mainScript) > 0) {
-// 		return ;
-// 	}
-//
-//    if (/\:\/\/.*?\/assets\/libs\/[^(common)]/.test(data.uri)) {
-//        return ;
-//    }
-//
-//    data.requestUri = data.uri + __SEAJS_FILE_VERSION;
-//
-// });
-//
-// seajs.on('define', function(data) {
-// 	if (data.uri.lastIndexOf(__SEAJS_FILE_VERSION) > 0) {
-// 	    data.uri = data.uri.replace(__SEAJS_FILE_VERSION, '');
-// 	}
-// });
