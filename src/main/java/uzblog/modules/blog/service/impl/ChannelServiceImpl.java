@@ -62,7 +62,7 @@ public class ChannelServiceImpl implements ChannelService {
 	@Transactional
 	public void update(Channel channel) {
 		Channel po = channelDao.getOne(channel.getId());
-		if (po != null) {
+		if (po != null && po.getId() > 0) {
 			BeanUtils.copyProperties(channel, po);
 		} else {
 			po = new Channel();
