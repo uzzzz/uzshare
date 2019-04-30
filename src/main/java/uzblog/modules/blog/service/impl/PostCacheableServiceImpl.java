@@ -195,7 +195,7 @@ public class PostCacheableServiceImpl implements PostCacheableService {
 	}
 
 	@Override
-	@Cacheable
+	@Cacheable(key = "'latests_' + #ignoreUserId")
 	public List<PostVO> findLatests(int maxResults, long ignoreUserId) {
 		List<Post> list = postDao.findTop10ByOrderByCreatedDesc();
 		List<PostVO> rets = new ArrayList<>();
@@ -206,7 +206,7 @@ public class PostCacheableServiceImpl implements PostCacheableService {
 	}
 
 	@Override
-	@Cacheable
+	@Cacheable(key = "'hots_' + #ignoreUserId")
 	public List<PostVO> findHots(int maxResults, long ignoreUserId) {
 		List<Post> list = postDao.findTop10ByOrderByViewsDesc();
 		List<PostVO> rets = new ArrayList<>();
