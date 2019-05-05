@@ -4,7 +4,7 @@
 	</div>
 	<div class="panel-body">
 		<ul class="list" id="hots">
-            <img src="//uzstatic-360cdn.belost.xyz${base}/dist/images/spinner.gif">
+            <img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
 		</ul>
 	</div>
 </div>
@@ -15,7 +15,7 @@
 	</div>
 	<div class="panel-body">
 		<ul class="list" id="latests">
-			<img src="//uzstatic-360cdn.belost.xyz${base}/dist/images/spinner.gif">
+			<img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
 		</ul>
 	</div>
 </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="panel-body remove-padding-horizontal">
         <ul class="hotusers" id="hotuser">
-            <img src="//uzstatic-360cdn.belost.xyz${base}/dist/images/spinner.gif">
+            <img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
         </ul>
     </div>
 </div>
@@ -54,7 +54,7 @@ seajs.use('sidebox', function (sidebox) {
         },
         onLoadHotUser : function (i, data) {
         	var url = '${base}/users/' + data.id;
-        	var avatar = (data.avatar.indexOf('/') == 0) ? '//uzstatic-360cdn.belost.xyz' + data.avatar : data.avatar;
+        	var avatar = (data.avatar.indexOf('/') == 0) ? '//${cookieFreeDomain}' + data.avatar : data.avatar;
       		var item = jQuery.format(hotUser_li_template,avatar,url,data.name, data.fans);
       		return item;
         }
