@@ -568,8 +568,9 @@ abbr[data-original-title], abbr[title] {
 .block {
     background: #fff;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     z-index: 3;
+    height: 96px;
 }
 
 .block a.block-thumbnail {
@@ -585,7 +586,9 @@ abbr[data-original-title], abbr[title] {
     width: 100%;
     border-top-right-radius: 2px;
     border-top-left-radius: 2px;
-    max-height: 80px;
+    width: 142px;
+    height: 88px;
+    margin: 4px;
 }
 
 .block a.block-thumbnail .thumbnail-overlay {
@@ -672,7 +675,6 @@ abbr[data-original-title], abbr[title] {
 }
 
 .block .block-contents {
-    width: 100%;
     background: #fff;
     padding: 0 15px 15px;
     border-bottom-left-radius: 2px;
@@ -687,14 +689,21 @@ abbr[data-original-title], abbr[title] {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     color: #333;
-    display: block;
-    font-size: 15px;
-    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
     padding-top: 1px;
     width: 100%;
-    margin: 15px 0;
+    margin: 4px 0;
     position: relative;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.block .block-contents p.tit:hover {
+	color: #f28e23;
 }
 
 .block .block-contents p.tit .label {
@@ -1203,6 +1212,7 @@ abbr[data-original-title], abbr[title] {
 .hotusers { overflow: hidden; float: left; padding: 2px; width: 100%;}
 .hotusers > li { float: left; display: inline-block; margin: 3px;}
 .hotusers .avatar-small {width: 50px; height: 50px;}
+.avatar-xs {padding: 0px !important;width: 24px; height: 24px;}
 
 /* User
 -------------------------------------------------- */

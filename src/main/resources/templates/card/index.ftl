@@ -36,24 +36,30 @@
     	<div class="col-xs-12 col-md-9 side-left topics-show">
 	    	<div class="row">
 	    		<#list results.content as row>
-		            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+		            <div class="col-md-12">
 		                <div class="block">
-		                    <a class="block-thumbnail" href="${base}/view/${row.id}" target="_blank">
-		                        <div class="thumbnail-overlay"></div>
-		                        <span class="button-zoom">
-		                                <img src="//uzstatic-360cdn.belost.xyz${base}/dist/images/image-overlay-view-icon.png">
-		                            </span>
-		
-		                        <#if row.thumbnail??>
-		                            <img src="${base + row.thumbnail}">
-		                        <#else>
-		                            <img src="//uzstatic-360cdn.belost.xyz${base}/dist/images/spinner-overlay.png">
-		                        </#if>
-		                        <div class="block-contents">
-			                        <p class="tit">${row.title?html}
-			                        </p>
+		                
+		                    <#if row.thumbnail?? && row.thumbnail != "">
+		                        <a class="block-thumbnail"
+		                        	style="margin-right:-8px;position: absolute;"
+		                        	href="/view/${row.id}" target="_blank">
+		                            <img src="${row.thumbnail}" />
+		                        </a>
+		                    </#if>
+		                    
+		                    <div class="block-contents"style="position: absolute;left: ${(row.thumbnail?? && row.thumbnail != "")?string('146px', '0px')};height: 96px;">
+			                	<a class="block-thumbnail" href="/view/${row.id}" target="_blank">
+			                        <p class="tit">${row.title?html}</p>
+			                    </a>
+			                    <div style="position: absolute; bottom: 4px;">
+			                    	<a href="/users/214">
+			                    		<img src="${(row.author.avatar?index_of("/")==0)?string( '//' + cookieFreeDomain + row.author.avatar, row.author.avatar)}" class="avatar avatar-xs" />
+			                    		<span>${row.author.name}</span>
+			                    	</a>
+			                    	<abbr class="meta timeago" style="margin-left:4px;">${timeAgo(row.created)}</abbr>
 			                    </div>
-		                    </a>
+			                </div>
+		                   
 		                </div>
 		            </div>
 		        </#list>
