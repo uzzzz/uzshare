@@ -49,7 +49,7 @@
 		                    
 		                    <div class="block-contents"style="position: absolute;left: ${(row.thumbnail?? && row.thumbnail != "")?string('146px', '0px')};height: 96px;">
 			                	<a class="block-thumbnail" href="/view/${row.id}" target="_blank">
-			                        <p class="tit">${row.title?html}</p>
+			                        <p class="tit">${row.title}</p>
 			                    </a>
 			                    <div style="position: absolute; bottom: 4px;">
 			                    	<a href="/users/214">
