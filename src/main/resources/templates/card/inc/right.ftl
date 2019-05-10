@@ -31,6 +31,20 @@
     </div>
 </div>
 
+<div class="panel panel-default corner-radius panel-hot-topics">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- uzshare_right -->
+	<ins class="adsbygoogle"
+	     style="display:block"
+	     data-ad-client="ca-pub-8889449066804352"
+	     data-ad-slot="2081363239"
+	     data-ad-format="auto"
+	     data-full-width-responsive="true"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
 <script type="text/javascript">
 
 var li_template = '<li>{0}. <a href="${base}/view/{1}">{2}</a></li>';
