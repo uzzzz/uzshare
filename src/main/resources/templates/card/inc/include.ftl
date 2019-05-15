@@ -14,7 +14,7 @@ ${site_metas}
 
 <script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/js/jquery.min.js"></script>
 <script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/js/jquery-migrate-1.2.1.min.js" async></script>
-<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/layer/layer.js" async></script>
+<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/layer/layer.js"></script>
 <script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/bootstrap/js/bootstrap.min.js" async></script>
 <script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/validate/jquery-validate.js" async></script>
 
