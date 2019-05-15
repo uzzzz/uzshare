@@ -52,7 +52,7 @@
 			                        <p class="tit">${row.title}</p>
 			                    </a>
 			                    <div style="position: absolute; bottom: 4px;">
-			                    	<a href="/users/214">
+			                    	<a href="/users/${row.author.id}">
 			                    		<img src="${(row.author.avatar?index_of("/")==0)?string( '//' + cookieFreeDomain + row.author.avatar, row.author.avatar)}" class="avatar avatar-xs" />
 			                    		<span>${row.author.name}</span>
 			                    	</a>
