@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.HandlerMethod;
@@ -36,6 +37,8 @@ import uzblog.base.data.Data;
 public class DefaultExceptionHandler implements HandlerExceptionResolver {
 
 	private String errorView = "/error";
+
+	private String error404View = "/error404";
 
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
@@ -57,7 +60,11 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("error", ret);
 			map.put("base", request.getContextPath());
-			view = new ModelAndView(errorView, map);
+			if (ex instanceof NotFoundException) {
+				view = new ModelAndView(error404View, map, HttpStatus.NOT_FOUND);
+			} else {
+				view = new ModelAndView(errorView, map);
+			}
 		}
 		return view;
 	}

@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.criteria.Order;
@@ -38,7 +39,6 @@ import org.springframework.util.Assert;
 import uzblog.base.context.SpringContextHolder;
 import uzblog.base.lang.Consts;
 import uzblog.base.lang.EntityStatus;
-import uzblog.base.print.Printer;
 import uzblog.base.utils.PreviewTextUtils;
 import uzblog.core.event.PostUpdateEvent;
 import uzblog.modules.blog.dao.PostAttributeDao;
@@ -53,6 +53,7 @@ import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
 import uzblog.modules.utils.BeanMapUtils;
+import uzblog.web.exceptions.NotFoundException;
 
 /**
  * 
@@ -270,10 +271,11 @@ public class PostCacheableServiceImpl implements PostCacheableService {
 	@Cacheable(key = "'view_' + #id")
 	public PostVO get(long id) {
 
-		Printer.info("get post from db : " + id);
-
-		Post po = postDao.findById(id).get();
-
+		Optional<Post> opt = postDao.findById(id);
+		if (!opt.isPresent()) {
+			throw new NotFoundException();
+		}
+		Post po = opt.get();
 		PostVO d = null;
 		if (po != null) {
 			d = BeanMapUtils.copy(po, 1);
