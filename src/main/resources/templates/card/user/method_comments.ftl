@@ -1,4 +1,4 @@
-<#include "/default/utils/ui.ftl"/>
+<#include "/card/utils/ui.ftl"/>
 
 <@layout "我的评论">
 <div class="row users-show">
