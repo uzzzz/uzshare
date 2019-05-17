@@ -25,6 +25,9 @@ public class FreemarkerConfig {
 
 	@Value("${cookie.free.domain}")
 	private String cookieFreeDomain;
+	
+	@Value("${css.version}")
+	private String cssVersion;
 
 	@Autowired
 	private Configuration configuration;
@@ -47,5 +50,6 @@ public class FreemarkerConfig {
 		configuration.setSharedVariable("shiro", new ShiroTags());
 
 		configuration.setSharedVariable("cookieFreeDomain", cookieFreeDomain);
+		configuration.setSharedVariable("cssVersion", cssVersion);
 	}
 }

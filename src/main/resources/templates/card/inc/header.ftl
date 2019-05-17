@@ -36,9 +36,7 @@
 							<a href="${base}/channel/${row.id}" nav="${row.name}">${row.name}</a>
 						</li>
 					</#list>
-                </ul>
-                <ul class="navbar-button list-inline" id="header_user">
-                    <li view="search" class="hidden-xs hidden-sm">
+					<li view="search" class="hidden-xs hidden-sm">
                         <form method="GET" action="${base}/search" accept-charset="UTF-8" class="navbar-form navbar-left">
                             <div class="form-group">
                                 <input class="form-control search-input mac-style" placeholder="搜索" name="kw" type="text" value="${kw}">
@@ -46,7 +44,8 @@
                             </div>
                         </form>
                     </li>
-
+                </ul>
+                <ul class="navbar-button list-inline" id="header_user">
 				<#if profile??>
                     <li>
                         <a href="${base}/post/editing" class="plus"><i class="icon icon-note"></i> 写文章</a>
@@ -70,8 +69,8 @@
                         </ul>
                     </li>
 				<#else>
-                    <li><a href="${base}/login" class="btn btn-default btn-sm signup">登录</a></li>
-                    <li><a href="${base}/register" class="btn btn-primary btn-sm signup">注册</a></li>
+                    <li><a href="${base}/login" class="btn btn-default btn-sm">登录</a></li>
+                    <li><a href="${base}/register" class="btn btn-primary btn-sm">注册</a></li>
 				</#if>
 
                 </ul>

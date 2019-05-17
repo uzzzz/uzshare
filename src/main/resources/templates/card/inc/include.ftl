@@ -3,7 +3,7 @@ ${site_metas}
 <link rel="stylesheet" media='all' href="//${cookieFreeDomain}${base}/dist/vendors/bootstrap/css/bootstrap.min.css">
 <link rel='stylesheet' media='all' href="//${cookieFreeDomain}${base}/dist/vendors/share.js/css/share.min.css"/>
 
-<link rel='stylesheet' media='all' href="//${cookieFreeDomain}${base}/theme/default/css/style.css"/>
+<link rel='stylesheet' media='all' href="//${cookieFreeDomain}${base}/theme/default/css/style.css?${cssVersion}"/>
 <link rel='stylesheet' media='all' href="//${cookieFreeDomain}${base}/theme/default/css/editor.css"/>
 <link rel='stylesheet' media='all' href="//${cookieFreeDomain}${base}/dist/css/plugins.css"/>
 

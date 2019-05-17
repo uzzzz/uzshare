@@ -105,15 +105,15 @@
                                 <a href="${base}/user/profile">编辑资料</a>
                             </li>
                             <@shiro.hasPermission name="admin">
-                                <li><a href="${base}/admin">后台管理</a></li>
+                                <li><a href="/admin">后台管理</a></li>
                             </@shiro.hasPermission>
-                            <li><a href="${base}/logout">退出</a></li>
+                            <li><a href="/logout">退出</a></li>
                         </ul>
                     </li>
 				<#else>
-                    <li><a href="${base}/login" class="btn btn-default btn-sm signup">登录</a></li>
+                    <li><a href="/login" class="btn btn-default btn-sm">登录</a></li>
 
-                    <li><a href="${base}/register" class="btn btn-primary btn-sm signup">注册</a></li>
+                    <li><a href="/register" class="btn btn-primary btn-sm">注册</a></li>
 				</#if>
 
                 </ul>

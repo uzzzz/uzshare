@@ -250,8 +250,7 @@ abbr[data-original-title], abbr[title] {
 .site-header .navbar-nav > li > a {
     color: #383838;
     font-size: 14px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 8px;
 }
 
 .site-header .navbar-nav > li > a:focus, .site-header .navbar-nav > li > a:hover {
@@ -285,10 +284,6 @@ abbr[data-original-title], abbr[title] {
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
-}
-
-.site-header .navbar-button > li > a.login, .site-header .navbar-button > li > a.signup {
-    min-width: 70px;
 }
 
 .site-header .navbar-button > li > a.user {
