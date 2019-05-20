@@ -17,7 +17,7 @@ $(function () {
         ],
         toolbar: "undo redo | formatselect bold underline blockquote alignleft aligncenter alignright " +
         "forecolor bullist numlist link unlink uploadimage codesample removeformat fullscreen ",
-        menubar: false,
+        menubar: true,
         language: "zh_CN",
         statusbar : false,
         body_class: 'markdown-body',

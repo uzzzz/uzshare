@@ -1,13 +1,3 @@
-/*
-+--------------------------------------------------------------------------
-|   
-|   ========================================
-|   
-|   
-|
-+---------------------------------------------------------------------------
-*/
-
 define(function(require, exports, module) {
 
     var initEditor = function (callback) {
@@ -24,7 +14,7 @@ define(function(require, exports, module) {
                 ],
                 toolbar: "undo redo | formatselect | bold underline blockquote | alignleft aligncenter alignright | " +
                 "forecolor bullist numlist | link unlink | uploadimage codesample removeformat | fullscreen ",
-                menubar: false,
+                menubar: true,
                 language: "zh_CN",
                 statusbar : false,
                 body_class: 'markdown-body',

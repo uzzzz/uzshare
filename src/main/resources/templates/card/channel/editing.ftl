@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <#include "/default/channel/editor/ueditor.ftl"/>
+                <#include "/card/channel/editor/ueditor.ftl"/>
             </div>
         </div>
         <div class="col-xs-12 col-md-4">
