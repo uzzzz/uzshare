@@ -17,7 +17,9 @@ import uzblog.template.directive.ContentsDirective;
 import uzblog.template.directive.NumberDirective;
 import uzblog.template.directive.ResourceDirective;
 import uzblog.template.directive.ServerNameDirective;
+import uzblog.template.directive.WxSignatureDirective;
 import uzblog.template.method.TimeAgoMethod;
+import uzblog.template.method.UserAgentMethod;
 import uzblog.web.menu.MenusDirective;
 
 @Component
@@ -45,8 +47,10 @@ public class FreemarkerConfig {
 		configuration.setSharedVariable("menus", applicationContext.getBean(MenusDirective.class));
 		configuration.setSharedVariable("banner", applicationContext.getBean(BannerDirective.class));
 		configuration.setSharedVariable("server_name", applicationContext.getBean(ServerNameDirective.class));
+		configuration.setSharedVariable("wx_signature", applicationContext.getBean(WxSignatureDirective.class));
 
 		configuration.setSharedVariable("timeAgo", new TimeAgoMethod());
+		configuration.setSharedVariable("userAgent", new UserAgentMethod());
 		configuration.setSharedVariable("shiro", new ShiroTags());
 
 		configuration.setSharedVariable("cookieFreeDomain", cookieFreeDomain);
