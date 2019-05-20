@@ -1,4 +1,4 @@
-<#assign isWxApp = userAgent() ?lower_case ?contains("w") />
+<#assign isWxApp = userAgent() ?lower_case ?contains("micromessenger") />
 
 <#if isWxApp>
 	<script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
