@@ -79,7 +79,7 @@ public class PostDaoImpl implements PostDaoCustom {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Page<PostVO> searchByTag(Pageable pageable, String tag) {
-		FullTextEntityManager fullTextSession = org.hibernate.search.jpa.Search.getFullTextEntityManager(entityManager);
+		FullTextEntityManager fullTextSession = Search.getFullTextEntityManager(entityManager);
 		SearchFactory sf = fullTextSession.getSearchFactory();
 		QueryBuilder qb = sf.buildQueryBuilder().forEntity(Post.class).get();
 

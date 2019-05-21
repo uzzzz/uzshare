@@ -56,6 +56,25 @@
                     	style="color: #fff;width: 20px;height: 20px;">
                         <i class="fa fa-trash-o"></i>
                     </a>
+                    <script type="text/javascript">
+						$(function() {
+							// 删除
+						    $('a[rel="delete"]').bind('click', function(){
+						        var that = $(this);
+								layer.confirm('确定删除此文章吗?', {
+						            btn: ['确定','取消'], //按钮
+						            shade: false //不显示遮罩
+						        }, function(){
+									var ids = that.attr('data-id');
+									J.getJSON('/admin/post/delete', J.param({'id': ids}, true), function() {
+										location.reload();
+									});
+						        }, function(){
+						        });
+						        return false;
+						    });
+						});
+					</script>
                 </@shiro.hasPermission>
 
                 </div>
@@ -180,26 +199,6 @@
 </script>
 
 <script type="text/javascript">
-
-	$(function() {
-		// 删除
-	    $('a[rel="delete"]').bind('click', function(){
-	        var that = $(this);
-			layer.confirm('确定删除此文章吗?', {
-	            btn: ['确定','取消'], //按钮
-	            shade: false //不显示遮罩
-	        }, function(){
-				var ids = that.attr('data-id');
-				J.getJSON('/admin/post/delete', J.param({'id': ids}, true), function() {
-					location.reload();
-				});
-	        }, function(){
-	        });
-	        return false;
-	    });
-	});
-
-
     function goto(pid, user) {
         document.getElementById('chat_text').scrollIntoView();
         $('#chat_text').focus();
