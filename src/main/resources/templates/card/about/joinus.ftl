@@ -21,19 +21,11 @@
                     <p>微信号：copyapp</p>
 				</div>
             </div>
-            <div class="panel-footer operate">
-            </div>
-            <div class="panel-footer operate">
-                <div class="hidden-xs">
-                    <div class="social-share" data-sites="weibo, wechat, facebook, twitter, google, qzone, qq"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
         </div>
         <!-- /view show -->
     </div>
     <div class="col-xs-12 col-md-3 side-right hidden-xs hidden-sm">
-		<#include "/default/inc/right.ftl"/>
+		<#include "/card/inc/right.ftl"/>
     </div>
 </div>
 
