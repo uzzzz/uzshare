@@ -22,9 +22,9 @@
 
 <div class="panel panel-default corner-radius panel-hot-topics">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-users "></i> 热门用户</h3>
+        <h3 class="panel-title"><i class="fa fa-users"></i> 热门用户</h3>
     </div>
-    <div class="panel-body remove-padding-horizontal">
+    <div class="panel-body">
         <ul class="hotusers" id="hotuser">
             <img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
         </ul>
@@ -32,17 +32,22 @@
 </div>
 
 <div class="panel panel-default corner-radius panel-hot-topics">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- uzshare_right -->
-	<ins class="adsbygoogle"
-	     style="display:block"
-	     data-ad-client="ca-pub-8889449066804352"
-	     data-ad-slot="2081363239"
-	     data-ad-format="auto"
-	     data-full-width-responsive="true"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
+	<div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-coffee"></i> 强势广告</h3>
+    </div>
+    <div class="remove-padding-horizontal">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- uzshare_right -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-8889449066804352"
+		     data-ad-slot="2081363239"
+		     data-ad-format="auto"
+		     data-full-width-responsive="true"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+    </div>
 </div>
 
 <script type="text/javascript">
