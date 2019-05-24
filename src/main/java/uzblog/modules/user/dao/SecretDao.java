@@ -20,6 +20,8 @@ public interface SecretDao extends JpaRepository<Secret, Long> {
 	@Query("update Secret s set s.deleted = 1 where s.id in :ids")
 	public void deleteByIds(@Param(value = "ids") long... ids);
 
+	public Secret findByIdAndUserId(long id, long userId);
+
 	public boolean existsByIdAndUserId(long id, long userId);
 
 	public boolean existsByUserIdAndQuestion(long userId, String question);

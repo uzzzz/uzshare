@@ -2,6 +2,7 @@
 package uzblog.modules.user.service.impl;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.transaction.Transactional;
 
@@ -42,5 +43,19 @@ public class SecretServiceImpl implements SecretService {
 	@Override
 	public boolean existsByUserIdAndQuestion(long userId, String question) {
 		return secretDao.existsByUserIdAndQuestion(userId, question);
+	}
+
+	@Override
+	public Secret randomByUserId(long userId) {
+		List<Secret> secrets = secretDao.findByUserIdAndDeleted(userId, 0);
+		if (secrets.size() == 0) {
+			return null;
+		}
+		return secrets.get(new Random().nextInt(secrets.size()));
+	}
+
+	@Override
+	public Secret findByIdAndUserId(long id, long userId) {
+		return secretDao.findByIdAndUserId(id, userId);
 	}
 }

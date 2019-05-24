@@ -10,18 +10,23 @@
             </div>
             <div class="panel-body">
                 <div id="message">
-                    <#include "/default/inc/action_message.ftl"/>
+                    <#include "/card/inc/action_message.ftl"/>
                 </div>
-                <form method="POST" action="${base}/forgot/reset" accept-charset="UTF-8">
-                    <input type="hidden" name="userId" value="${userId}"/>
-                    <input type="hidden" name="token" value="${token}"/>
-                    <div class="form-group ">
-                        <label class="control-label" for="username">密码</label>
+                <form method="POST" action="/forgot/reset" accept-charset="UTF-8">
+                    <input type="hidden" name="userId" value="${user.id}"/>
+                    <input type="hidden" name="secretId" value="${secret.id}" />
+                    <input type="hidden" name="question" value="${secret.question}"/>
+                    <div class="form-group">
+                        <label class="control-label" for="answer">密保问题：${secret.question}</label>
+                        <input class="form-control" name="answer" id="answer" placeholder="请输入密保答案" data-required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="password">设置密码</label>
                         <input class="form-control" name="password" id="password" type="password" maxlength="18" placeholder="新密码" data-required>
                     </div>
-                    <div class="form-group ">
-                        <label class="control-label" for="username">确认密码</label>
-                        <input class="form-control" name="password2" type="password" maxlength="18" placeholder="请再输入一次密码" data-required data-conditional="confirm" data-describedby="message" data-description="confirm">
+                    <div class="form-group">
+                        <label class="control-label" for="password2">确认密码</label>
+                        <input class="form-control" name="password2" id="password2" type="password" maxlength="18" placeholder="请再输入一次密码" data-required data-conditional="confirm" data-describedby="message" data-description="confirm">
                     </div>
                     <button type="submit" class="btn btn-success btn-block">
                         提 交

@@ -13,12 +13,12 @@ ${site_metas}
 <link rel="stylesheet" media="all" href="//${cookieFreeDomain}${base}/dist/vendors/highlight/styles/github.css"/>
 
 <script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/js/jquery.min.js"></script>
-<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/js/jquery-migrate-1.2.1.min.js" async></script>
+<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/layer/layer.js"></script>
-<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/bootstrap/js/bootstrap.min.js" async></script>
-<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/validate/jquery-validate.js" async></script>
+<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//${cookieFreeDomain}${base}/dist/vendors/validate/jquery-validate.js"></script>
 
-<script type="text/javascript" src="//${cookieFreeDomain}${base}/theme/default/js/utils.js" async></script>
+<script type="text/javascript" src="//${cookieFreeDomain}${base}/theme/default/js/utils.js"></script>
 
 <script type="text/javascript">
     var _base_path = '${base}';

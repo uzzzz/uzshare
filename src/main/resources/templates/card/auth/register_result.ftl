@@ -8,7 +8,7 @@
                 <h3 class="panel-title">操作提示</h3>
             </div>
             <div class="panel-body">
-                <div id="message"><#include "/default/inc/action_message.ftl"/></div>
+                <div id="message"><#include "/card/inc/action_message.ftl"/></div>
 				<div class="text-center">
 					<#list data.links as row>
 						<a href="${base}/${row.link}" class="btn btn-success">${row.text}</a>

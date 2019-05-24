@@ -12,7 +12,11 @@ public interface SecretService {
 
 	void delete(long id);
 
+	public Secret findByIdAndUserId(long id, long userId);
+
 	boolean existsByIdAndUserId(long id, long userId);
 
 	boolean existsByUserIdAndQuestion(long userId, String question);
+
+	Secret randomByUserId(long userId);
 }

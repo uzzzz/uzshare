@@ -6,11 +6,11 @@
     <div class="col-md-4 col-md-offset-4 floating-box">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">通过邮箱找回密码</h3>
+                <h3 class="panel-title">通过密码保护重置密码</h3>
             </div>
             <div class="panel-body">
                 <div id="message">
-                    <#include "/default/inc/action_message.ftl"/>
+                    <#include "/card/inc/action_message.ftl"/>
                 </div>
                 <form method="POST" action="apply" accept-charset="UTF-8">
                     <div class="form-group ">
