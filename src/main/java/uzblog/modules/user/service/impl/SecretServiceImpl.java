@@ -38,4 +38,9 @@ public class SecretServiceImpl implements SecretService {
 	public boolean existsByIdAndUserId(long id, long userId) {
 		return secretDao.existsByIdAndUserId(id, userId);
 	}
+
+	@Override
+	public boolean existsByUserIdAndQuestion(long userId, String question) {
+		return secretDao.existsByUserIdAndQuestion(userId, question);
+	}
 }

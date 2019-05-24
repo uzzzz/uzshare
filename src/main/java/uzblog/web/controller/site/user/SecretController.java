@@ -41,13 +41,15 @@ public class SecretController extends BaseController {
 		if (StringUtils.isEmpty(secret.getAnswer()) || StringUtils.isEmpty(secret.getQuestion())) {
 			attrs.addFlashAttribute("data", Data.failure("添加失败：问题和答案都不能为空"));
 			return "redirect:/user/secret";
+		} else if (secretService.existsByUserIdAndQuestion(profile.getId(), secret.getQuestion())) {
+			attrs.addFlashAttribute("data", Data.failure("添加失败：此问题已经存在"));
+			return "redirect:/user/secret";
 		} else {
 			secret.setUserId(profile.getId());
 			secretService.save(secret);
 			attrs.addFlashAttribute("data", Data.success("添加成功", null));
 			return "redirect:/user/secret";
 		}
-
 	}
 
 	@GetMapping(value = "/delete_secret")

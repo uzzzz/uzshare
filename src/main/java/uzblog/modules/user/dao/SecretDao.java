@@ -21,4 +21,6 @@ public interface SecretDao extends JpaRepository<Secret, Long> {
 	public void deleteByIds(@Param(value = "ids") long... ids);
 
 	public boolean existsByIdAndUserId(long id, long userId);
+
+	public boolean existsByUserIdAndQuestion(long userId, String question);
 }
