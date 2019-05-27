@@ -5,9 +5,10 @@
         </div>
         <div class="footer-col footer-col-copy">
             <ul class="footer-nav hidden-xs">
-                <li class="menu-item"><a href="${base}/about">关于我们</a></li>
-                <li class="menu-item"><a href="${base}/joinus">联系我们</a></li>
-                <li class="menu-item"><a href="${base}/faqs">常见问题</a></li>
+                <li class="menu-item"><a href="${base}/about" target="_blank">关于我们</a></li>
+                <li class="menu-item"><a href="${base}/joinus" target="_blank">联系我们</a></li>
+                <li class="menu-item"><a href="${base}/faqs" target="_blank">常见问题</a></li>
+                <li class="menu-item"><a href="https://utale.me/" target="_blank">悠昙叶语</a></li>
             </ul>
             <div class="copyright">
 				<span>${site_copyright}. ${site_icp}</span>
