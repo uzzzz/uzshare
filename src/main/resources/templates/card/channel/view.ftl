@@ -45,8 +45,12 @@
                     ${view.author.name}
                     </a>
                     <abbr class="timeago">${timeAgo(view.created)}</abbr>
-                    ⋅
-                ${view.views} 阅读
+                	&nbsp;&nbsp;阅读数 ${view.views}
+                	<a href="javascript:void(0);" data-id="${view.id}" rel="favor">
+                        <i class="icon icon-like"></i>
+                    </a>${view.favors}
+                
+                	
                 <@shiro.hasPermission name="admin">
                 	<a href="/admin/post/view?id=${view.id}" class="btn btn-xs btn-info" target="_blank"
                 		style="color: #fff;width: 20px;height: 20px;">

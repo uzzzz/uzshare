@@ -1,3 +1,39 @@
+<!-- Login dialog BEGIN -->
+<div id="login_alert" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 450px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">请登录</h4>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="${base}/login" accept-charset="UTF-8">
+                    <div class="form-group ">
+                        <label class="control-label" for="username">账号</label>
+                        <input class="form-control" id="ajax_login_username" name="username" type="text" required>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label" for="password">密码</label>
+                        <input class="form-control" id="ajax_login_password" name="password" type="password" required>
+                    </div>
+                    <div class="form-group ">
+                        <label>
+                            <input type="checkbox" name="rememberMe" value="1"> 记住登录
+                        </label>
+                        <a class="forget-password" href="/forgot/apply" style="float: right;">忘记密码？</a>
+                    </div>
+                    <button id="ajax_login_submit" class="btn btn-success btn-block" type="button">
+                        登录
+                    </button>
+                    <div id="ajax_login_message" class="text-danger" style="text-align: center;margin-top: 16px;"></div>
+                    <hr>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Login dialog END -->
+
 <!-- Fixed navbar -->
 <header class="site-header headroom">
     <!--[if lt IE 9]>
