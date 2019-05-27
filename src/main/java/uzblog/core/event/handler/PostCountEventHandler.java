@@ -3,6 +3,7 @@ package uzblog.core.event.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 
 import uzblog.core.event.PostUpdateEvent;
 import uzblog.modules.user.service.UserEventService;
@@ -11,6 +12,7 @@ import uzblog.modules.user.service.UserEventService;
  * 更新文章统计
  *  
  */
+@Component
 public class PostCountEventHandler implements ApplicationListener<PostUpdateEvent> {
     @Autowired
     private UserEventService userEventService;
