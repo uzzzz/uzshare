@@ -61,7 +61,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-md-3 side-right">
-		<#include "/default/inc/right.ftl" />
+		<#include "/card/inc/right.ftl" />
     </div>
 </div>
 </@layout>

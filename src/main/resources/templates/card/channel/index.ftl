@@ -29,6 +29,32 @@
         <li title="评论次数排序" <#if order == 'hottest'> class="active" </#if>>
             <a href="?order=hottest">热门</a>
         </li>
+        <style>
+        	.breadcrumb_ad {
+    			width:80%;
+    			height:20px;
+    			float:right;
+    			display: none;
+    		}
+        	@media (min-width: 992px){
+        		.breadcrumb_ad {
+	    			display: inline-block;
+	    		}
+        	}
+        </style>
+        <span class="breadcrumb_ad">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- uzshare_breadcrumb -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-8889449066804352"
+			     data-ad-slot="8840176847"
+			     data-ad-format="link"
+			     data-full-width-responsive="true"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+        </span>
     </ol>
 
     <@contents channelId=channel.id pn=pn order=order>
