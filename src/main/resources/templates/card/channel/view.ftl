@@ -48,7 +48,7 @@
                 	&nbsp;&nbsp;阅读数 ${view.views}
                 	<a href="javascript:void(0);" data-id="${view.id}" rel="favor">
                         <i class="icon icon-like"></i>
-                    </a>${view.favors}
+                    </a><span id="favors">${view.favors}</span>
                 
                 	
                 <@shiro.hasPermission name="admin">
