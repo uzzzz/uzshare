@@ -52,13 +52,24 @@
 
     <div class="container">
         <nav class="navbar" role="navigation">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
+            <div class="navbar-header" style="display: flex;justify-content: space-between;">
                 <a class="navbar-brand" href="${base}/">
                     <img src="//${cookieFreeDomain}${base}/theme/default/images/logo.png"/>
                 </a>
+                <div style="flex-grow:1;height: 50px;text-align: center;">
+                	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- uzshare_mobile_header -->
+					<ins class="adsbygoogle"
+					     style="display:inline-block;width:224px;height:50px"
+					     data-ad-client="ca-pub-8889449066804352"
+					     data-ad-slot="3008479246"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+                </div>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
