@@ -1400,6 +1400,13 @@ abbr[data-original-title], abbr[title] {
     margin-top: 15px;
 }
 
+@media screen and (min-width: 768px) {
+	.site-header .ads {
+		display: none;
+	}
+}
+
+
 /* Tablet (Portrait)
 ================================================== */
 @media only screen and (min-width: 768px) and (max-width: 992px) {

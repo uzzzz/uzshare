@@ -59,4 +59,4 @@ spring.servlet.multipart.max-file-size: 5MB
 site.theme: card
 site.store.size: 2  #上传文件最大2M
 
-css.version: v20190529-3
+css.version: v20190529-4

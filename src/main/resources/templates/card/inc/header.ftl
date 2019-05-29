@@ -56,7 +56,7 @@
                 <a class="navbar-brand" href="${base}/">
                     <img src="//${cookieFreeDomain}${base}/theme/default/images/logo.png"/>
                 </a>
-                <div style="flex-grow:1;height: 50px;text-align: center;">
+                <div class="ads" style="flex-grow:1;height: 50px;text-align: center;">
                 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 					<!-- uzshare_mobile_header -->
 					<ins class="adsbygoogle"
