@@ -72,8 +72,8 @@
 							<a href="${base}/channel/${row.id}" nav="${row.name}">${row.name}</a>
 						</li>
 					</#list>
-					<li view="search" class="hidden-xs hidden-sm">
-                        <form method="GET" action="${base}/search" accept-charset="UTF-8" class="navbar-form navbar-left">
+					<li>
+                        <form method="GET" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left">
                             <div class="form-group">
                                 <input class="form-control search-input mac-style" placeholder="搜索" name="kw" type="text" value="${kw}">
                                 <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>

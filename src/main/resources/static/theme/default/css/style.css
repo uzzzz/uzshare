@@ -248,7 +248,8 @@ abbr[data-original-title], abbr[title] {
 }
 
 .site-header .navbar-nav {
-    margin-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .site-header .navbar-nav > li > a {
