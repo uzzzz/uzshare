@@ -75,7 +75,7 @@
 					<li>
                         <form method="GET" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left">
                             <div class="form-group">
-                                <input class="form-control search-input mac-style" placeholder="搜索" name="kw" type="text" value="${kw}">
+                                <input class="form-control search-input mac-style" placeholder="搜索" name="kw" type="search" value="${kw}">
                                 <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         </form>

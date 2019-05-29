@@ -322,7 +322,7 @@ abbr[data-original-title], abbr[title] {
 }
 
 .site-header .navbar-form .form-control {
-    padding-left: 30px;
+    padding-right: 30px;
     font-size: 14px;
     line-height: 1em;
     background-color: #fff;
@@ -340,11 +340,12 @@ abbr[data-original-title], abbr[title] {
     border-radius: 3px;
     box-shadow: none;
     transition: all 0.15s ease-in 0s;
+    border: 1px solid #ccc;
 }
 
 .site-header .navbar-form .search-btn {
     position: absolute;
-    left: 20px;
+    right: 20px;
     top: 6px;
     font-size: 14px;
     color: #ccc;
