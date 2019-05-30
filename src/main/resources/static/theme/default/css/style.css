@@ -228,10 +228,10 @@ abbr[data-original-title], abbr[title] {
     top: 0;
     z-index: 99;
     width: 100%;
-    min-height: 50px;
-    border-bottom: 1px solid #f0f0f0;
+    height: 50px;
     background: #fff;
     opacity: .97;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
 }
 
 .site-header .navbar-brand {
