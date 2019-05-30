@@ -1,15 +1,10 @@
-<!-- baidu tongji start -->
+<!-- baidu tongji and push start -->
 <script>
 	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.async = true;
-	  hm.src = "https://hm.baidu.com/hm.js?a4daf13ef130d031243e806b4856d450";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
 </script>
-<!-- baidu tongji end -->
+<script async src="//hm.baidu.com/hm.js?a4daf13ef130d031243e806b4856d450"></script>
+<script async src="//zz.bdstatic.com/linksubmit/push.js"></script>
+<!-- baidu tongji and push end -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138942298-1"></script>
