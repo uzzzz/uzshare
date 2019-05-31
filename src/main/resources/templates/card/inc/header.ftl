@@ -51,6 +51,7 @@
 	    top: 50px;
 	    background: rgb(255, 255, 255);
 	    margin: 0px -16px;
+	    border-bottom: solid 1px #cccccc;
 	}
 	
 	.top_channel {
