@@ -206,7 +206,11 @@ public class UserServiceImpl implements UserService {
 
 		if (po != null) {
 			Assert.isTrue(MD5.encryptPasswordMD5(oldPassword, po.getSalt()).equals(po.getPassword()), "当前密码不正确");
-			po.setPassword(MD5.encryptPasswordMD5(newPassword, po.getSalt()));
+
+			DefaultRandomStringGenerator gen = new DefaultRandomStringGenerator(8);
+			String salt = gen.getNewString();
+			po.setSalt(salt);
+			po.setPassword(MD5.encryptPasswordMD5(newPassword, salt));
 			userDao.save(po);
 		}
 	}
