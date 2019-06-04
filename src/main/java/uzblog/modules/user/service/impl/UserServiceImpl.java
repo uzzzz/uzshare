@@ -33,6 +33,7 @@ import org.springframework.util.Assert;
 
 import uzblog.base.lang.EntityStatus;
 import uzblog.base.utils.CheckUtils;
+import uzblog.base.utils.DefaultRandomStringGenerator;
 import uzblog.base.utils.MD5;
 import uzblog.modules.user.dao.UserDao;
 import uzblog.modules.user.data.AccountProfile;
@@ -108,18 +109,22 @@ public class UserServiceImpl implements UserService {
 		User check = userDao.findByUsername(user.getUsername());
 		Assert.isNull(check, "用户名已经存在!");
 
-		User po = new User();
+		User u = new User();
 
-		BeanUtils.copyProperties(user, po);
+		BeanUtils.copyProperties(user, u);
 
 		Date now = Calendar.getInstance().getTime();
-		po.setPassword(MD5.md5(user.getPassword()));
-		po.setStatus(EntityStatus.ENABLED);
-		po.setCreated(now);
 
-		userDao.save(po);
+		DefaultRandomStringGenerator gen = new DefaultRandomStringGenerator(8);
+		String salt = gen.getNewString();
+		u.setSalt(salt);
+		u.setPassword(MD5.encryptPasswordMD5(user.getPassword(), salt));
+		u.setStatus(EntityStatus.ENABLED);
+		u.setCreated(now);
 
-		return BeanMapUtils.copy(po, 0);
+		userDao.save(u);
+
+		return BeanMapUtils.copy(u, 0);
 	}
 
 	@Override
@@ -187,7 +192,7 @@ public class UserServiceImpl implements UserService {
 		Assert.hasLength(newPassword, "密码不能为空!");
 
 		if (null != po) {
-			po.setPassword(MD5.md5(newPassword));
+			po.setPassword(MD5.encryptPasswordMD5(newPassword, po.getSalt()));
 			userDao.save(po);
 		}
 	}
@@ -200,8 +205,8 @@ public class UserServiceImpl implements UserService {
 		Assert.hasLength(newPassword, "密码不能为空!");
 
 		if (po != null) {
-			Assert.isTrue(MD5.md5(oldPassword).equals(po.getPassword()), "当前密码不正确");
-			po.setPassword(MD5.md5(newPassword));
+			Assert.isTrue(MD5.encryptPasswordMD5(oldPassword, po.getSalt()).equals(po.getPassword()), "当前密码不正确");
+			po.setPassword(MD5.encryptPasswordMD5(newPassword, po.getSalt()));
 			userDao.save(po);
 		}
 	}

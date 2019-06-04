@@ -63,8 +63,9 @@ public class User {
 
 	private int status; // 用户状态
 
-	public User() {
+	private String salt;
 
+	public User() {
 	}
 
 	public User(long id) {
@@ -206,4 +207,13 @@ public class User {
 	public void setSignature(String signature) {
 		this.signature = signature;
 	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
 }

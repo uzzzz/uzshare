@@ -23,7 +23,10 @@ CREATE TABLE `mto_channels` (
 --  Records of `mto_channels`
 -- ----------------------------
 BEGIN;
-INSERT INTO `mto_channels` VALUES ('1', 'banner', 'banner', '1'), ('2', 'blog', '博客', '0'), ('3', 'questions', '问答', '0'), ('4', 'share', '分享', '0');
+INSERT INTO `mto_channels` VALUES ('1', 'banner', 'banner', '1'); 
+INSERT INTO `mto_channels` VALUES ('2', 'blog', '博客', '0');
+INSERT INTO `mto_channels` VALUES ('3', 'questions', '问答', '0');
+INSERT INTO `mto_channels` VALUES ('4', 'share', '分享', '0');
 COMMIT;
 
 -- ----------------------------
@@ -46,19 +49,13 @@ CREATE TABLE `mto_config` (
 -- Records of mto_config
 -- ----------------------------
 BEGIN;
-INSERT INTO `mto_config` VALUES (1, 'site_name', '0', 'Uzzz');
-INSERT INTO `mto_config` VALUES (3, 'site_domain', '0', 'http://uzzz.org');
-INSERT INTO `mto_config` VALUES (4, 'site_keywords', '0', '区块链,博客,社区');
-INSERT INTO `mto_config` VALUES (5, 'site_description', '0', 'Uzzz, 做一个有内涵的技术社区');
-INSERT INTO `mto_config` VALUES (6, 'site_metas', '0', '');
-INSERT INTO `mto_config` VALUES (7, 'site_copyright', '0', 'Copyright © Uzzz');
-INSERT INTO `mto_config` VALUES (8, 'site_icp', '0', '');
-INSERT INTO `mto_config` VALUES (11, 'site_oauth_qq', '0', '');
-INSERT INTO `mto_config` VALUES (12, 'qq_app_id', '0', '');
-INSERT INTO `mto_config` VALUES (13, 'qq_app_key', '0', '');
-INSERT INTO `mto_config` VALUES (14, 'site_oauth_weibo', '0', '');
-INSERT INTO `mto_config` VALUES (15, 'weibo_client_id', '0', '');
-INSERT INTO `mto_config` VALUES (16, 'weibo_client_sercret', '0', '');
+INSERT INTO `mto_config` VALUES (1, 'site_name', '0', 'uzshare');
+INSERT INTO `mto_config` VALUES (2, 'site_domain', '0', 'http://uzshare.com');
+INSERT INTO `mto_config` VALUES (3, 'site_keywords', '0', '区块链,博客,社区');
+INSERT INTO `mto_config` VALUES (4, 'site_description', '0', 'Uzzz, 做一个有内涵的技术社区');
+INSERT INTO `mto_config` VALUES (5, 'site_metas', '0', '');
+INSERT INTO `mto_config` VALUES (6, 'site_copyright', '0', 'Copyright © Uzzz');
+INSERT INTO `mto_config` VALUES (7, 'site_icp', '0', '');
 COMMIT;
 
 -- ----------------------------
@@ -92,7 +89,7 @@ CREATE TABLE `mto_users` (
 --  Records of `mto_users`
 -- ----------------------------
 BEGIN;
-INSERT INTO `mto_users` VALUES ('1', '2017-08-06 17:52:41', 'uzzz@ibz.bz', '2017-10-17 13:24:13', null, '22IVQ4M4SLA8QI8MP4ISSPQUKJ', '0', 'admin', '执着', '/dist/images/ava/default.png', '2017-07-26 11:08:36', '0', '1', '0', '0', '6', '-2', '0', '-2', '19', '');
+INSERT INTO `mto_users` VALUES ('1', '2017-08-06 17:52:41', '2017-10-17 13:24:13', null, '22IVQ4M4SLA8QI8MP4ISSPQUKJ', '0', 'admin', '执着', '/dist/images/ava/default.png', '2017-07-26 11:08:36', '0', '1', '0', '0', '6', '-2', '0', '19', '');
 COMMIT;
 
 -- ----------------------------
@@ -201,5 +198,3 @@ CREATE TABLE `shiro_user_role` (
 INSERT INTO `shiro_user_role` VALUES ('1', '1', '1');
 
 SET FOREIGN_KEY_CHECKS = 1;
-
-

@@ -3,7 +3,6 @@
  */
 package uzblog.base.lang;
 
-
 /**
  * 
  *
@@ -14,7 +13,7 @@ public interface Consts {
 	 * 默认头像
 	 */
 	String AVATAR = "/dist/images/ava/default.png";
-	
+
 	/**
 	 * 分隔符
 	 */
@@ -58,19 +57,10 @@ public interface Consts {
 		String FAVOR = "favors";
 	}
 
-	int VERIFY_BIND = 1;   // bind email
-	int VERIFY_FORGOT = 2; // forgot password
-
-	int VERIFY_STATUS_INIT = 0;      // 验证码-初始
-	int VERIFY_STATUS_TOKEN = 1;     // 验证码-已生成token
-	int VERIFY_STATUS_CERTIFIED = 2; // 验证码-已使用
-
-	int ACTIVE_EMAIL = 1; // 邮箱激活
-
 	int FEEDS_TYPE_POST = 1; // 动态类型 - 发布文章
 
 	int FEATURED_DEFAULT = 0; // 推荐状态-默认
-	int FEATURED_ACTIVE = 1;  // 推荐状态-推荐
+	int FEATURED_ACTIVE = 1; // 推荐状态-推荐
 
 	/**
 	 * 未读

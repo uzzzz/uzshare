@@ -9,14 +9,14 @@
 */
 package uzblog.modules.user.data;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
-import uzblog.modules.authc.entity.Role;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
+import uzblog.modules.authc.entity.Role;
 
 public class UserVO implements Serializable {
 	private static final long serialVersionUID = 107193816173103116L;
@@ -28,7 +28,6 @@ public class UserVO implements Serializable {
 	private String password;
 	private String avatar;
 	private String name;
-	private String email;
 	private String mobile;
 
 	private int posts; // 文章数
@@ -42,9 +41,9 @@ public class UserVO implements Serializable {
 
 	private Date lastLogin;
 	private String signature; // 个性签名
+	private String salt; // 个性签名
 
 	private int status;
-	private int activeEmail;
 
 	@JSONField(serialize = false)
 	private List<Role> roles = new ArrayList<Role>();
@@ -79,14 +78,6 @@ public class UserVO implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getMobile() {
@@ -137,14 +128,6 @@ public class UserVO implements Serializable {
 		this.source = source;
 	}
 
-	public int getActiveEmail() {
-		return activeEmail;
-	}
-
-	public void setActiveEmail(int activeEmail) {
-		this.activeEmail = activeEmail;
-	}
-
 	public int getPosts() {
 		return posts;
 	}
@@ -191,6 +174,14 @@ public class UserVO implements Serializable {
 
 	public void setSignature(String signature) {
 		this.signature = signature;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
 	public List<Role> getRoles() {

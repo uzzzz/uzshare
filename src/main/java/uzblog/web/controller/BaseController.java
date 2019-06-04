@@ -33,6 +33,8 @@ import uzblog.base.context.AppContext;
 import uzblog.base.upload.FileRepo;
 import uzblog.base.utils.MD5;
 import uzblog.modules.user.data.AccountProfile;
+import uzblog.modules.user.data.UserVO;
+import uzblog.modules.user.service.UserService;
 import uzblog.shiro.authc.AccountSubject;
 import uzblog.web.formatter.StringEscapeEditor;
 
@@ -52,6 +54,9 @@ public class BaseController {
 
 	@Value("${site.theme:default}")
 	private String theme;
+
+	@Autowired
+	private UserService userService;
 
 	@InitBinder
 	public void initBinder(ServletRequestDataBinder binder) {
@@ -81,7 +86,8 @@ public class BaseController {
 	}
 
 	protected AuthenticationToken createToken(String username, String password) {
-		return new UsernamePasswordToken(username, MD5.md5(password));
+		UserVO user = userService.getByUsername(username);
+		return new UsernamePasswordToken(username, MD5.encryptPasswordMD5(password, user.getSalt()));
 	}
 
 	protected Pageable wrapPageable() {

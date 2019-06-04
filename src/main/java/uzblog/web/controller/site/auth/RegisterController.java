@@ -1,8 +1,5 @@
 package uzblog.web.controller.site.auth;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,7 +11,6 @@ import uzblog.base.lang.Consts;
 import uzblog.modules.user.data.AccountProfile;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
-import uzblog.modules.user.service.VerifyService;
 import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
 
@@ -23,9 +19,6 @@ public class RegisterController extends BaseController {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private VerifyService verifyService;
 
 	@GetMapping("/register")
 	public String view() {
@@ -37,31 +30,22 @@ public class RegisterController extends BaseController {
 	}
 
 	@PostMapping("/register")
-	public String register(UserVO post, ModelMap model) {
+	public String register(UserVO userVo, ModelMap model) {
 		Data data;
 		String ret = view(Views.REGISTER);
 
 		try {
-			post.setAvatar(Consts.AVATAR);
-			UserVO user = userService.register(post);
-
-			String code = verifyService.generateCode(user.getId(), Consts.VERIFY_BIND, user.getEmail());
-			Map<String, Object> context = new HashMap<>();
-			context.put("userId", user.getId());
-			context.put("code", code);
-			context.put("type", Consts.VERIFY_BIND);
+			userVo.setAvatar(Consts.AVATAR);
+			userService.register(userVo);
 
 			data = Data.success("恭喜您! 注册成功!", Data.NOOP);
 			data.addLink("login", "去登陆");
-
 			ret = view(Views.REGISTER_RESULT);
-
 		} catch (Exception e) {
-			model.addAttribute("post", post);
+			model.addAttribute("post", userVo);
 			data = Data.failure(e.getMessage());
 		}
 		model.put("data", data);
 		return ret;
 	}
-
 }

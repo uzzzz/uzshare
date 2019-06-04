@@ -26,28 +26,28 @@ public class MD5 {
 	 * @param input 原文
 	 * @return md5后的密文
 	 */
-	public static String md5(String input) {
+	private static String md5(String input) {
 		byte[] code = null;
-        try {
-            code = MessageDigest.getInstance("md5").digest(input.getBytes());
-        } catch (NoSuchAlgorithmException e) {
-            code = input.getBytes();
-        }
-        BigInteger bi = new BigInteger(code);
-        return bi.abs().toString(32).toUpperCase();
+		try {
+			code = MessageDigest.getInstance("md5").digest(input.getBytes());
+		} catch (NoSuchAlgorithmException e) {
+			code = input.getBytes();
+		}
+		BigInteger bi = new BigInteger(code);
+		return bi.abs().toString(32).toUpperCase();
 	}
-	
+
 	/**
 	 * 对字符串进行Md5加密
 	 * 
-	 * @param input 原文
-	 * @param salt 随机数
+	 * @param password 原文
+	 * @param salt     随机数
 	 * @return string
 	 */
-	public static String generatePasswordMD5(String input, String salt) {
-		if(StringUtils.isEmpty(salt)) {
-			salt = "";
+	public static String encryptPasswordMD5(String password, String salt) {
+		if (StringUtils.isEmpty(salt)) {
+			return md5(password);
 		}
-		return md5(salt + md5(input));
+		return md5(salt + md5(password));
 	}
 }
