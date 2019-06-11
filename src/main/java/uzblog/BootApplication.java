@@ -61,6 +61,7 @@ public class BootApplication extends SpringBootServletInitializer implements Err
 		ErrorPage[] errorPages = new ErrorPage[2];
 		errorPages[0] = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error/500.html");
 		errorPages[1] = new ErrorPage(HttpStatus.NOT_FOUND, "/error/404.html");
+		errorPages[1] = new ErrorPage(HttpStatus.BAD_REQUEST, "/error/400.html");
 		registry.addErrorPages(errorPages);
 	}
 }
