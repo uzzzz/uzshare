@@ -412,7 +412,7 @@ abbr[data-original-title], abbr[title] {
 .wrap {
     position: relative;
     /*background-color: #fafafa;*/
-    margin-top: 30px;
+    margin-top: 4px;
     margin-bottom: 30px;
     min-height: 600px;
 }
@@ -427,6 +427,10 @@ abbr[data-original-title], abbr[title] {
 
 .wrap .avatar {
     padding: 3px;
+}
+
+ol.breadcrumb {
+    margin-bottom: 4px;
 }
 
 /* CUSTOMIZE THE CAROUSEL
