@@ -33,7 +33,7 @@
 
 <div class="panel panel-default corner-radius panel-hot-topics">
 	<div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-coffee"></i> 强势广告</h3>
+        <h3 class="panel-title"><i class="fa fa-coffee"></i></h3>
     </div>
     <div class="remove-padding-horizontal">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
