@@ -37,3 +37,17 @@ ${site_metas}
 <!-- Favicons -->
 <link rel="apple-touch-icon-precomposed" href="//${cookieFreeDomain}${base}/theme/default/images/logo.png"/>
 <link rel="shortcut icon" href="//${cookieFreeDomain}${base}/theme/default/images/logo.png"/>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/21827567565/uzzz_btm', [[234, 60], [300, 600], [120, 240], [300, 250], [970, 90], [250, 250], [728, 90], [320, 50], [160, 600], [300, 100], [468, 60], [240, 400], [125, 125], [336, 280], [120, 600], [180, 150], [200, 200]], 'div-gpt-ad-1561016843887-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>

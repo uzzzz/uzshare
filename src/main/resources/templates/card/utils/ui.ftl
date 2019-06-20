@@ -30,6 +30,13 @@
 </div>
 <!-- /content -->
 
+<!-- /21827567565/uzzz_btm -->
+<div id='div-gpt-ad-1561016843887-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1561016843887-0'); });
+</script>
+</div>
+
 <!-- footer -->
     <#include "/card/inc/footer.ftl"/>
 
