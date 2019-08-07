@@ -1,21 +1,21 @@
 <div class="panel panel-default corner-radius panel-hot-topics">
 	<div class="panel-heading">
-		<h3 class="panel-title"><i class="fa fa-area-chart"></i> 热门文章</h3>
+		<h3 class="panel-title"><i class="fa fa-bars"></i> 最新发布</h3>
 	</div>
 	<div class="panel-body">
-		<ul class="list" id="hots">
-            <img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
+		<ul class="list" id="latests">
+			<img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
 		</ul>
 	</div>
 </div>
 
 <div class="panel panel-default corner-radius panel-hot-topics">
 	<div class="panel-heading">
-		<h3 class="panel-title"><i class="fa fa-bars"></i> 最新发布</h3>
+		<h3 class="panel-title"><i class="fa fa-area-chart"></i> 热门文章</h3>
 	</div>
 	<div class="panel-body">
-		<ul class="list" id="latests">
-			<img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
+		<ul class="list" id="hots">
+            <img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
 		</ul>
 	</div>
 </div>

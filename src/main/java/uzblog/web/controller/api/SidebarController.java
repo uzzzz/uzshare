@@ -45,10 +45,9 @@ public class SidebarController extends BaseController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public @ResponseBody
-	Data login(String username, String password, ModelMap model) {
+	public @ResponseBody Data login(String username, String password, ModelMap model) {
 		Data data = Data.failure("操作失败");
 
 		if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
@@ -87,7 +86,7 @@ public class SidebarController extends BaseController {
 		List<PostVO> rets = postService.findLatests(6, ignoreUserId);
 		return rets;
 	}
-	
+
 	@RequestMapping("/hots")
 	public @ResponseBody List<PostVO> hots() {
 		AccountProfile up = getSubject().getProfile();
@@ -98,15 +97,15 @@ public class SidebarController extends BaseController {
 		List<PostVO> rets = postService.findHots(6, ignoreUserId);
 		return rets;
 	}
-	
+
 	/**
 	 * 热门用户
-	 * @param pn
+	 * 
 	 * @return
 	 */
-	@RequestMapping(value="/hotusers")
-	public @ResponseBody List<UserVO> hotusers(Integer pn) {
+	@RequestMapping(value = "/hotusers")
+	public @ResponseBody List<UserVO> hotusers() {
 		List<UserVO> rets = userService.findHotUserByfans();
-         return rets;
+		return rets;
 	}
 }
