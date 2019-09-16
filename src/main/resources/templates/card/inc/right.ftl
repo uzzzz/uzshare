@@ -1,4 +1,20 @@
 <div class="panel panel-default corner-radius panel-hot-topics">
+    <div class="remove-padding-horizontal">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- uzshare_right_top -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-8889449066804352"
+		     data-ad-slot="8052922368"
+		     data-ad-format="auto"
+		     data-full-width-responsive="true"></ins>
+		<script>
+		     (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+    </div>
+</div>
+
+<div class="panel panel-default corner-radius panel-hot-topics">
 	<div class="panel-heading">
 		<h3 class="panel-title"><i class="fa fa-bars"></i> 最新发布</h3>
 	</div>
