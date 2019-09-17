@@ -38,39 +38,38 @@ public class CommentController extends BaseController {
 	@Autowired
 	private ApplicationContext applicationContext;
 
-	@RequestMapping("/list/{toId}")
+	@RequestMapping(value = "/list/{toId}", produces = "application/json;charset=UTF-8")
 	public @ResponseBody Page<CommentVO> view(@PathVariable Long toId) {
 		Pageable pageable = wrapPageable();
 		Page<CommentVO> page = commentService.paging(pageable, toId);
 		return page;
 	}
-	
+
 	@RequestMapping("/submit")
-	public @ResponseBody
-	Data post(Long toId, String text, HttpServletRequest request) {
+	public @ResponseBody Data post(Long toId, String text, HttpServletRequest request) {
 		Data data = Data.failure("操作失败");
-		
+
 		long pid = ServletRequestUtils.getLongParameter(request, "pid", 0);
-		
+
 		if (!SecurityUtils.getSubject().isAuthenticated()) {
 			data = Data.failure("请先登录在进行操作");
-			
+
 			return data;
 		}
 		if (toId > 0 && StringUtils.isNotEmpty(text)) {
 			AccountProfile up = getSubject().getProfile();
-			
+
 			CommentVO c = new CommentVO();
 			c.setToId(toId);
 			c.setContent(HtmlUtils.htmlEscape(text));
 			c.setAuthorId(up.getId());
-			
+
 			c.setPid(pid);
-			
+
 			commentService.post(c);
 
-		    sendNotify(up.getId(), toId, pid);
-			
+			sendNotify(up.getId(), toId, pid);
+
 			data = Data.success("发表成功!", Data.NOOP);
 		}
 		return data;
@@ -93,6 +92,7 @@ public class CommentController extends BaseController {
 
 	/**
 	 * 发送通知
+	 * 
 	 * @param userId
 	 * @param postId
 	 */
