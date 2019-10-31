@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <@pager "list" page 5 />
+                <@pager "list" + "?title=" + title, page, 5 />
             </div>
         </div>
     </div>
