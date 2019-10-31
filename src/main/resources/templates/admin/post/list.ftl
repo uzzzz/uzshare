@@ -13,7 +13,7 @@
             </div>
             <div class="panel-body">
                 <form id="qForm" class="form-inline panel-form">
-                    <input type="hidden" name="pn" value="${page.pageNo}" />
+                    <input type="hidden" name="pn" value="${page.number + 1}" />
                     <div class="form-group">
                         <input type="text" name="title" class="form-control" value="${title}" placeholder="请输入标题关键字">
                     </div>
