@@ -31,6 +31,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -388,6 +389,21 @@ public class PostCacheableServiceImpl implements PostCacheableService {
 	@CacheEvict(allEntries = true)
 	public void delete(Collection<Long> ids) {
 		ids.forEach(this::delete);
+	}
+
+	@Override
+	@CacheEvict(allEntries = true)
+	public void deleteAuthorId(Long userId) {
+		Pageable pageable = PageRequest.of(0, 100);
+		Page<PostVO> page = pagingByAuthorId(pageable, userId);
+		List<PostVO> list = page.getContent();
+		if (list.size() == 0) {
+			return;
+		}
+		for (int i = 0; i < list.size(); i++) {
+			this.delete(list.get(i).getId());
+		}
+		deleteAuthorId(userId);
 	}
 
 	@Override

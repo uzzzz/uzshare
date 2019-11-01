@@ -145,6 +145,13 @@ public interface PostCacheableService {
 	void delete(Collection<Long> ids);
 
 	/**
+	 * 批量删除文章, 且刷新缓存
+	 *
+	 * @param userId
+	 */
+	void deleteAuthorId(Long userId);
+
+	/**
 	 * 自增浏览数
 	 * 
 	 * @param id

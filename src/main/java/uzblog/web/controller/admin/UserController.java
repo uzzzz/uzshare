@@ -9,27 +9,32 @@
 */
 package uzblog.web.controller.admin;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
 import uzblog.modules.authc.entity.Role;
 import uzblog.modules.authc.service.RoleService;
 import uzblog.modules.authc.service.UserRoleService;
+import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.UserVO;
 import uzblog.modules.user.service.UserService;
 import uzblog.web.controller.BaseController;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * 
@@ -46,6 +51,9 @@ public class UserController extends BaseController {
 
 	@Autowired
 	private UserRoleService userRoleService;
+
+	@Autowired
+	private PostCacheableService postService;
 
 	@RequestMapping("/list")
 	@RequiresPermissions("user:list")
@@ -80,7 +88,8 @@ public class UserController extends BaseController {
 
 	@PostMapping("/update_role")
 	@RequiresPermissions("user:role")
-	public String postAuthc(Long id, @RequestParam(value = "roleIds", required=false) Set<Long> roleIds, ModelMap model) {
+	public String postAuthc(Long id, @RequestParam(value = "roleIds", required = false) Set<Long> roleIds,
+			ModelMap model) {
 		userRoleService.updateRole(id, roleIds);
 		model.put("data", Data.success());
 		return "redirect:/admin/user/list";
@@ -121,6 +130,15 @@ public class UserController extends BaseController {
 	@RequiresPermissions("user:close")
 	public @ResponseBody Data close(Long id) {
 		userService.updateStatus(id, Consts.STATUS_CLOSED);
+		Data data = Data.success("操作成功", Data.NOOP);
+		return data;
+	}
+
+	@RequestMapping("/close_delete_posts_by_user_id")
+	@RequiresPermissions("user:close")
+	public @ResponseBody Data close_delete_posts(Long id) {
+		userService.updateStatus(id, Consts.STATUS_CLOSED);
+		postService.deleteAuthorId(id);
 		Data data = Data.success("操作成功", Data.NOOP);
 		return data;
 	}
