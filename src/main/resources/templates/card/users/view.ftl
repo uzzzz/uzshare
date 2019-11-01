@@ -32,6 +32,29 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 他的文章
+                <@shiro.hasPermission name="admin">
+                    <a href="javascript:void(0);" class="btn btn-xs btn-primary" rel="delete"
+                    	style="color: #fff;width: 20px;height: 20px;">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                    <script type="text/javascript">
+						$(function() {
+							// 删除
+						    $('a[rel="delete"]').bind('click', function(){
+								layer.confirm('确定删除此作者的全部文章吗?', {
+						            btn: ['确定','取消'], //按钮
+						            shade: false //不显示遮罩
+						        }, function(){
+									J.getJSON('/admin/user/close_delete_posts_by_user_id', J.param({'id': ${user.id}}, true), function() {
+										location.reload();
+									});
+						        }, function(){
+						        });
+						        return false;
+						    });
+						});
+					</script>
+                </@shiro.hasPermission>
             </div>
 
             <@author_contents uid=user.id pn=pn>
