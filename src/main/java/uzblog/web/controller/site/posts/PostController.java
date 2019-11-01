@@ -42,6 +42,7 @@ public class PostController extends BaseController {
 
 	/**
 	 * 发布文章页
+	 * 
 	 * @return
 	 */
 	@GetMapping("/editing")
@@ -63,16 +64,21 @@ public class PostController extends BaseController {
 
 	/**
 	 * 提交发布
+	 * 
 	 * @param post
 	 * @return
 	 */
 	@PostMapping("/submit")
-	public String post(PostVO post,  @RequestParam(value = "file", required=false) MultipartFile file) throws IOException {
+	public String post(PostVO post, @RequestParam(value = "file", required = false) MultipartFile file)
+			throws IOException {
 		Assert.notNull(post, "参数不完整");
 		Assert.state(StringUtils.isNotBlank(post.getTitle()), "标题不能为空");
 		Assert.state(StringUtils.isNotBlank(post.getContent()), "内容不能为空");
 
 		AccountProfile profile = getSubject().getProfile();
+
+		Assert.isTrue(profile.getStatus() != Consts.STATUS_CLOSED, "没有权限");
+
 		post.setAuthorId(profile.getId());
 
 		/**
@@ -103,12 +109,12 @@ public class PostController extends BaseController {
 
 	/**
 	 * 删除文章
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@RequestMapping("/delete/{id}")
-	public @ResponseBody
-	Data delete(@PathVariable Long id) {
+	public @ResponseBody Data delete(@PathVariable Long id) {
 		Data data = Data.failure("操作失败");
 		if (id != null) {
 			AccountProfile up = getSubject().getProfile();
