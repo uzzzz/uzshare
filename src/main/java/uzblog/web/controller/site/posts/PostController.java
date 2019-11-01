@@ -24,6 +24,8 @@ import uzblog.modules.blog.data.PostVO;
 import uzblog.modules.blog.service.ChannelService;
 import uzblog.modules.blog.service.PostCacheableService;
 import uzblog.modules.user.data.AccountProfile;
+import uzblog.modules.user.data.UserVO;
+import uzblog.modules.user.service.UserService;
 import uzblog.web.controller.BaseController;
 import uzblog.web.controller.site.Views;
 
@@ -39,6 +41,8 @@ public class PostController extends BaseController {
 	private PostCacheableService postService;
 	@Autowired
 	private ChannelService channelService;
+	@Autowired
+	private UserService userService;
 
 	/**
 	 * 发布文章页
@@ -77,7 +81,8 @@ public class PostController extends BaseController {
 
 		AccountProfile profile = getSubject().getProfile();
 
-		Assert.isTrue(profile.getStatus() != Consts.STATUS_CLOSED, "没有权限");
+		UserVO userVO = userService.get(profile.getId());
+		Assert.isTrue(userVO.getStatus() != Consts.STATUS_CLOSED, "没有权限");
 
 		post.setAuthorId(profile.getId());
 
