@@ -51,6 +51,9 @@ public class PostController extends BaseController {
 	 */
 	@GetMapping("/editing")
 	public String editing(Long id, ModelMap model) {
+
+		Assert.notNull(null, "暂无权限，请关注公众号：uzshare，获取发表章权限");
+
 		model.put("channels", channelService.findAll(Consts.STATUS_NORMAL));
 
 		if (null != id && id > 0) {
@@ -75,6 +78,9 @@ public class PostController extends BaseController {
 	@PostMapping("/submit")
 	public String post(PostVO post, @RequestParam(value = "file", required = false) MultipartFile file)
 			throws IOException {
+
+		Assert.notNull(null, "暂无权限，请关注公众号：uzshare，获取发表文章权限");
+
 		Assert.notNull(post, "参数不完整");
 		Assert.state(StringUtils.isNotBlank(post.getTitle()), "标题不能为空");
 		Assert.state(StringUtils.isNotBlank(post.getContent()), "内容不能为空");
