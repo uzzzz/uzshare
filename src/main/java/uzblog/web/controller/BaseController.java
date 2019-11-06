@@ -98,6 +98,14 @@ public class BaseController {
 		return PageRequest.of(pageNo - 1, pageSize);
 	}
 
+	protected Pageable wrapPageable(int size) {
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+				.getRequest();
+		int pageSize = ServletRequestUtils.getIntParameter(request, "pageSize", size);
+		int pageNo = ServletRequestUtils.getIntParameter(request, "pn", 1);
+		return PageRequest.of(pageNo - 1, pageSize);
+	}
+
 	/**
 	 * 包装分页对象
 	 *

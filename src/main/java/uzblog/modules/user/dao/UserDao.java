@@ -21,6 +21,8 @@ public interface UserDao extends JpaRepository<User, Long>, JpaSpecificationExec
 
 	Page<User> findAllByOrderByIdDesc(Pageable pageable);
 
+	Page<User> findByUsernameLikeOrNameLikeOrderByIdDesc(String username, String name, Pageable pageable);
+
 	List<User> findAllByIdIn(Set<Long> ids);
 
 	@Modifying

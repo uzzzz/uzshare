@@ -107,6 +107,8 @@ public interface UserService {
 	 */
 	Page<UserVO> paging(Pageable pageable);
 
+	Page<UserVO> paging(String key, Pageable pageable);
+
 	Map<Long, UserVO> findMapByIds(Set<Long> ids);
 
 	List<UserVO> findHotUserByfans();

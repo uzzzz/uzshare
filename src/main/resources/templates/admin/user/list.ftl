@@ -22,7 +22,6 @@
                             <th width="80">#</th>
                             <th>用户名</th>
                             <th>昵称</th>
-                            <th>邮箱</th>
                             <th>角色</th>
                             <th>状态</th>
                             <th width="300"></th>
@@ -34,7 +33,6 @@
                                 <td class="text-center">${row.id}</td>
                                 <td>${row.username}</td>
                                 <td>${row.name}</td>
-                                <td>${row.email}</td>
                                 <td>
                                     <#list row.roles as role>
                             ${role.name}
@@ -76,7 +74,7 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <@pager "list" page 5 />
+                <@pager "list" + "?key=" + key, page, 5 />
             </div>
         </div>
     </div>

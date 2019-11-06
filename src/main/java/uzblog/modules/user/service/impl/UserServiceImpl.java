@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.ServletRequestUtils;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import uzblog.base.lang.EntityStatus;
 import uzblog.base.utils.CheckUtils;
@@ -236,6 +241,23 @@ public class UserServiceImpl implements UserService {
 			rets.add(u);
 		}
 
+		return new PageImpl<>(rets, pageable, page.getTotalElements());
+	}
+
+	@Override
+	public Page<UserVO> paging(String key, Pageable pageable) {
+		Page<User> page = null;
+		if (StringUtils.isNotEmpty(key)) {
+			key = "%" + key + "%";
+			page = userDao.findByUsernameLikeOrNameLikeOrderByIdDesc(key, key, pageable);
+		} else {
+			page = userDao.findAllByOrderByIdDesc(pageable);
+		}
+		List<UserVO> rets = new ArrayList<>();
+		for (User po : page.getContent()) {
+			UserVO u = BeanMapUtils.copy(po, 1);
+			rets.add(u);
+		}
 		return new PageImpl<>(rets, pageable, page.getTotalElements());
 	}
 

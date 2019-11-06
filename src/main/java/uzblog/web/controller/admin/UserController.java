@@ -14,17 +14,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import uzblog.base.data.Data;
 import uzblog.base.lang.Consts;
@@ -58,8 +63,12 @@ public class UserController extends BaseController {
 	@RequestMapping("/list")
 	@RequiresPermissions("user:list")
 	public String list(ModelMap model) {
-		Pageable pageable = wrapPageable();
-		Page<UserVO> page = userService.paging(pageable);
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+				.getRequest();
+		String key = ServletRequestUtils.getStringParameter(request, "key", null);
+
+		Pageable pageable = wrapPageable(20);
+		Page<UserVO> page = userService.paging(key, pageable);
 
 		List<UserVO> users = page.getContent();
 		List<Long> userIds = new ArrayList<>();
@@ -74,6 +83,7 @@ public class UserController extends BaseController {
 		});
 
 		model.put("page", page);
+		model.put("key", key);
 		return "/admin/user/list";
 	}
 
