@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -62,6 +63,9 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
 			map.put("base", request.getContextPath());
 			if (ex instanceof NotFoundException) {
 				view = new ModelAndView(error404View, map, HttpStatus.NOT_FOUND);
+			} else if (ex instanceof UnauthorizedException) {
+				map.put("error", "暂无权限，请关注公众号：uzshare，获取相应权限！");
+				view = new ModelAndView(errorView, map);
 			} else {
 				view = new ModelAndView(errorView, map);
 			}
