@@ -82,14 +82,16 @@ CREATE TABLE `mto_users` (
   `follows` int(11) NOT NULL,
   `posts` int(11) NOT NULL,
   `signature` varchar(255) DEFAULT NULL,
+  `salt` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `mto_users`
+--  Admin默认密码：abc1234567
 -- ----------------------------
 BEGIN;
-INSERT INTO `mto_users` VALUES ('1', '2017-08-06 17:52:41', '2017-10-17 13:24:13', null, '22IVQ4M4SLA8QI8MP4ISSPQUKJ', '0', 'admin', '执着', '/dist/images/ava/default.png', '2017-07-26 11:08:36', '0', '1', '0', '0', '6', '-2', '0', '19', '');
+INSERT INTO `mto_users` VALUES ('1', '2017-08-06 17:52:41', '2017-10-17 13:24:13', null, 'O7SPM9RBLCIKVAOIDK911TNND', '0', 'admin', '执着', '/dist/images/ava/default.png', '2017-07-26 11:08:36', '0', '1', '0', '0', '6', '-2', '0', '19', '', NULL);
 COMMIT;
 
 -- ----------------------------
