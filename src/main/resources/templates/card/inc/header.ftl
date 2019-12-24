@@ -36,10 +36,6 @@
 
 <style>
 
-.ads {
-	flex-grow: 1;
-}
-
 .top_channel_wrap {
 	flex-grow: 1;
 	padding: 0px;
@@ -91,17 +87,6 @@
             <a class="navbar-brand" href="/">
                 <img src="//${cookieFreeDomain}/theme/default/images/logo.png"/>
             </a>
-            <div class="ads" style="flex-grow:1;height: 50px;text-align: center;">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- uzshare_mobile_header -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:224px;height:50px"
-                     data-ad-client="ca-pub-8889449066804352"
-                     data-ad-slot="3008479246"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
             <div class="collapse navbar-collapse top_channel_wrap">
                 <ul class="nav navbar-nav top_channel">
 					<#if profile??>

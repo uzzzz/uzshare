@@ -78,18 +78,6 @@
 	            <!-- Pager -->
 	            <@pager request.requestURI + "?order=" + order, results, 5/>
 	        </div>
-	        
-	        <!-- match content ads -->
-	        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-format="autorelaxed"
-			     data-ad-client="ca-pub-8889449066804352"
-			     data-ad-slot="1928667997"></ins>
-			<script>
-			     (adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-	        
         </div>
         
         <div class="col-xs-12 col-md-3 side-right hidden-xs hidden-sm" style="margin-left: 0px;">
