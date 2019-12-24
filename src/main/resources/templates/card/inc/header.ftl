@@ -36,6 +36,10 @@
 
 <style>
 
+.ads {
+	flex-grow: 1;
+}
+
 .top_channel_wrap {
 	flex-grow: 1;
 	padding: 0px;
@@ -87,6 +91,9 @@
             <a class="navbar-brand" href="/">
                 <img src="//${cookieFreeDomain}/theme/default/images/logo.png"/>
             </a>
+            <div class="ads" style="flex-grow:1;height: 50px;text-align: center;">
+            </div>
+
             <div class="collapse navbar-collapse top_channel_wrap">
                 <ul class="nav navbar-nav top_channel">
 					<#if profile??>
