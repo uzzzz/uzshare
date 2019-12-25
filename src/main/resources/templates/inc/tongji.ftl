@@ -7,5 +7,4 @@
 <!-- baidu tongji and push end -->
 
 <!-- google adsense start -->
-<script data-ad-client="ca-pub-8767758854923113" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- google adsense end -->
