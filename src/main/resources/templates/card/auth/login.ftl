@@ -1,4 +1,4 @@
-<#include "/card/utils/ui.ftl"/>
+<#include "/card/utils/ui_without_ads.ftl"/>
 <@layout>
 
 <div class="row">
