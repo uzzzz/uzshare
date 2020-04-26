@@ -1437,7 +1437,7 @@ ol.breadcrumb {
     width: 46px;
     height: 46px;
     background: url(../images/icon_top.png) no-repeat;
-    bottom: 45px;
+    bottom: 70px;
     right: 20px;
     border-radius: 2px;
     -moz-border-radius: 2px;
@@ -1447,5 +1447,24 @@ ol.breadcrumb {
 }
 
 .site-scroll-top:hover {
+    background-position: 0 -46px;
+}
+
+/*download app button*/
+.download-app {
+    position: fixed;
+    z-index: 999;
+    width: 46px;
+    height: 46px;
+    background: url(../images/icon_download_app.png) no-repeat;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    transition: all .3s;
+    display: none;
+}
+.download-app:hover {
     background-position: 0 -46px;
 }

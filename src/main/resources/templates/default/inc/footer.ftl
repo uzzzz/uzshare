@@ -16,6 +16,7 @@
     </div>
 </footer>
 
+<a href="https://uzshare.com/download/uzshare_app.html" target="_blank" class="download-app"></a>
 <a href="#" class="site-scroll-top"></a>
 
 <script type="text/javascript">

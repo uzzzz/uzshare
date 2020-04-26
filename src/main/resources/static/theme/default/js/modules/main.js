@@ -45,6 +45,21 @@ define(function(require, exports, module) {
 		} );
     }
     
+    // 显示下载APP按钮
+    var donwloadApp = function () {
+    	var $window = $(window);
+    	var $donwloadAppBtn = $('a.download-app' );
+    	var u = navigator.userAgent;
+    	
+    	if(u.indexOf('UzhareApp') > -1) {
+    		// App中浏览，不显示下载按钮
+    		$donwloadAppBtn.fadeOut();
+    	}else{
+    		// 其他游览器中浏览，显示下载按钮
+    		$donwloadAppBtn.fadeIn();
+    	}
+    }
+    
 	// 绑定按钮事件
 	var bindClickEvent = function () {
 		// Favor
@@ -113,6 +128,7 @@ define(function(require, exports, module) {
     	imagesLazyload();
     	backToTop();
 		bindClickEvent();
+		donwloadApp();
         $('[data-toggle="tooltip"]').tooltip();
     };
     

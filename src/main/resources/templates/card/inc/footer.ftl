@@ -8,7 +8,7 @@
                 <li class="menu-item"><a href="/about" target="_blank">关于我们</a></li>
                 <li class="menu-item"><a href="/joinus" target="_blank">联系我们</a></li>
                 <li class="menu-item"><a href="/faqs" target="_blank">常见问题</a></li>
-                <li class="menu-item"><a href="https://utale.me/" target="_blank">悠昙叶语</a></li>
+                <li class="menu-item"><a href="https://uzshare.com/download/uzshare_app.html" target="_blank">APP下载</a></li>
                 <li class="menu-item"><a href="/donate/index.html">赞助我们</a></li>
             </ul>
             <div class="copyright">
@@ -18,6 +18,7 @@
     </div>
 </footer>
 
+<a href="https://uzshare.com/download/uzshare_app.html" target="_blank" class="download-app"></a>
 <a href="#" class="site-scroll-top"></a>
 
 <script type="text/javascript">
