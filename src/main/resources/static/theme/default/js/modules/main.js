@@ -50,7 +50,7 @@ define(function(require, exports, module) {
     	var $window = $(window);
     	var $donwloadAppBtn = $('a.download-app');
     	var u = navigator.userAgent;
-    	if(u.indexOf('UzhareApp') > -1) {
+    	if(u.indexOf('UzshareApp') > -1) {
     		// App中浏览，不显示下载按钮
     		$donwloadAppBtn.fadeOut();
     	}else{
