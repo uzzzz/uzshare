@@ -48,9 +48,13 @@
 		                    </#if>
 		                    
 		                    <div class="block-contents"style="margin-left: ${(row.thumbnail?? && row.thumbnail != "")?string('146px', '0px')};height: 96px;">
-			                	<a class="block-thumbnail" href="/view/${row.id}" target="_blank">
-			                        <p class="tit">${row.title}</p>
-			                    </a>
+								<a class="block-thumbnail" href="/view/${row.id}" target="_blank">
+									<p class="tit"
+									   style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;">${row.title}</p>
+								</a>
+								<a class="block-thumbnail" href="/view/${row.id}" target="_blank">
+									<p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;font-size: 13px;">${row.summary}</p>
+								</a>
 			                    <div style="position: absolute; bottom: 4px;">
 			                    	<a href="/users/${row.author.id}">
 			                    		<img src="${(row.author.avatar?index_of("/")==0)?string( '//' + cookieFreeDomain + row.author.avatar, row.author.avatar)}" class="avatar avatar-xs" />
