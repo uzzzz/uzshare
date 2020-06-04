@@ -83,9 +83,9 @@ public class PostApiController extends BaseController {
 		post.setTags(tags);
 		try {
 			if (thumbnail != null && thumbnail.startsWith("http")) {
-				String t = "https://" + cookieFreeDomain
-						+ fileRepo.storeScale(new URL(thumbnail), appContext.getThumbsDir(), 262, 80);
-				post.setThumbnail(t);
+//				String t = "https://" + cookieFreeDomain
+//						+ fileRepo.storeScale(new URL(thumbnail), appContext.getThumbsDir(), 262, 80);
+				post.setThumbnail(thumbnail);
 			}
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
