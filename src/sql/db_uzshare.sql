@@ -199,4 +199,15 @@ CREATE TABLE `shiro_user_role` (
 -- ----------------------------
 INSERT INTO `shiro_user_role` VALUES ('1', '1', '1');
 
+CREATE TABLE `notice` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `url` longtext,
+  `type` int(11) DEFAULT NULL COMMENT '1. 图文；2. js',
+  `content` longtext,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
 SET FOREIGN_KEY_CHECKS = 1;

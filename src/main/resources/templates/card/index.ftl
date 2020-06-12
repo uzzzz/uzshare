@@ -19,21 +19,28 @@
 </#assign>
 
 <@layout>
-    <ol class="breadcrumb ">
-        <li title="发布时间排序" <#if order == 'newest'> class="active" </#if>>
-            <a href="?order=newest">最近</a>
-        </li>
-        <li title="点赞数排序" <#if order == 'favors'> class="active" </#if>>
-            <a href="?order=favors">投票</a>
-        </li>
-        <li title="评论次数排序" <#if order == 'hottest'> class="active" </#if>>
-            <a href="?order=hottest">热门</a>
-        </li>
-    </ol>
 
     <@contents pn=pn order=order>
     <div class="row main">
-    	<div class="col-xs-12 col-md-9 side-left topics-show">
+
+		<div class="col-xs-3 col-md-3" style="margin-left: 0px;">
+			<#include "/card/inc/left.ftl"/>
+		</div>
+
+    	<div class="col-xs-9 col-md-6">
+
+			<ol class="breadcrumb ">
+				<li title="发布时间排序" <#if order == 'newest'> class="active" </#if>>
+					<a href="?order=newest">最近</a>
+				</li>
+				<li title="点赞数排序" <#if order == 'favors'> class="active" </#if>>
+					<a href="?order=favors">投票</a>
+				</li>
+				<li title="评论次数排序" <#if order == 'hottest'> class="active" </#if>>
+					<a href="?order=hottest">热门</a>
+				</li>
+			</ol>
+
 	    	<div class="row">
 	    		<#list results.content as row>
 		            <div class="col-md-12">
@@ -87,7 +94,7 @@
 
     	</div>
     	
-    	<div class="col-xs-12 col-md-3 side-right hidden-xs hidden-sm" style="margin-left: 0px;">
+    	<div class="col-xs-0 col-md-3 hidden-xs hidden-sm" style="margin-left: 0px;">
     		<#include "/card/inc/right.ftl"/>
     	</div>
     </div>

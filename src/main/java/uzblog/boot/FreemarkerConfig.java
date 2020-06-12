@@ -10,14 +10,7 @@ import org.springframework.stereotype.Component;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateModelException;
 import uzblog.shiro.tags.ShiroTags;
-import uzblog.template.directive.AuthorContentsDirective;
-import uzblog.template.directive.BannerDirective;
-import uzblog.template.directive.ChannelDirective;
-import uzblog.template.directive.ContentsDirective;
-import uzblog.template.directive.NumberDirective;
-import uzblog.template.directive.ResourceDirective;
-import uzblog.template.directive.ServerNameDirective;
-import uzblog.template.directive.WxSignatureDirective;
+import uzblog.template.directive.*;
 import uzblog.template.method.TimeAgoMethod;
 import uzblog.template.method.UserAgentMethod;
 import uzblog.web.menu.MenusDirective;
@@ -48,6 +41,8 @@ public class FreemarkerConfig {
 		configuration.setSharedVariable("banner", applicationContext.getBean(BannerDirective.class));
 		configuration.setSharedVariable("server_name", applicationContext.getBean(ServerNameDirective.class));
 		configuration.setSharedVariable("wx_signature", applicationContext.getBean(WxSignatureDirective.class));
+
+		configuration.setSharedVariable("notices", applicationContext.getBean(NoticesDirective.class));
 
 		configuration.setSharedVariable("timeAgo", new TimeAgoMethod());
 		configuration.setSharedVariable("userAgent", new UserAgentMethod());
