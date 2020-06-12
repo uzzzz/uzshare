@@ -21,7 +21,7 @@
 			<h3 class="panel-title"><i class="fa fa-bars"></i> 最新发布</h3>
 		</div>
 		<div class="panel-body">
-			<ul class="list" id="latests">
+			<ul class="list" id="latests" style="padding-left: 0;">
 				<img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
 			</ul>
 		</div>
@@ -32,7 +32,7 @@
 			<h3 class="panel-title"><i class="fa fa-area-chart"></i> 热门文章</h3>
 		</div>
 		<div class="panel-body">
-			<ul class="list" id="hots">
+			<ul class="list" id="hots" style="padding-left: 0;">
 				<img src="//${cookieFreeDomain}${base}/dist/images/spinner.gif">
 			</ul>
 		</div>
