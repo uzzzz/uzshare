@@ -4,10 +4,10 @@
 	<@notices>
 		<#list notices_results as row>
 			<div class="panel panel-default corner-radius panel-hot-topics">
-				<div class="panel-heading">
+				<div class="panel-heading" style="padding: 0px 2px;">
 					<marquee class="panel-title" style="white-space: nowrap;overflow: hidden;"><i class="fa fa fa-hand-o-right"></i> ${row.title}</marquee>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" style="padding: 0px;">
 					<a href="${row.url}" target="_blank" style="display: block;">
 						<img src="${row.image}" style="width: 100%;height: 100%" />
 					</a>
