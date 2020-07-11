@@ -1,5 +1,11 @@
 [
   {
+    "icon": "fa fa-bullhorn icon-xlarge",
+    "name": "公告管理",
+    "url": "admin/notice/list",
+    "permission": "channel:list"
+  },
+  {
     "icon": "fa fa-tags icon-xlarge",
     "name": "栏目管理",
     "url": "admin/channel/list",
