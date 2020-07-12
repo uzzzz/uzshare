@@ -98,7 +98,6 @@
     		<#include "/card/inc/right.ftl"/>
     	</div>
     </div>
-
     </@contents>
 
 </@layout>
