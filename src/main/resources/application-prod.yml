@@ -12,4 +12,4 @@ spring.datasource.username: root
 spring.datasource.password: Abc1234567!
 
 site.store.root: /web/uzshare/static/
-cookie.free.domain: uzstatic-360cdn.belost.xyz
+cookie.free.domain: static.uzshare.com

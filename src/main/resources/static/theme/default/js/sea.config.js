@@ -32,9 +32,9 @@ seajs.config({
 
     // 路径配置
     paths: {
-        'vendors': '//uzstatic-360cdn.belost.xyz' + _base_path + '/dist/vendors',
-        'dist': '//uzstatic-360cdn.belost.xyz' + _base_path + '/dist',
-        'default': '//uzstatic-360cdn.belost.xyz' + _base_path + '/theme/default'
+        'vendors': '//static.uzshare.com' + _base_path + '/dist/vendors',
+        'dist': '//static.uzshare.com' + _base_path + '/dist',
+        'default': '//static.uzshare.com' + _base_path + '/theme/default'
     },
 
     // 变量配置
