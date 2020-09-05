@@ -16,7 +16,11 @@ spring.http.encoding.force: true
 spring.http.encoding.enabled: true
 
 spring:
-  mvc: 
+  servlet:
+    multipart:
+      location: /web/uzshare/tmp
+      max-file-size: 5MB
+  mvc:
     static-path-pattern: /**
   resources:
     static-locations: 
@@ -49,12 +53,15 @@ spring:
       hibernate.cache.use_second_level_cache: false
       hibernate.search.default.directory_provider: filesystem
       hibernate.search.default.indexBase: cache/hibernate_indexes
+  elasticsearch:
+    jest:
+      multi-threaded:
+
 
 #spring.cache.type: redis
 spring.cache.type: jcache
 spring.cache.jcache.config: classpath:ehcache3.xml
 
-spring.servlet.multipart.max-file-size: 5MB
 #site.theme: [default|card]
 site.theme: card
 site.store.size: 2  #上传文件最大2M
