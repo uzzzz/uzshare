@@ -32,7 +32,12 @@
 
 <@layout title>
 <div class="row main">
-    <div class="col-xs-12 col-md-9 side-left topics-show">
+
+    <div class="col-xs-3 col-md-3" style="margin-left: 0px;">
+        <#include "/card/inc/left.ftl"/>
+    </div>
+
+    <div class="col-xs-9 col-md-6 side-left topics-show">
         <!-- view show -->
         <div class="topic panel panel-default">
             <div class="infos panel-heading">
@@ -156,7 +161,7 @@
 		</script>
 		
     </div>
-    <div class="col-xs-12 col-md-3 side-right hidden-xs hidden-sm">
+    <div class="col-xs-0 col-md-3 hidden-xs hidden-sm">
         <ul class="list-group about-user">
             <li class="list-group-item user-card" >
                 <div style="display: flex;justify-content: space-between;align-items: center;">
