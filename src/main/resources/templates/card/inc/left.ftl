@@ -38,14 +38,14 @@
 <style>
 	@media (min-width: 1200px) {
 		.left_panel.on {
-			width: 292.5px;
+			width: 22.5%;
 			position: fixed;
 			bottom: 72px;
 			padding-right: 30px;
 		}
 	}
 
-	@media (min-width: 992px) and (max-width:1199px) {
+		@media (min-width: 992px) and (max-width:1199px) {
 		.left_panel.on {
 			width: 242.5px;
 			position: fixed;

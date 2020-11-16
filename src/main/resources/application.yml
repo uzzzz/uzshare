@@ -66,4 +66,4 @@ spring.cache.jcache.config: classpath:ehcache3.xml
 site.theme: card
 site.store.size: 2  #上传文件最大2M
 
-css.version: v20190530
+css.version: v20201116
