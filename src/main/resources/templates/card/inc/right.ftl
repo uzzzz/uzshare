@@ -119,7 +119,7 @@ $(function () {
 <style>
 	@media (min-width: 1200px) {
 		.right_panel.on {
-			width: 292.5px;
+			width: 22.5%;
 			position: fixed;
 			bottom: 72px;
 			padding-right: 30px;
