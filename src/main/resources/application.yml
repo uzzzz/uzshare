@@ -18,7 +18,7 @@ spring.http.encoding.enabled: true
 spring:
   servlet:
     multipart:
-      location: /web/uzshare/tmp
+      location: /data/web/uzshare/tmp
       max-file-size: 5MB
   mvc:
     static-path-pattern: /**
