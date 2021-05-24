@@ -23,7 +23,7 @@
     <@contents pn=pn order=order>
     <div class="row main">
 
-		<div class="col-xs-3 col-md-3" style="margin-left: 0px;">
+		<div class="col-xs-3 col-md-3" style="margin-left: 0px;padding-bottom: 1px;">
 			<#include "/card/inc/left.ftl"/>
 		</div>
 
