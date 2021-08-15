@@ -70,4 +70,6 @@ public interface PostDao extends JpaRepository<Post, Long>, JpaSpecificationExec
 
 	@Query("select id from Post")
 	List<Long> findAllIds();
+
+	boolean existsByTitle(String title);
 }

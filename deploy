@@ -1,0 +1,9 @@
+#!/bin/sh
+
+project_name="uzshare"
+host="q1.ibz.bz"
+identity_file="/Users/feng/.ssh/q1_for_mbp.pem"
+
+sh mvnw clean package -Pprod
+scp -i ${identity_file} target/${project_name}-prod.jar root@${host}:/data/web/${project_name}/${project_name}-prod.jar
+ssh -i ${identity_file} root@${host} "su - web -c 'service ${project_name} restart'"

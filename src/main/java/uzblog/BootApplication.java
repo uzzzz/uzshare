@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 import uzblog.boot.RedisService;
@@ -23,10 +24,10 @@ import uzblog.boot.RedisService;
 /**
  * SprintBootApplication
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = { ErrorMvcAutoConfiguration.class })
 @EnableAsync
-@EnableAutoConfiguration(exclude = { ErrorMvcAutoConfiguration.class })
 @EnableCaching
+@EnableScheduling
 public class BootApplication extends SpringBootServletInitializer implements ErrorPageRegistrar {
 
 	@Override

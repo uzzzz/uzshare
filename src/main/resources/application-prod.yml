@@ -12,4 +12,5 @@ spring.datasource.username: root
 spring.datasource.password: MLH!mysql@2021#
 
 site.store.root: /data/web/uzshare/static/
+site.host: uzshare.com
 cookie.free.domain: static.uzshare.com

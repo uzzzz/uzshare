@@ -46,4 +46,12 @@ public class Referer implements Serializable {
 	public void setReferer(String referer) {
 		this.referer = referer;
 	}
+
+	public String getHost() {
+		return host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
+	}
 }

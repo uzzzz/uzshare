@@ -7,9 +7,10 @@ spring.redis.port: 6379
 spring.redis.password:
 
 spring.datasource.driver-class-name: com.mysql.jdbc.Driver
-spring.datasource.url: jdbc:mysql://127.0.0.1:3306/uzblog?useSSL=false&characterEncoding=utf8
+spring.datasource.url: jdbc:mysql://127.0.0.1:3306/uzblog_bak_0722?useSSL=false&characterEncoding=utf8
 spring.datasource.username: root
 spring.datasource.password: 1234567
 
 site.store.root: /Users/feng/workspace/uzzz/uzshare
+site.host: uzshare.com
 cookie.free.domain: 127.0.0.1:${server.port}

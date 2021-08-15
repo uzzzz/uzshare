@@ -25,6 +25,9 @@ import uzblog.modules.blog.data.PostVO;
  *
  */
 public interface PostService {
+
+	List<Long> findAllIds();
+
 	/**
 	 * 分页查询所有文章
 	 * 
@@ -70,6 +73,8 @@ public interface PostService {
 	 * @return <id, 文章对象>
 	 */
 	Map<Long, PostVO> findMapByIds(Set<Long> ids);
+
+	boolean existsByTitle(String title);
 
 	void resetIndexs();
 }

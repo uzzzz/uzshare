@@ -61,6 +61,11 @@ public class PostServiceImpl implements PostService {
 	private ChannelService channelService;
 
 	@Override
+	public List<Long> findAllIds() {
+		return postDao.findAllIds();
+	}
+
+	@Override
 	@Cacheable
 	public Page<PostVO> paging(Pageable pageable, int channelId, Set<Integer> excludeChannelIds, String ord) {
 		Page<Post> page = postDao.findAll((root, query, builder) -> {
@@ -196,6 +201,11 @@ public class PostServiceImpl implements PostService {
 		buildUsers(rets.values(), uids);
 
 		return rets;
+	}
+
+	@Override
+	public boolean existsByTitle(String title) {
+		return postDao.existsByTitle(title);
 	}
 
 	@Override
