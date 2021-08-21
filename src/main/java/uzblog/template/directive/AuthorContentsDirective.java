@@ -35,7 +35,7 @@ public class AuthorContentsDirective extends TemplateDirective {
         int pn = handler.getInteger("pn", 1);
         long uid = handler.getInteger("uid", 0);
 
-        Pageable pageable = new PageRequest(pn - 1, 10);
+        Pageable pageable = PageRequest.of(pn - 1, 10);
         Page<PostVO> result = postService.pagingByAuthorId(pageable, uid);
 
         handler.put(RESULTS, result).render();

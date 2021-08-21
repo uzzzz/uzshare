@@ -26,7 +26,7 @@ public class PermissionServiceImpl implements PermissionService {
     @Autowired
     private PermissionDao permissionDao;
 
-    private Sort sort = new Sort(
+    private Sort sort = Sort.by(
             new Sort.Order(Sort.Direction.DESC, "weight"),
             new Sort.Order(Sort.Direction.ASC, "id")
     );
@@ -88,7 +88,7 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public List<Permission> list() {
-        return permissionDao.findAll(new Sort(Sort.Direction.DESC, "id"));
+        return permissionDao.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override

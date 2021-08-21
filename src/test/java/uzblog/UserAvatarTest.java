@@ -1,7 +1,7 @@
 package uzblog;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
@@ -11,7 +11,6 @@ import uzblog.modules.user.data.AccountProfile;
 import uzblog.modules.user.service.UserService;
 import javax.transaction.Transactional;
 
-@RunWith(SpringRunner.class)
 @ActiveProfiles("prod")
 @SpringBootTest(classes = BootApplication.class)
 public class UserAvatarTest {

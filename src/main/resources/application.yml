@@ -1,9 +1,7 @@
 # server application
 server.port: 16000
 spring.application.name: =artifactId=
-spring.mvc.favicon.enabled: false
 
-server.use-forward-headers: true
 server.tomcat.protocol_header: X-Forwarded-Proto
 server.tomcat.remote_ip_header: X-Forwarded-For
 server.tomcat.port-header: X-Forwarded-Port
@@ -11,9 +9,9 @@ server.compression.enabled: true
 server.compression.mime-types: application/json,application/xml,text/html,text/xml,text/plain
 
 spring.devtools.enabled: true
-spring.http.encoding.charset: UTF-8
-spring.http.encoding.force: true
-spring.http.encoding.enabled: true
+spring.sevlet.encoding.charset: UTF-8
+spring.sevlet.encoding.force: true
+spring.sevlet.encoding.enabled: true
 
 spring:
   servlet:
@@ -22,13 +20,14 @@ spring:
       max-file-size: 5MB
   mvc:
     static-path-pattern: /**
-  resources:
-    static-locations: 
-      - classpath:/static
-      - classpath:/public
-      - classpath:/resources
-      - classpath:/META-INF/resources
-      - file:${site.store.root}
+  web:
+    resources:
+      static-locations:
+        - classpath:/static
+        - classpath:/public
+        - classpath:/resources
+        - classpath:/META-INF/resources
+        - file:${site.store.root}
   profiles:
     active: =build.profile.id=
   freemarker:
@@ -43,6 +42,7 @@ spring:
       template_update_delay: 0
       datetime_format: yyyy-MM-dd HH:mm
       number_format: 0.##
+    suffix: .ftl
   jpa:
     database: mysql
     show-sql: false
@@ -53,10 +53,6 @@ spring:
       hibernate.cache.use_second_level_cache: false
       hibernate.search.default.directory_provider: filesystem
       hibernate.search.default.indexBase: cache/hibernate_indexes
-  elasticsearch:
-    jest:
-      multi-threaded:
-
 
 #spring.cache.type: redis
 spring.cache.type: jcache

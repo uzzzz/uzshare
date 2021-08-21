@@ -2,8 +2,7 @@ package uzblog.admin;
 
 import java.util.Map;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,7 +14,6 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import uzblog.BootApplication;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootApplication.class)
 public class AdminTest {
 
