@@ -26,7 +26,8 @@ public class GithubFileUploader {
 
     private static Log log = LogFactory.getLog(GithubFileUploader.class);
 
-    private String imgHost = "img3.ibz.bz";
+    private String imgHost = "img4.ibz.bz";
+    String token = "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";
 
     @Autowired
     private RefererDao refererDao;
@@ -55,7 +56,7 @@ public class GithubFileUploader {
             String content = Base64.getEncoder().encodeToString(bytes);
             String filename = DigestUtils.md5DigestAsHex(bytes) + ".png";
             String path = host + "/" + filename;
-            String token = "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";
+
             // 用户名、库名、路径
             String url = "https://api.github.com/repos/xxcode/" + imgHost + "/contents/docs/" + path;
             GithubFileObject githubFileObject = createGithubFileObject(imageOriginUrl, content, "GithubFileUploader", "GithubFileUploader@local.mbp");
