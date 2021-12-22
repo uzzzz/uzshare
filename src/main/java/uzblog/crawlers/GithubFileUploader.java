@@ -27,7 +27,7 @@ public class GithubFileUploader {
     private static Log log = LogFactory.getLog(GithubFileUploader.class);
 
     private String imgHost = "img4.ibz.bz";
-    String token = "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";
+    String token = "on2mJiy6Zqz4aIMmrULKmeKVUzZx2U2tURr2";
 
     @Autowired
     private RefererDao refererDao;
@@ -62,7 +62,7 @@ public class GithubFileUploader {
             GithubFileObject githubFileObject = createGithubFileObject(imageOriginUrl, content, "GithubFileUploader", "GithubFileUploader@local.mbp");
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.set("Authorization", "token " + token);
+            headers.set("Authorization", "token ghp_" + token);
             HttpEntity<GithubFileObject> entity = new HttpEntity<>(githubFileObject, headers);
             try {
                 ResponseEntity<String> responseEntity = rest.exchange(url, HttpMethod.PUT, entity, String.class);
