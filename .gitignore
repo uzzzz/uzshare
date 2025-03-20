@@ -21,3 +21,4 @@ rebel.xml
 logs/
 uzblog_ehcache/
 cache/
+package-lock.json
